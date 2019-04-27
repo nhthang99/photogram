@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Fri Apr 05 20:53:37 ICT 2019
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\THANG\\Documents\\Android\\InstagramClone\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
+0.path=classes.dex
+0.set=DEX
+count=1

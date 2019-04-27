@@ -1,0 +1,198 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-32:12
+MERGED from [com.github.ittianyu:BottomNavigationViewEx:2.0.4] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0ecbe1db1e01e7eca2a76b399a6027cb\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\06da21ce5ed364150a9bf9dfe299e952\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\7d80c0cc680d3e496475d6e4ebad36ae\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\8ad95c093ee0102584b27f28f10e8a6a\AndroidManifest.xml:2:1-11:12
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3722079d3cd6e49a0b4149f95b8750b4\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0a88eaa738ada4dcc7090bde354c7d90\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\c77b017f632b463cc6a7b409038c3317\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bd398f20df3f152ecfa7faa52318ae60\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\28988f7cb074ef25bec872deb8602273\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\704999b29340eba687e2c2725640e722\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\deeb710b3adb39304a6b836cc6c88992\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\06d96f64821caa3de8444da873a9645e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\b0bb927b64454549b161dac69b166ece\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0df38ad1175f27b49115e67b8ae8f784\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\6ea3d3ff73d69731e86789ad3c500d31\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\e66f162ad84003081951d89cb4c8ba55\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\fd5ddfbff0fbc9ed159f041b504f2cc3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\5de8cb8106609ffe3a8027aeecbad8b5\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3d116e04572ef3692525061888ae0060\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\6c88f4a74357d0c08aa69700646fd9f8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\abe1c991ffd71abbe6f2645f0eafb6bc\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\ab96a017dac0130617b322e4d6b771b9\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\e2b2f41451ed64924f43514e463a1583\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\74f5f2991d961bafd699645b1d8f5150\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\204a352a9909f3198cd1a997e48222c3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bd6589b0730877b4079aaf499ac140e8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\f70738f8a37a09a751bc9c8dac013fc0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0c795d7ae6734a4aec9671cde436d8af\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\402460cb19f7ab8d6ce2bdcb299f7f7a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\24797a3b0bf28270062783d182476843\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\899b949cf27cc084f9c4087c580a212d\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\11b0ee411d1da6f3e422163403f6dfef\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\69ebb67243f34dd461cc7441e452bf90\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-32:12
+	package
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:3:5-32
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:5:5-30:19
+MERGED from [com.github.ittianyu:BottomNavigationViewEx:2.0.4] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0ecbe1db1e01e7eca2a76b399a6027cb\AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.ittianyu:BottomNavigationViewEx:2.0.4] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0ecbe1db1e01e7eca2a76b399a6027cb\AndroidManifest.xml:11:5-12:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\06da21ce5ed364150a9bf9dfe299e952\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\06da21ce5ed364150a9bf9dfe299e952\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\8ad95c093ee0102584b27f28f10e8a6a\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\8ad95c093ee0102584b27f28f10e8a6a\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3722079d3cd6e49a0b4149f95b8750b4\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3722079d3cd6e49a0b4149f95b8750b4\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\abe1c991ffd71abbe6f2645f0eafb6bc\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\abe1c991ffd71abbe6f2645f0eafb6bc\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\ab96a017dac0130617b322e4d6b771b9\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\ab96a017dac0130617b322e4d6b771b9\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\abe1c991ffd71abbe6f2645f0eafb6bc\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:11:9-40
+activity#com.nht.instagram.Home.HomeActivity
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:12:19-52
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:16:27-74
+activity#com.nht.instagram.Profile.ProfileActivity
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:20:9-70
+	android:name
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:20:19-58
+activity#com.nht.instagram.React.ReactActivity
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:22:9-66
+	android:name
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:22:19-54
+activity#com.nht.instagram.Search.SearchActivity
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:24:9-68
+	android:name
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:24:19-56
+activity#com.nht.instagram.Share.ShareActivity
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:26:9-66
+	android:name
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:26:19-54
+activity#com.nht.instagram.Profile.AccountSettingActivity
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:28:9-77
+	android:name
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:28:19-65
+uses-sdk
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+MERGED from [com.github.ittianyu:BottomNavigationViewEx:2.0.4] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0ecbe1db1e01e7eca2a76b399a6027cb\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.ittianyu:BottomNavigationViewEx:2.0.4] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0ecbe1db1e01e7eca2a76b399a6027cb\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\06da21ce5ed364150a9bf9dfe299e952\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\06da21ce5ed364150a9bf9dfe299e952\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\7d80c0cc680d3e496475d6e4ebad36ae\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\7d80c0cc680d3e496475d6e4ebad36ae\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\8ad95c093ee0102584b27f28f10e8a6a\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\8ad95c093ee0102584b27f28f10e8a6a\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3722079d3cd6e49a0b4149f95b8750b4\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3722079d3cd6e49a0b4149f95b8750b4\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0a88eaa738ada4dcc7090bde354c7d90\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0a88eaa738ada4dcc7090bde354c7d90\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\c77b017f632b463cc6a7b409038c3317\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\c77b017f632b463cc6a7b409038c3317\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bd398f20df3f152ecfa7faa52318ae60\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bd398f20df3f152ecfa7faa52318ae60\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\28988f7cb074ef25bec872deb8602273\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\28988f7cb074ef25bec872deb8602273\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\704999b29340eba687e2c2725640e722\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\704999b29340eba687e2c2725640e722\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\deeb710b3adb39304a6b836cc6c88992\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\deeb710b3adb39304a6b836cc6c88992\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\06d96f64821caa3de8444da873a9645e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\06d96f64821caa3de8444da873a9645e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\b0bb927b64454549b161dac69b166ece\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\b0bb927b64454549b161dac69b166ece\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0df38ad1175f27b49115e67b8ae8f784\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0df38ad1175f27b49115e67b8ae8f784\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\6ea3d3ff73d69731e86789ad3c500d31\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\6ea3d3ff73d69731e86789ad3c500d31\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\e66f162ad84003081951d89cb4c8ba55\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\e66f162ad84003081951d89cb4c8ba55\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\fd5ddfbff0fbc9ed159f041b504f2cc3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\fd5ddfbff0fbc9ed159f041b504f2cc3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\5de8cb8106609ffe3a8027aeecbad8b5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\5de8cb8106609ffe3a8027aeecbad8b5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3d116e04572ef3692525061888ae0060\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3d116e04572ef3692525061888ae0060\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\6c88f4a74357d0c08aa69700646fd9f8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\6c88f4a74357d0c08aa69700646fd9f8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\abe1c991ffd71abbe6f2645f0eafb6bc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\abe1c991ffd71abbe6f2645f0eafb6bc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\ab96a017dac0130617b322e4d6b771b9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\ab96a017dac0130617b322e4d6b771b9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\e2b2f41451ed64924f43514e463a1583\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\e2b2f41451ed64924f43514e463a1583\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\74f5f2991d961bafd699645b1d8f5150\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\74f5f2991d961bafd699645b1d8f5150\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\204a352a9909f3198cd1a997e48222c3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\204a352a9909f3198cd1a997e48222c3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bd6589b0730877b4079aaf499ac140e8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bd6589b0730877b4079aaf499ac140e8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\f70738f8a37a09a751bc9c8dac013fc0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\f70738f8a37a09a751bc9c8dac013fc0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0c795d7ae6734a4aec9671cde436d8af\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0c795d7ae6734a4aec9671cde436d8af\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\402460cb19f7ab8d6ce2bdcb299f7f7a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\402460cb19f7ab8d6ce2bdcb299f7f7a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\24797a3b0bf28270062783d182476843\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\24797a3b0bf28270062783d182476843\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\899b949cf27cc084f9c4087c580a212d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\899b949cf27cc084f9c4087c580a212d\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\11b0ee411d1da6f3e422163403f6dfef\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\11b0ee411d1da6f3e422163403f6dfef\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\69ebb67243f34dd461cc7441e452bf90\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\69ebb67243f34dd461cc7441e452bf90\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
