@@ -20,7 +20,7 @@ public class ShareActivity extends AppCompatActivity {
 
     private static final byte ACTIVITY_NUM = 2;
 
-    Context context = ShareActivity.this;
+    Context mContext = ShareActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class ShareActivity extends AppCompatActivity {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableBottomNavigationView(context, bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableBottomNavigationView(mContext, bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_share_full));

@@ -1,19 +1,20 @@
 package com.nht.instagram.Home;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
+import com.nht.instagram.Utils.UniversalImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -31,6 +32,12 @@ public class HomeActivity extends AppCompatActivity {
 
         setupBottomNavigationView();
         setupViewPager();
+        initImageLoader();
+    }
+
+    private void initImageLoader(){
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(context);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
     /*

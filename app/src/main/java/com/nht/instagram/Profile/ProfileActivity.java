@@ -13,11 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
+import com.nht.instagram.Utils.UniversalImageLoader;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -25,9 +26,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     private static final byte ACTIVITY_NUM = 4;
 
-    Context context = ProfileActivity.this;
+    Context mContext = ProfileActivity.this;
 
     private ProgressBar mProgressBar;
+    private ImageView mProfilePhoto;
+
+    private TextView mEditProfile;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,12 +39,32 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Log.d(TAG, "onCreate: starting.");
 
-        mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
-        mProgressBar.setVisibility(View.GONE);
         setupBottomNavigationView();
         setupToolbar();
+        setupActivityWidgets();
+        setProfilePhoto();
+
+        mEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: navigating to EditProfileFragment");
+
+            }
+        });
     }
 
+    private void setProfilePhoto(){
+        Log.d(TAG, "setProfilePhoto: setting profile photo");
+        String imgURL = "thehappypuppysite.com/wp-content/uploads/2017/09/cute4.jpg";
+        UniversalImageLoader.setImage(imgURL, mProfilePhoto, mProgressBar, "http://");
+    }
+
+    private void setupActivityWidgets(){
+        mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
+        mProgressBar.setVisibility(View.GONE);
+        mProfilePhoto = (ImageView) findViewById(R.id.profile_photo);
+        mEditProfile = (TextView)findViewById(R.id.editProfile);
+    }
 
     private void setupToolbar(){
         Toolbar toolbar = (Toolbar)findViewById(R.id.profileToolbar);
@@ -51,7 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: navigating to account setting");
-                Intent intent = new Intent(context, AccountSettingActivity.class);
+                Intent intent = new Intent(mContext, AccountSettingActivity.class);
                 startActivity(intent);
             }
         });
@@ -61,7 +85,7 @@ public class ProfileActivity extends AppCompatActivity {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableBottomNavigationView(context, bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableBottomNavigationView(mContext, bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_account_full));
