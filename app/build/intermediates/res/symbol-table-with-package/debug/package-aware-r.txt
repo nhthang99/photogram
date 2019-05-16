@@ -1036,6 +1036,7 @@ drawable ic_share
 drawable ic_share_full
 drawable ic_speech_bubble
 drawable image
+drawable instagram_logo
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1057,6 +1058,7 @@ drawable vector_red_heart
 drawable white_grey_border
 drawable white_grey_border_bottom
 drawable white_grey_border_top
+drawable white_rounded_button
 id ALT
 id CTRL
 id FUNCTION
@@ -1095,6 +1097,8 @@ id beginning
 id blocking
 id bottom
 id bottomNavigationView
+id btn_login
+id btn_register
 id buttonPanel
 id center
 id center_horizontal
@@ -1165,6 +1169,9 @@ id image_heart_red
 id image_likes
 id image_time_posted
 id info
+id input_email
+id input_password
+id input_username
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1176,8 +1183,10 @@ id linLayout
 id linLayout2
 id line1
 id line3
+id link_signup
 id listMode
 id list_item
+id loadingPleaseWait
 id lvAccountSetting
 id masked
 id message
@@ -1203,6 +1212,7 @@ id parent_matrix
 id percent
 id phone_number
 id pin
+id pleaseWait
 id post_image
 id profileMenu
 id profileName
@@ -1368,7 +1378,9 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_accountsetting
 layout activity_home
+layout activity_login
 layout activity_profile
+layout activity_register
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar

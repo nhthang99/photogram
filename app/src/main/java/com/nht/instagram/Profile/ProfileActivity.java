@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
+import com.nht.instagram.Utils.GridImageAdapter;
 import com.nht.instagram.Utils.UniversalImageLoader;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 public class ProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "ProfileActivity";
-
+    private static final int NUM_GRID_COLUMNS = 3;
     private static final byte ACTIVITY_NUM = 4;
 
     Context mContext = ProfileActivity.this;
@@ -47,17 +48,28 @@ public class ProfileActivity extends AppCompatActivity {
         setupActivityWidgets();
         setProfilePhoto();
 
-        mEditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: navigating to EditProfileFragment");
+        tempGridSetup();
+    }
 
-            }
-        });
+    private void tempGridSetup(){
+        ArrayList<String> imgURLs = new ArrayList<>();
+        imgURLs.add("http://thehappypuppysite.com/wp-content/uploads/2017/09/cute4.jpg");
+        imgURLs.add("https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/03/Maine-Coon_02.jpg");
+        imgURLs.add("https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/03/British-Shorthair_01.jpg");
+        imgURLs.add("https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/03/Bengal-Cat_02.jpg");
+        imgURLs.add("http://getwallpapers.com/wallpaper/full/f/9/e/939484-wallpapers-for-laptop-background-1920x1200-hd-1080p.jpg");
+
+        setupImageGrid(imgURLs);
     }
 
     private void setupImageGrid(ArrayList<String> imgURLs){
         GridView gridView = (GridView)findViewById(R.id.gridView);
+
+        int gridWidth = gridView.getResources().getDisplayMetrics().widthPixels;
+        int imageWidth = gridWidth / NUM_GRID_COLUMNS;
+
+        GridImageAdapter gridImageAdapter = new GridImageAdapter(mContext, R.layout.layout_grid_imageview, "", imgURLs);
+        gridView.setAdapter(gridImageAdapter);
     }
 
     private void setProfilePhoto(){
@@ -99,9 +111,4 @@ public class ProfileActivity extends AppCompatActivity {
         menuItem.setChecked(true);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.profile_menu, menu);
-//        return true;
-//    }
 }

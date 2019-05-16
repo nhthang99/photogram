@@ -120,6 +120,10 @@
         "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\7d80c0cc680d3e496475d6e4ebad36ae\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
+        "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
         "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_layout_snackbar.xml.flat",
         "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\06da21ce5ed364150a9bf9dfe299e952\\res\\layout\\mtrl_layout_snackbar.xml"
     },
@@ -470,6 +474,10 @@
     {
         "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_popup_enter.xml.flat",
         "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\7d80c0cc680d3e496475d6e4ebad36ae\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\drawable_white_rounded_button.xml.flat",
+        "source": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\src\\main\\res\\drawable\\white_rounded_button.xml"
     },
     {
         "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_search.png.flat",
@@ -1336,6 +1344,10 @@
         "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\7d80c0cc680d3e496475d6e4ebad36ae\\res\\drawable-mdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
+        "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\drawable_instagram_logo.png.flat",
+        "source": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\src\\main\\res\\drawable\\instagram_logo.png"
+    },
+    {
         "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\7d80c0cc680d3e496475d6e4ebad36ae\\res\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
@@ -1754,6 +1766,10 @@
     {
         "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_home_full.png.flat",
         "source": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\src\\main\\res\\drawable-xhdpi\\ic_home_full.png"
+    },
+    {
+        "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\src\\main\\res\\layout\\activity_register.xml"
     },
     {
         "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",

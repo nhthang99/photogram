@@ -31,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_marginTop="15dp"
                 android:weightSum="100">
 
                 <RelativeLayout
@@ -45,16 +46,19 @@
                         android:id="@+id/profile_photo"
                         app:civ_border_width="1dp"
                         app:civ_border_color="@color/grey"
-                        android:layout_centerVertical="true"/>
+                        android:layout_centerVertical="true" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="75">
+                    android:layout_weight="75"
+                    android:gravity="center_vertical">
+
 
                     <include layout="@layout/snippet_top_profile" />
+
                 </RelativeLayout>
 
             </LinearLayout>

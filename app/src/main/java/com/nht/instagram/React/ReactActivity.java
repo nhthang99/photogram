@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
 
