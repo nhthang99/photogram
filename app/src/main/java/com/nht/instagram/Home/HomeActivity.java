@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
@@ -19,7 +20,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = "HomeActivity";
-
+    private FirebaseAuth mAuth;
     private static final byte ACTIVITY_NUM = 0;
 
     Context context = HomeActivity.this;
@@ -76,4 +77,8 @@ public class HomeActivity extends AppCompatActivity {
         menuItem.setChecked(true);
     }
 
+
+    /*
+    --------------------------------------- Firebase Authentication -------------------------------
+     */
 }
