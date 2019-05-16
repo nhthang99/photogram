@@ -37,4 +37,5 @@ dependencies {
 
     //Universal Image Loader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    implementation 'org.jetbrains:annotations-java5:15.0'
 }

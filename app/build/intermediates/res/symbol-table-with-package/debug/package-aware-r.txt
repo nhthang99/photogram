@@ -1124,6 +1124,7 @@ id dimensions
 id direct
 id disableHome
 id displayName
+id editProfile
 id edit_query
 id email_address
 id end
@@ -1140,6 +1141,8 @@ id fixed
 id forever
 id ghost_view
 id gone
+id gridImageProgressBar
+id gridImageView
 id gridView
 id group_divider
 id groups
@@ -1272,7 +1275,6 @@ id tag_unhandled_key_listeners
 id text
 id text2
 id textDescription
-id textEditProfile
 id textEmail
 id textFollowers
 id textFollowing
@@ -1391,6 +1393,7 @@ layout layout_bottom_navigation_view
 layout layout_center_accountsetting
 layout layout_center_profile
 layout layout_center_viewpager
+layout layout_grid_imageview
 layout layout_top_tabs
 layout layout_view_post
 layout mtrl_layout_snackbar

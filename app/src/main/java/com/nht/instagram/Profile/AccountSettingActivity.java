@@ -3,12 +3,9 @@ package com.nht.instagram.Profile;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,9 +13,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nht.instagram.R;
-import com.nht.instagram.Utils.BottomNavigationViewHelper;
 import com.nht.instagram.Utils.SectionsStatePagerAdapter;
 
 import java.util.ArrayList;
@@ -45,7 +40,6 @@ public class AccountSettingActivity extends AppCompatActivity {
 
         setupSettingsList();
         setupFragment();
-        setupBottomNavigationView();
 
         //setup back arrow
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
@@ -91,20 +85,5 @@ public class AccountSettingActivity extends AppCompatActivity {
                 setViewPager(position);
             }
         });
-    }
-
-    /*
-    Setup BottomNavigationView
-     */
-
-    private void setupBottomNavigationView(){
-        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
-        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableBottomNavigationView(mContext, bottomNavigationViewEx);
-        Menu menu = bottomNavigationViewEx.getMenu();
-        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
-        menuItem.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_home_full));
-        menuItem.setChecked(true);
     }
 }

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
 import com.nht.instagram.Utils.UniversalImageLoader;
+
+import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -51,6 +54,10 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setupImageGrid(ArrayList<String> imgURLs){
+        GridView gridView = (GridView)findViewById(R.id.gridView);
     }
 
     private void setProfilePhoto(){

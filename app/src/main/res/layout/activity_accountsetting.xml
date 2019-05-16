@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/layout_center_viewpager"></include>
+    <include layout="@layout/layout_center_viewpager" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,10 +29,7 @@
 
             <include layout="@layout/layout_center_accountsetting"/>
 
-
         </RelativeLayout>
-
-        <!--<include layout="@layout/layout_bottom_navigation_view"/>-->
 
     </RelativeLayout>
 
