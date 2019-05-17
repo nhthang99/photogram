@@ -4,6 +4,23 @@
             "outputFile": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pa\\values-pa.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\2cd2fae04feb86a7fbe60a6d01102f60\\res\\values-pa\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "209",
+                        "endOffsets": "456"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3929",
+                        "endColumns": "209",
+                        "endOffsets": "4134"
+                    }
+                },
+                {
                     "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\32abc7a19d9b6184f5d5f75c80162bdb\\res\\values-pa\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -52,23 +69,6 @@
                         "startOffsets": "105,208,305,410,496,596,709,786,862,953,1046,1142,1236,1337,1430,1525,1619,1710,1801,1880,1981,2085,2182,2291,2390,2500,2659,5515",
                         "endColumns": "102,96,104,85,99,112,76,75,90,92,95,93,100,92,94,93,90,90,78,100,103,96,108,98,109,158,99,79",
                         "endOffsets": "203,300,405,491,591,704,781,857,948,1041,1137,1231,1332,1425,1520,1614,1705,1796,1875,1976,2080,2177,2286,2385,2495,2654,2754,5590"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\4e5e8dd6ec54bb7a2f63d0c55852c9f7\\res\\values-pa\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "209",
-                        "endOffsets": "456"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3929",
-                        "endColumns": "209",
-                        "endOffsets": "4134"
                     }
                 }
             ]

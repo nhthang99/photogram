@@ -1,5 +1,6 @@
 package com.nht.instagram.Profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,16 +24,18 @@ public class EditProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_editprofile, container, false);
-        mProfilePhoto = (ImageView)view.findViewById(R.id.profile_photo);
+        mProfilePhoto = view.findViewById(R.id.profile_photo);
 
         setProfileImage();
 
         //setup back arrow
-        ImageView backArrow = (ImageView)view.findViewById(R.id.backArrow);
+        ImageView backArrow = view.findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: navigating back to 'ProfileActivity'");
+                Intent intent = new Intent(getActivity(), AccountSettingActivity.class);
+                startActivity(intent);
                 getActivity().finish();
             }
         });

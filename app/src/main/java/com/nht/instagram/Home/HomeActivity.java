@@ -1,7 +1,9 @@
 package com.nht.instagram.Home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -11,7 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.nht.instagram.Login.LoginActivity;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
 import com.nht.instagram.Utils.UniversalImageLoader;
@@ -22,6 +26,8 @@ public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
     private FirebaseAuth mAuth;
     private static final byte ACTIVITY_NUM = 0;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private ViewPager mViewPager;
 
     Context context = HomeActivity.this;
 
@@ -31,8 +37,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting.");
 
+        setupFirebase();
         setupBottomNavigationView();
-        setupViewPager();
+//        setupViewPager();
         initImageLoader();
     }
 
@@ -51,10 +58,10 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFragment(new HomeFragment());
         adapter.addFragment(new MessageFragment());
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.container);
+        ViewPager viewPager = findViewById(R.id.container);
         viewPager.setAdapter(adapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
@@ -68,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
+        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavigationView);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
         BottomNavigationViewHelper.enableBottomNavigationView(context, bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();
@@ -81,4 +88,50 @@ public class HomeActivity extends AppCompatActivity {
     /*
     --------------------------------------- Firebase Authentication -------------------------------
      */
+    private void checkCurrenUser(FirebaseUser user){
+        Log.d(TAG, "checkCurrenUser: checking user");
+
+        // Not found user
+        if (user == null){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private void setupFirebase(){
+        Log.d(TAG, "setupFirebase: setting up firebase auth");
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                //check user
+                checkCurrenUser(user);
+                
+                if(user != null){
+                    Log.d(TAG, "onAuthStateChanged: user logged in");
+                }
+                else{
+                    Log.d(TAG, "onAuthStateChanged: sign out");
+                }
+            }
+        };
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthStateListener);
+        checkCurrenUser(mAuth.getCurrentUser());
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAuthStateListener != null){
+            mAuth.removeAuthStateListener(mAuthStateListener);
+        }
+    }
 }

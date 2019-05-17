@@ -21,6 +21,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\2cd2fae04feb86a7fbe60a6d01102f60\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "4,7",
+                        "startColumns": "0,0",
+                        "startOffsets": "238,401",
+                        "endColumns": "63,166",
+                        "endOffsets": "301,567"
+                    },
+                    "to": {
+                        "startLines": "533,593",
+                        "startColumns": "4,4",
+                        "startOffsets": "31703,36502",
+                        "endColumns": "67,166",
+                        "endOffsets": "31766,36664"
+                    }
+                },
+                {
                     "source": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "8,9,4,2,3,7,6",
@@ -90,23 +107,6 @@
                         "endLines": "15,190,191,192,193,347,348,349,666,2055,2058,2061,3700",
                         "endColumns": "51,60,61,61,63,58,56,53,12,12,12,12,24",
                         "endOffsets": "781,9862,9924,9986,10050,20474,20531,20585,43114,133313,133439,133567,235397"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\4e5e8dd6ec54bb7a2f63d0c55852c9f7\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "4,7",
-                        "startColumns": "0,0",
-                        "startOffsets": "238,401",
-                        "endColumns": "63,166",
-                        "endOffsets": "301,567"
-                    },
-                    "to": {
-                        "startLines": "533,593",
-                        "startColumns": "4,4",
-                        "startOffsets": "31703,36502",
-                        "endColumns": "67,166",
-                        "endOffsets": "31766,36664"
                     }
                 },
                 {

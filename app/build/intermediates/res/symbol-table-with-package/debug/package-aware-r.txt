@@ -1139,6 +1139,8 @@ id beginning
 id blocking
 id bottom
 id bottomNavigationView
+id btnCancelSignout
+id btnConfirmSignout
 id btn_login
 id btn_register
 id buttonPanel
@@ -1233,7 +1235,6 @@ id line3
 id link_signup
 id listMode
 id list_item
-id loadingPleaseWait
 id lvAccountSetting
 id masked
 id media_actions
@@ -1260,7 +1261,6 @@ id parent_matrix
 id percent
 id phone_number
 id pin
-id pleaseWait
 id post_image
 id profileMenu
 id profileName
@@ -1364,6 +1364,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id tvBackLabel
+id tvConfirmSignout
 id tvFollowers
 id tvFollowing
 id tvPost

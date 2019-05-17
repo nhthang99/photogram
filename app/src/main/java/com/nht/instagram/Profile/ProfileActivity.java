@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nht.instagram.R;
@@ -34,8 +33,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     private ProgressBar mProgressBar;
     private ImageView mProfilePhoto;
-
-    private TextView mEditProfile;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,7 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void setupImageGrid(ArrayList<String> imgURLs){
-        GridView gridView = (GridView)findViewById(R.id.gridView);
+        GridView gridView = findViewById(R.id.gridView);
 
         int gridWidth = gridView.getResources().getDisplayMetrics().widthPixels;
         int imageWidth = gridWidth / NUM_GRID_COLUMNS;
@@ -79,17 +76,16 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void setupActivityWidgets(){
-        mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
+        mProgressBar = findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.GONE);
-        mProfilePhoto = (ImageView) findViewById(R.id.profile_photo);
-        mEditProfile = (TextView)findViewById(R.id.editProfile);
+        mProfilePhoto = findViewById(R.id.profile_photo);
     }
 
     private void setupToolbar(){
-        Toolbar toolbar = (Toolbar)findViewById(R.id.profileToolbar);
+        Toolbar toolbar = findViewById(R.id.profileToolbar);
         setSupportActionBar(toolbar);
 
-        ImageView profileMenu = (ImageView) findViewById(R.id.profileMenu);
+        ImageView profileMenu = findViewById(R.id.profileMenu);
         profileMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +98,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
+        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavigationView);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
         BottomNavigationViewHelper.enableBottomNavigationView(mContext, bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();
@@ -110,5 +106,4 @@ public class ProfileActivity extends AppCompatActivity {
         menuItem.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_account_full));
         menuItem.setChecked(true);
     }
-
 }
