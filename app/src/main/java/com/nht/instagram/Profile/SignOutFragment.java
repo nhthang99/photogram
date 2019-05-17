@@ -19,7 +19,6 @@ import com.nht.instagram.R;
 
 public class SignOutFragment extends Fragment {
     private static final String TAG = "SignOutFragment";
-
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListerner;
     private ProgressBar mProgressBar;

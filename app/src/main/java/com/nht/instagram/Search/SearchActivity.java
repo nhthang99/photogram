@@ -17,10 +17,8 @@ import com.nht.instagram.Utils.BottomNavigationViewHelper;
 public class SearchActivity extends AppCompatActivity {
 
     private static final String TAG = "SearchActivity";
-
     private static final byte ACTIVITY_NUM = 1;
-
-    Context mContext = SearchActivity.this;
+    private Context mContext = SearchActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

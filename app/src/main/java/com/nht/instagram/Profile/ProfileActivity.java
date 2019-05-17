@@ -28,9 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
     private static final int NUM_GRID_COLUMNS = 3;
     private static final byte ACTIVITY_NUM = 4;
-
-    Context mContext = ProfileActivity.this;
-
+    private Context mContext = ProfileActivity.this;
     private ProgressBar mProgressBar;
     private ImageView mProfilePhoto;
 

@@ -17,10 +17,8 @@ import com.nht.instagram.Utils.BottomNavigationViewHelper;
 public class ShareActivity extends AppCompatActivity {
 
     private static final String TAG = "ShareActivity";
-
     private static final byte ACTIVITY_NUM = 2;
-
-    Context mContext = ShareActivity.this;
+    private Context mContext = ShareActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

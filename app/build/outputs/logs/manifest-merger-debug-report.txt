@@ -10,6 +10,7 @@ MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\THANG\.gradle\cac
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\568d99bc01f3cdabba8f9498d02fcdb9\AndroidManifest.xml:2:1-11:12
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3209cc7b47e71e4d9654c5c9d19578e1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:17:1-42:12
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:15:1-36:12
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\7d3428ffe5d312a02d4dbcff6f697f42\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\c86a4a2ebe59b31a801521e9662e8e21\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\32abc7a19d9b6184f5d5f75c80162bdb\AndroidManifest.xml:17:1-29:12
@@ -46,6 +47,7 @@ MERGED from [com.android.support:interpolator:28.0.0] C:\Users\THANG\.gradle\cac
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\c110f33997340c40c7ef6ae649493328\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\b9c02ad3896533d8b9a5aa48871e39b4\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\d3b505af3fce6c424ba07f2bffc84d6c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\db8136e8ace59706eacbcbba88226449\AndroidManifest.xml:2:1-7:12
 INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-33:12
 INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-33:12
 INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-33:12
@@ -65,6 +67,8 @@ INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\A
 		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:5:5-67
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:26:5-67
 	android:name
 		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:5:22-64
 application
@@ -79,6 +83,8 @@ MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\t
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3209cc7b47e71e4d9654c5c9d19578e1\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:23:5-40:19
 MERGED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:23:5-40:19
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:28:5-34:19
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:28:5-34:19
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\c86a4a2ebe59b31a801521e9662e8e21\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\c86a4a2ebe59b31a801521e9662e8e21\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\32abc7a19d9b6184f5d5f75c80162bdb\AndroidManifest.xml:22:5-27:19
@@ -171,6 +177,8 @@ MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\t
 MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\3209cc7b47e71e4d9654c5c9d19578e1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:21:5-44
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\7d3428ffe5d312a02d4dbcff6f697f42\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\7d3428ffe5d312a02d4dbcff6f697f42\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\c86a4a2ebe59b31a801521e9662e8e21\AndroidManifest.xml:5:5-44
@@ -243,6 +251,8 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\THANG\.gradle\
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\b9c02ad3896533d8b9a5aa48871e39b4\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\d3b505af3fce6c424ba07f2bffc84d6c\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\d3b505af3fce6c424ba07f2bffc84d6c\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\db8136e8ace59706eacbcbba88226449\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\db8136e8ace59706eacbcbba88226449\AndroidManifest.xml:5:5-44
 INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary
@@ -273,6 +283,8 @@ ADDED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\cac
 		ADDED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:25:13-85
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:33:9-39:19
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:29:9-33:19
+MERGED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:29:9-33:19
 	android:exported
 		ADDED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:35:13-37
 	android:name
@@ -283,6 +295,16 @@ ADDED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\cac
 		ADDED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:38:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\29629ccf4617f528e4a5402a2b4207bd\AndroidManifest.xml:37:17-109
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:25:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:25:22-76
+meta-data#com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar
+ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:30:13-32:85
+	android:value
+		ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:32:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-database:17.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\bc867613c2150dfd1841caa971cb93f3\AndroidManifest.xml:31:17-109
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\32abc7a19d9b6184f5d5f75c80162bdb\AndroidManifest.xml:23:9-26:75
 	android:exported

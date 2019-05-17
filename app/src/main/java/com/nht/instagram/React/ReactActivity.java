@@ -16,10 +16,8 @@ import com.nht.instagram.Utils.BottomNavigationViewHelper;
 public class ReactActivity extends AppCompatActivity {
 
     private static final String TAG = "ReactActivity";
-
     private static final byte ACTIVITY_NUM = 3;
-
-    Context mContext = ReactActivity.this;
+    private Context mContext = ReactActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

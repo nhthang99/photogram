@@ -20,11 +20,8 @@ import java.util.ArrayList;
 
 public class AccountSettingActivity extends AppCompatActivity {
     private static final String TAG = "AccountSettingActivity";
-
     private static final byte ACTIVITY_NUM = 4;
-
     private Context mContext;
-
     private SectionsStatePagerAdapter pagerAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;

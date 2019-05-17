@@ -28,8 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     private static final byte ACTIVITY_NUM = 0;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private ViewPager mViewPager;
-
-    Context context = HomeActivity.this;
+    private Context context = HomeActivity.this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
 
         setupFirebase();
         setupBottomNavigationView();
-//        setupViewPager();
+        setupViewPager();
         initImageLoader();
     }
 

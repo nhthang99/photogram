@@ -41,6 +41,8 @@ dependencies {
 
     //Firebase Authentication
     implementation 'com.google.firebase:firebase-auth:17.0.0'
+    //Firebase Database
+    implementation 'com.google.firebase:firebase-database:17.0.0'
 }
 
 //Firebase

@@ -1554,6 +1554,8 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string db_user_account_settings
+string db_users
 string default_web_client_id
 string edit_profile_fragment
 string fab_transformation_scrim_behavior
