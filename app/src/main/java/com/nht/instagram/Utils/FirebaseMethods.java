@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -13,10 +14,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.nht.instagram.Home.HomeActivity;
+import com.nht.instagram.Login.LoginActivity;
 import com.nht.instagram.Models.User;
 import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.R;
@@ -28,6 +30,7 @@ public class FirebaseMethods {
     private DatabaseReference myRef;
     private Context mContext;
     private String userID;
+    private ProgressBar mProgressBar;
 
     public FirebaseMethods(Context mContext) {
         mAuth = FirebaseAuth.getInstance();
@@ -57,7 +60,25 @@ public class FirebaseMethods {
         return false;
     }
 
-    public void registerNewEmail(final String email, String password, final String username){
+    private void sendVerificationEmail(){
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if (user != null){
+            user.sendEmailVerification()
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+
+                            }else{
+                                Toast.makeText(mContext, "could't send verification email", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+    }
+
+    public void registerNewEmail(final String email, String password, final String username ){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -65,18 +86,13 @@ public class FirebaseMethods {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            Toast.makeText(mContext, "Registration successful", Toast.LENGTH_SHORT).show();
 
                             userID = mAuth.getCurrentUser().getUid();
-
-                            //Send user to LoginActivity
-                            Intent intent = new Intent(mContext, HomeActivity.class);
+                            sendVerificationEmail();
+                            mAuth.signOut();
+                            Intent intent = new Intent(mContext, LoginActivity.class);
                             mContext.startActivity(intent);
                         } else {
-                            /* If sign in fails, display a message to the user. */
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(mContext, "Registration failed! Please try again later",
-                                    Toast.LENGTH_SHORT).show();
                             try
                             {
                                 throw task.getException();
@@ -125,7 +141,7 @@ public class FirebaseMethods {
                 0,
                 0,
                 profile_photo,
-                username
+                StringManipulation.condenseUsername(username)
         );
 
         myRef.child(mContext.getString(R.string.db_user_account_settings))

@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "440236179212-ifikfrr52dlrm2ii5b5v5fit77t682tq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.nht.instagram",
-            "certificate_hash": "e9d5bebc974b9de8b71431e5d329e7da75f29171"
-          }
-        },
-        {
           "client_id": "440236179212-d5bq8shehgr7e9ojc10fjap7s8irt6cf.apps.googleusercontent.com",
           "client_type": 3
         }

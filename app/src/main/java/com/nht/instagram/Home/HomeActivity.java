@@ -24,11 +24,11 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = "HomeActivity";
-    private FirebaseAuth mAuth;
     private static final byte ACTIVITY_NUM = 0;
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private ViewPager mViewPager;
+//    private ViewPager mViewPager;
     private Context context = HomeActivity.this;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,11 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting.");
 
-        setupFirebase();
+        setupFirebaseAuth();
         setupBottomNavigationView();
-        setupViewPager();
+//        setupViewPager();
         initImageLoader();
+
     }
 
     private void initImageLoader(){
@@ -83,7 +84,6 @@ public class HomeActivity extends AppCompatActivity {
         menuItem.setChecked(true);
     }
 
-
     /*
     --------------------------------------- Firebase Authentication -------------------------------
      */
@@ -97,7 +97,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void setupFirebase(){
+    private void setupFirebaseAuth(){
         Log.d(TAG, "setupFirebase: setting up firebase auth");
 
         mAuth = FirebaseAuth.getInstance();
@@ -106,11 +106,10 @@ public class HomeActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                //check user
                 checkCurrenUser(user);
-                
+
                 if(user != null){
-                    Log.d(TAG, "onAuthStateChanged: user logged in");
+                    Log.d(TAG, "onAuthStateChanged: sign in: " + user.getUid());
                 }
                 else{
                     Log.d(TAG, "onAuthStateChanged: sign out");

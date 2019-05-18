@@ -1,5 +1,6 @@
 package com.nht.instagram.Login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -30,18 +31,17 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mEmail, mPassword;
     private ProgressBar mProgressBar;
     private TextView linkSignUp;
+    private Context mContext = LoginActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Log.d(TAG, "onCreate: starting.");
-        mEmail = (EditText)findViewById(R.id.input_email);
-        mPassword = (EditText)findViewById(R.id.input_password);
-        mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
-        mProgressBar.setVisibility(View.GONE);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
+        mProgressBar.setVisibility(View.GONE);
 
         setupFirebaseAuth();
 
@@ -66,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
     }
 
     private void sendUserToRegisterActivity() {
@@ -78,59 +77,50 @@ public class LoginActivity extends AppCompatActivity {
     private void setupSignIn(){
         Log.d(TAG, "onClick: starting to log in");
 
+        mEmail = (EditText)findViewById(R.id.input_email);
+        mPassword = (EditText)findViewById(R.id.input_password);
         String email = mEmail.getText().toString();
         String password = mPassword.getText().toString();
 
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(LoginActivity.this, "Please enter email...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Please enter email...", Toast.LENGTH_SHORT).show();
             return;
         }
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(LoginActivity.this, "Please enter password...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Please enter password...", Toast.LENGTH_SHORT).show();
             return;
         }
-        else{
-            mProgressBar.setVisibility(View.VISIBLE);
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
+        mProgressBar.setVisibility(View.VISIBLE);
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            if (task.isSuccessful()) {
-                                try{
-                                    if (CHECK_IF_VERIFIED){
-                                        if(user.isEmailVerified()){
-                                            Log.d(TAG, "onComplete: success. email is verified");
-                                            // Navigate to HomeActivity
-                                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                                            startActivity(intent);
-                                        }else{
-                                            Toast.makeText(LoginActivity.this, "email is not verified", Toast.LENGTH_SHORT).show();
-                                            mProgressBar.setVisibility(View.GONE);
-                                            mAuth.signOut();
-                                        }
-                                    }else{
-                                        Log.d(TAG, "onComplete: success. email is verified.");
-                                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                                        startActivity(intent);
-                                    }
+                            try{
+                                if(user.isEmailVerified()){
+                                    Log.d(TAG, "onComplete: success. email is verified");
+                                    mProgressBar.setVisibility(View.GONE);
+                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(intent);
+                                }else{
+                                    Toast.makeText(mContext, "Please check email and verify", Toast.LENGTH_SHORT).show();
+                                    mProgressBar.setVisibility(View.GONE);
+                                    mAuth.signOut();
                                 }
-                                catch (NullPointerException e){
-                                    Log.e(TAG, "onComplete: NullPointerException" + e.getMessage());
-                                }
-
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                                mProgressBar.setVisibility(View.GONE);
+                            }catch (NullPointerException e){
+                                Log.e(TAG, "onComplete: NullPointerException" + e.getMessage());
                             }
-
-                            // ...
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(mContext, "Email or password is invalid",
+                                    Toast.LENGTH_SHORT).show();
+                            mProgressBar.setVisibility(View.GONE);
                         }
-                    });
-        }
+                    }
+                });
     }
 
     private void setupFirebaseAuth(){
@@ -143,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
                 if(user != null){
-                    Log.d(TAG, "onAuthStateChanged: sign in: " + user.getUid());
+
                 }
                 else{
                     Log.d(TAG, "onAuthStateChanged: sign out");

@@ -15,8 +15,11 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.FirebaseMethods;
 
@@ -30,7 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mRef;
     private Button btnRegister;
-    private String email, password, username, append = "";
+    private String email, password, username;
+    private String append = "";
     private Context mContext = RegisterActivity.this;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,8 +62,8 @@ public class RegisterActivity extends AppCompatActivity {
         username = mUsername.getText().toString();
 
         if (checkInputs(email, password, username)){
-            mProgressBar.setVisibility(View.VISIBLE);
             firebaseMethods.registerNewEmail(email, password, username);
+            mProgressBar.setVisibility(View.GONE);
         }
     }
 
@@ -97,26 +101,26 @@ public class RegisterActivity extends AppCompatActivity {
                 if(user != null){
                     Log.d(TAG, "onAuthStateChanged: sign in: " + user.getUid());
 
-//                    mRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                            // Make sure the username is not exist
-//                            if (firebaseMethods.checkIfUsernameExist(username, dataSnapshot)){
-//                                append = mRef.push().getKey().substring(3, 10);
-//                                Log.d(TAG, "onDataChange: user already exist. Appending random string to name: " + append);
-//                            }
-//                            username = username + append;
-//                            // Add new user to the database
-//                            firebaseMethods.addNewUser(email, username, "", "");
-//
-//                            Toast.makeText(mContext, "Signup successful. Sending verification email", Toast.LENGTH_SHORT).show();
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                        }
-//                    });
+                    mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            // Make sure the username is not exist
+                            if (firebaseMethods.checkIfUsernameExist(username, dataSnapshot)){
+                                append = mRef.push().getKey().substring(3, 10);
+                                Log.d(TAG, "onDataChange: user already exist. Appending random string to name: " + append);
+                            }
+                            username = username + append;
+                            // Add new user to the database
+                            firebaseMethods.addNewUser(email, username, "", "");
+
+                            Toast.makeText(mContext, "Signup successful. Sending verification email", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
                 }
                 else{
                     Log.d(TAG, "onAuthStateChanged: sign out");

@@ -53,6 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
         imgURLs.add("https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/03/British-Shorthair_01.jpg");
         imgURLs.add("https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/03/Bengal-Cat_02.jpg");
         imgURLs.add("http://getwallpapers.com/wallpaper/full/f/9/e/939484-wallpapers-for-laptop-background-1920x1200-hd-1080p.jpg");
+        imgURLs.add("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Small-city-symbol.svg/893px-Small-city-symbol.svg.png");
 
         setupImageGrid(imgURLs);
     }

@@ -1,6 +1,7 @@
 package com.nht.instagram.Profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -44,6 +45,8 @@ public class AccountSettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: navigating back to 'ProfileActivity'");
+                Intent intent = new Intent(AccountSettingActivity.this, ProfileActivity.class);
+                startActivity(intent);
                 finish();
             }
         });

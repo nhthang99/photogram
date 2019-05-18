@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fi\\values-fi.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\4ebd3798ec13a455c2743f29129bc097\\res\\values-fi\\values-fi.xml",
+                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\88bcabd7585436398a96dcdcb2e618ad\\res\\values-fi\\values-fi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\418c957f538ab24ce2898a2b11ccb7e9\\res\\values-fi\\values-fi.xml",
+                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\0ad1f4a6187b7e150d2b8d628cec4243\\res\\values-fi\\values-fi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\32abc7a19d9b6184f5d5f75c80162bdb\\res\\values-fi\\values.xml",
+                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\443b38d5bbf5aaa03a0908da0f8529a8\\res\\values-fi\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\2cd2fae04feb86a7fbe60a6d01102f60\\res\\values-fi\\values.xml",
+                    "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\c2e26bcec46f75e5bcbadab5286bd4fb\\res\\values-fi\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

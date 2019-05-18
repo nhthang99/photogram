@@ -22,7 +22,7 @@ public class SignOutFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListerner;
     private ProgressBar mProgressBar;
-    private Button mConfirm, mCancel;
+    private Button btnConfirm, btnCancel;
 
     @Nullable
     @Override
@@ -34,10 +34,10 @@ public class SignOutFragment extends Fragment {
         mProgressBar = view.findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.GONE);
 
-        mConfirm = view.findViewById(R.id.btnConfirmSignout);
-        mCancel = view.findViewById(R.id.btnCancelSignout);
+        btnConfirm = view.findViewById(R.id.btnConfirmSignout);
+        btnCancel = view.findViewById(R.id.btnCancelSignout);
 
-        mConfirm.setOnClickListener(new View.OnClickListener() {
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mProgressBar.setVisibility(View.VISIBLE);
@@ -49,7 +49,7 @@ public class SignOutFragment extends Fragment {
             }
         });
 
-        mCancel.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mProgressBar.setVisibility(View.VISIBLE);
