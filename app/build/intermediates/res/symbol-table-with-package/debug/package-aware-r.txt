@@ -1173,7 +1173,6 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
-id displayName
 id display_name
 id edit_query
 id email_address
@@ -1246,7 +1245,6 @@ id mini
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
-id name
 id navigation_header_container
 id never
 id none
@@ -1277,14 +1275,13 @@ id relLayout0
 id relLayout1
 id relLayout2
 id relLayout3
-id relLayout4
 id relLayout5
 id relLayout6
 id relLayoutEditText
 id right
 id right_icon
 id right_side
-id saveChangeProfile
+id saveChangeUserInfo
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1347,7 +1344,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textUsername
-id textWebsite
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1376,7 +1372,6 @@ id useLogo
 id username
 id view_offset_helper
 id visible
-id website
 id wide
 id withText
 id wrap
@@ -1563,6 +1558,10 @@ string default_web_client_id
 string edit_profile_fragment
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string field_descriptions
+string field_displayname
+string field_phone_number
+string field_username
 string firebase_database_url
 string gcm_defaultSenderId
 string google_api_key

@@ -48,12 +48,13 @@ public class ProfileFragment extends Fragment {
     private BottomNavigationViewEx bottomNavigationViewEx;
     private static final byte ACTIVITY_NUM = 4;
     private Context mContext;
+    private TextView tvEditProfile;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
     private FirebaseMethods mFirebaseMethods;
-    private TextView tvEditProfile;
 
     @Nullable
     @Override

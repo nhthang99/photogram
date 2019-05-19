@@ -19,23 +19,29 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.nht.instagram.Models.User;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.FirebaseMethods;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
-    private ProgressBar mProgressBar;
-    private EditText mEmail, mPassword, mUsername;
+
+    //Firebase
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseMethods firebaseMethods;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mRef;
+
     private Button btnRegister;
     private String email, password, username;
     private String append = "";
     private Context mContext = RegisterActivity.this;
+    private ProgressBar mProgressBar;
+    private EditText mEmail, mPassword, mUsername;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +92,42 @@ public class RegisterActivity extends AppCompatActivity {
         return true;
     }
 
+    private void checkIfUserameExist(final String username) {
+        Log.d(TAG, "checkIfUserameExist: Checking if " + username + "already exist");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        Query query = reference
+                .child(mContext.getString(R.string.db_users))
+                .child(mContext.getString(R.string.field_username))
+                .equalTo(username);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.exists()){
+                    //add the username
+                }
+                for (DataSnapshot signleSnapshot: dataSnapshot.getChildren()){
+                    if (signleSnapshot.exists()){
+                        Log.d(TAG, "onDataChange: checkIfUserameExist: found a match " + signleSnapshot.getValue(User.class).getUsername());
+                        append = mRef.push().getKey().substring(3, 10);
+                        Log.d(TAG, "onDataChange: user already exist. Appending random string to name: " + append);
+                    }
+                }
+
+                String mUsername;
+                mUsername = username + append;
+                // Add new user to the database
+                firebaseMethods.addNewUser(email, mUsername, "", "");
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
     private void setupFirebaseAuth(){
         Log.d(TAG, "setupFirebase: setting up firebase auth");
 
@@ -104,16 +146,7 @@ public class RegisterActivity extends AppCompatActivity {
                     mRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            // Make sure the username is not exist
-                            if (firebaseMethods.checkIfUsernameExist(username, dataSnapshot)){
-                                append = mRef.push().getKey().substring(3, 10);
-                                Log.d(TAG, "onDataChange: user already exist. Appending random string to name: " + append);
-                            }
-                            username = username + append;
-                            // Add new user to the database
-                            firebaseMethods.addNewUser(email, username, "", "");
-
-                            Toast.makeText(mContext, "Signup successful. Sending verification email", Toast.LENGTH_SHORT).show();
+                            checkIfUserameExist(username);
                         }
 
                         @Override

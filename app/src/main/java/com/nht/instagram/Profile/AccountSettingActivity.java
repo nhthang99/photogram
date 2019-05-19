@@ -3,6 +3,7 @@ package com.nht.instagram.Profile;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.nht.instagram.R;
+import com.nht.instagram.Utils.FirebaseMethods;
 import com.nht.instagram.Utils.SectionsStatePagerAdapter;
 
 import java.util.ArrayList;
@@ -26,6 +35,12 @@ public class AccountSettingActivity extends AppCompatActivity {
     private SectionsStatePagerAdapter pagerAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference myRef;
+    private FirebaseMethods mFirebaseMethods;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +54,7 @@ public class AccountSettingActivity extends AppCompatActivity {
         setupSettingsList();
         setupFragment();
         getIncomingIntent();
+        setupFirebaseAuth();
 
         //setup back arrow
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
@@ -95,5 +111,57 @@ public class AccountSettingActivity extends AppCompatActivity {
                 setViewPager(position);
             }
         });
+    }
+
+    /*
+    --------------------------------------- Firebase Authentication -------------------------------
+     */
+    private void setupFirebaseAuth(){
+        Log.d(TAG, "setupFirebase: setting up firebase auth");
+
+        mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = mFirebaseDatabase.getReference();
+
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if(user != null){
+                    Log.d(TAG, "onAuthStateChanged: sign in: " + user.getUid());
+                }
+                else{
+                    Log.d(TAG, "onAuthStateChanged: sign out");
+                }
+            }
+        };
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Retrieving user info from database
+                //setProfileWidgets(mFirebaseMethods.getUserSettings(dataSnapshot));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthStateListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthStateListener != null){
+            mAuth.removeAuthStateListener(mAuthStateListener);
+        }
     }
 }

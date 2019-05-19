@@ -65,7 +65,7 @@
                         android:hint="Name"
                         android:textSize="14sp"
                         android:layout_below="@+id/textName"
-                        android:id="@+id/name"
+                        android:id="@+id/display_name"
                         android:textColor="@color/black"
                         android:layout_marginTop="0dp"/>
 
@@ -95,7 +95,7 @@
                         android:hint="Username"
                         android:textSize="14sp"
                         android:layout_below="@+id/textUsername"
-                        android:id="@+id/displayName"
+                        android:id="@+id/username"
                         android:textColor="@color/black" />
 
                 </RelativeLayout>
@@ -106,35 +106,6 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_below="@id/relLayout3"
-                    android:id="@+id/relLayout4">
-
-                    <TextView
-                        android:id="@+id/textWebsite"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Website"
-                        android:textColor="@color/grey"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Website"
-                        android:textSize="14sp"
-                        android:layout_below="@+id/textWebsite"
-                        android:id="@+id/website"
-                        android:textColor="@color/black" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_below="@id/relLayout4"
                     android:id="@+id/relLayout5">
 
                     <TextView
