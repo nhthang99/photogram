@@ -604,6 +604,7 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color blue_link
 color bluesky
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
@@ -1056,6 +1057,7 @@ drawable ic_arrow
 drawable ic_backarrow
 drawable ic_camera
 drawable ic_check
+drawable ic_close
 drawable ic_ellipses
 drawable ic_heart_outline
 drawable ic_home
@@ -1141,6 +1143,7 @@ id bottom
 id bottomNavigationViewBar
 id btnCancelSignout
 id btnConfirmSignout
+id btnLaunchCamera
 id btn_login
 id btn_register
 id buttonPanel
@@ -1191,6 +1194,7 @@ id fixed
 id followers
 id following
 id forever
+id galleryImageView
 id ghost_view
 id gone
 id gridImageProgressBar
@@ -1224,6 +1228,7 @@ id input_username
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id ivCloseShare
 id ivEllipses
 id labeled
 id largeLabel
@@ -1265,6 +1270,7 @@ id post_image
 id posts
 id profileMenu
 id profileName
+id profileToolBar
 id profileToolbar
 id profile_photo
 id progressBar
@@ -1314,6 +1320,7 @@ id snap
 id snapMargins
 id spacer
 id speech_bubble
+id spinnerDirectory
 id split_action_bar
 id spread
 id spread_inside
@@ -1328,6 +1335,7 @@ id submenuarrow
 id submit_area
 id tabMode
 id tabs
+id tabsBottom
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
@@ -1364,6 +1372,7 @@ id tvBackLabel
 id tvConfirmSignout
 id tvFollowers
 id tvFollowing
+id tvNext
 id tvPost
 id uniform
 id unlabeled
@@ -1427,8 +1436,10 @@ layout abc_tooltip
 layout activity_accountsetting
 layout activity_home
 layout activity_login
+layout activity_next
 layout activity_profile
 layout activity_register
+layout activity_share
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1445,12 +1456,15 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fragment_camera
 layout fragment_editprofile
+layout fragment_gallery
 layout fragment_home
 layout fragment_message
+layout fragment_photo
 layout fragment_profile
 layout fragment_signout
 layout fragment_view_post
 layout layout_bottom_navigation_view
+layout layout_bottom_tabs
 layout layout_center_accountsetting
 layout layout_center_profile
 layout layout_center_viewpager
@@ -1480,6 +1494,7 @@ layout select_dialog_singlechoice_material
 layout snippet_center_editprofile
 layout snippet_top_accountsettingtoolbar
 layout snippet_top_editprofile_toolbar
+layout snippet_top_gallerytoolbar
 layout snippet_top_profile
 layout snippet_top_profilebar
 layout snippet_view_toolbar
@@ -1563,6 +1578,7 @@ string field_displayname
 string field_phone_number
 string field_username
 string firebase_database_url
+string gallery
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id
@@ -1575,11 +1591,15 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string photo
 string profile_activity
 string project_id
 string search_menu_title
+string selected_image
 string sign_out_fragment
 string status_bar_notification_info_overflow
+string string_next
+string string_open_camera
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

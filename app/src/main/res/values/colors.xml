@@ -8,4 +8,5 @@
     <color name="grey">#bfbfbf</color>
     <color name="black">#000000</color>
     <color name="bluesky">#00BFFF</color>
+    <color name="blue_link"> #0000ff</color>
 </resources>

@@ -79,6 +79,16 @@ public class FirebaseMethods {
                 .setValue(descriptions);
     }
 
+    public void updatePhoneNumber(String phone_number){
+        Log.d(TAG, "updateDisplayName: updating displayname to " + phone_number);
+
+        myRef.child(mContext.getString(R.string.db_users))
+                .child(userID)
+                .child(mContext.getString(R.string.field_phone_number))
+                .setValue(phone_number);
+
+    }
+
 //    public boolean checkIfUsernameExist(String username, DataSnapshot dataSnapshot){
 //        Log.d(TAG, "checkIfUsernameExist: checking if " + username + "already exist");
 //
@@ -161,7 +171,7 @@ public class FirebaseMethods {
     public void addNewUser(String email, String username, String descriptions, String profile_photo){
 
         User user = new User(userID,
-                1,
+                "",
                 StringManipulation.condenseUsername(username),
                 email
         );

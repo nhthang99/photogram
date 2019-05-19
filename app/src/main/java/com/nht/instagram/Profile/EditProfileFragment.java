@@ -93,7 +93,7 @@ public class EditProfileFragment extends Fragment {
         final String username = mUsername.getText().toString();
         final String description = mDescription.getText().toString();
         final String email = mEmail.getText().toString();
-        final long phone_numeber = Long.parseLong(mPhoneNumber.getText().toString());
+        final String phone_numeber = mPhoneNumber.getText().toString();
 
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -108,6 +108,10 @@ public class EditProfileFragment extends Fragment {
                 if (!mUserSettings.getSettings().getDescriptions().equals(description)){
                     mFirebaseMethods.updateDescriptions(description);
                     Toast.makeText(getActivity(), "Saved change descriptions", Toast.LENGTH_SHORT).show();
+                }
+                if (!(mUserSettings.getUser().getPhone_number().equals(phone_numeber))){
+                    mFirebaseMethods.updatePhoneNumber(phone_numeber);
+                    Toast.makeText(getActivity(), "Saved change phone number", Toast.LENGTH_SHORT).show();
                 }
             }
 
