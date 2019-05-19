@@ -1138,7 +1138,7 @@ id barrier
 id beginning
 id blocking
 id bottom
-id bottomNavigationView
+id bottomNavigationViewBar
 id btnCancelSignout
 id btnConfirmSignout
 id btn_login
@@ -1174,7 +1174,7 @@ id dimensions
 id direct
 id disableHome
 id displayName
-id editProfile
+id display_name
 id edit_query
 id email_address
 id end
@@ -1189,6 +1189,8 @@ id fill_horizontal
 id fill_vertical
 id filled
 id fixed
+id followers
+id following
 id forever
 id ghost_view
 id gone
@@ -1262,6 +1264,7 @@ id percent
 id phone_number
 id pin
 id post_image
+id posts
 id profileMenu
 id profileName
 id profileToolbar
@@ -1334,12 +1337,10 @@ id tag_unhandled_key_listeners
 id text
 id text2
 id textDescription
+id textEditProfile
 id textEmail
-id textFollowers
-id textFollowing
 id textName
 id textPhoneNumber
-id textPost
 id textPrivateInfo
 id textSetting
 id textSpacerNoButtons
@@ -1451,6 +1452,7 @@ layout fragment_camera
 layout fragment_editprofile
 layout fragment_home
 layout fragment_message
+layout fragment_profile
 layout fragment_signout
 layout fragment_view_post
 layout layout_bottom_navigation_view
@@ -1534,6 +1536,7 @@ string abc_toolbar_collapse_description
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string calling_activity
 string character_counter_content_description
 string character_counter_pattern
 string common_google_play_services_enable_button
@@ -1573,6 +1576,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string profile_activity
 string project_id
 string search_menu_title
 string sign_out_fragment

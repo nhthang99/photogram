@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.nht.instagram.Login.LoginActivity;
 import com.nht.instagram.Models.User;
 import com.nht.instagram.Models.UserAccountSetting;
+import com.nht.instagram.Models.UserSettings;
 import com.nht.instagram.R;
 
 public class FirebaseMethods {
@@ -148,4 +149,95 @@ public class FirebaseMethods {
                 .child(userID)
                 .setValue(settings);
     }
+
+    public UserSettings getUserSettings(DataSnapshot dataSnapshot){
+        Log.d(TAG, "getUserAccountSettings: retrieving user account settings from firebase.");
+
+
+        UserAccountSetting settings  = new UserAccountSetting();
+        User user = new User();
+
+        for(DataSnapshot ds: dataSnapshot.getChildren()){
+
+            // user_account_settings node
+            if(ds.getKey().equals(mContext.getString(R.string.db_user_account_settings))){
+                Log.d(TAG, "getUserAccountSettings: datasnapshot: " + ds);
+
+                try{
+
+                    settings.setDisplay_name(
+                            ds.child(userID)
+                                    .getValue(UserAccountSetting.class)
+                                    .getDisplay_name()
+                    );
+                    settings.setUsername(
+                            ds.child(userID)
+                                    .getValue(UserAccountSetting.class)
+                                    .getUsername()
+                    );
+                    settings.setDescriptions(
+                            ds.child(userID)
+                                    .getValue(UserAccountSetting.class)
+                                    .getDescriptions()
+                    );
+                    settings.setProfile_photo(
+                            ds.child(userID)
+                                    .getValue(UserAccountSetting.class)
+                                    .getProfile_photo()
+                    );
+                    settings.setPosts(
+                            ds.child(userID)
+                                    .getValue(UserAccountSetting.class)
+                                    .getPosts()
+                    );
+                    settings.setFollowing(
+                            ds.child(userID)
+                                    .getValue(UserAccountSetting.class)
+                                    .getFollowing()
+                    );
+                    settings.setFollowers(
+                            ds.child(userID)
+                                    .getValue(UserAccountSetting.class)
+                                    .getFollowers()
+                    );
+
+                    Log.d(TAG, "getUserAccountSettings: retrieved user_account_settings information: " + settings.toString());
+                }catch (NullPointerException e){
+                    Log.e(TAG, "getUserAccountSettings: NullPointerException: " + e.getMessage() );
+                }
+
+
+                // users node
+                if(ds.getKey().equals(mContext.getString(R.string.db_users))) {
+                    Log.d(TAG, "getUserAccountSettings: datasnapshot: " + ds);
+
+                    user.setUsername(
+                            ds.child(userID)
+                                    .getValue(User.class)
+                                    .getUsername()
+                    );
+                    user.setEmail(
+                            ds.child(userID)
+                                    .getValue(User.class)
+                                    .getEmail()
+                    );
+                    user.setPhone_number(
+                            ds.child(userID)
+                                    .getValue(User.class)
+                                    .getPhone_number()
+                    );
+                    user.setUser_id(
+                            ds.child(userID)
+                                    .getValue(User.class)
+                                    .getUser_id()
+                    );
+
+                    Log.d(TAG, "getUserAccountSettings: retrieved users information: " + user.toString());
+                }
+            }
+        }
+        return new UserSettings(settings, user);
+
+    }
+
 }

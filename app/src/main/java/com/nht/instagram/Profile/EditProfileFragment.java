@@ -33,7 +33,7 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: navigating back to 'ProfileActivity'");
-                Intent intent = new Intent(getActivity(), AccountSettingActivity.class);
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
                 getActivity().finish();
             }

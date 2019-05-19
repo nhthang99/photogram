@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
-        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavigationView);
+        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavigationViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
         BottomNavigationViewHelper.enableBottomNavigationView(context, bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();

@@ -38,6 +38,7 @@ public class AccountSettingActivity extends AppCompatActivity {
 
         setupSettingsList();
         setupFragment();
+        getIncomingIntent();
 
         //setup back arrow
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
@@ -51,6 +52,15 @@ public class AccountSettingActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void getIncomingIntent(){
+        Intent intent = getIntent();
+
+        if(intent.hasExtra(getString(R.string.calling_activity))){
+            Log.d(TAG, "getIncomingIntent: received incoming from " + getString(R.string.profile_activity));
+            setViewPager(pagerAdapter.getFragmentNumber(getString(R.string.edit_profile_fragment)));
+        }
     }
 
     private void setupFragment(){
