@@ -48,6 +48,13 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/showPassword"
+            android:text="Show password"
+            android:layout_marginStart="10dp"/>
+
 
         <android.support.v7.widget.AppCompatButton
             android:layout_width="match_parent"
@@ -59,6 +66,7 @@
             android:padding="12dp"
             android:background="@drawable/white_rounded_button"/>
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +75,8 @@
             android:gravity="center"
             android:textSize="16dp"
             android:id="@+id/link_signup"
-            android:textColor="@color/bluesky"/>
+            android:textColor="@color/blue_link"/>
+
 
     </LinearLayout>
 

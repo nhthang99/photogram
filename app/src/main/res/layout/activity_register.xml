@@ -66,6 +66,13 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/showPassword"
+            android:text="Show password"
+            android:layout_marginStart="10dp"/>
+
 
         <android.support.v7.widget.AppCompatButton
             android:layout_width="match_parent"

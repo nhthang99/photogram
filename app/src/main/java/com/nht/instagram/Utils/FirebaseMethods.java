@@ -2,12 +2,16 @@ package com.nht.instagram.Utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,11 +22,22 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.nht.instagram.Login.LoginActivity;
+import com.nht.instagram.Models.Photo;
 import com.nht.instagram.Models.User;
 import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.Models.UserSettings;
 import com.nht.instagram.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+import java.util.UUID;
 
 public class FirebaseMethods {
     private static final String TAG = "FirebaseMethods";
@@ -32,20 +47,128 @@ public class FirebaseMethods {
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
+    private StorageReference mStorageReference;
 
     private Context mContext;
     private String userID;
     private ProgressBar mProgressBar;
+    private double mPhotoUploadProgress = 0.0;
 
     public FirebaseMethods(Context mContext) {
         mAuth = FirebaseAuth.getInstance();
         this.mContext = mContext;
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
+        mStorageReference = FirebaseStorage.getInstance().getReference();
 
         if(mAuth.getCurrentUser() != null){
             userID = mAuth.getCurrentUser().getUid();
         }
+    }
+
+    public void uploadNewPhoto(String photoType, final String caption, final String imgUrl){
+        Log.d(TAG, "uploadNewPhoto: attempting to uplaod new photo.");
+
+        FilePaths filePaths = new FilePaths();
+        //case1) new photo
+        if(photoType.equals(mContext.getString(R.string.new_photo))){
+            Log.d(TAG, "uploadNewPhoto: uploading NEW photo.");
+
+            String user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            StorageReference storageReference = mStorageReference
+                    .child(filePaths.FIREBASE_IMAGE_STORAGE + "/" + user_id + "/photo" + UUID.randomUUID().toString());
+
+            //convert image url to bitmap
+            Bitmap bm = ImageManager.getBitmap(imgUrl);
+            byte[] bytes = ImageManager.getBytesFromBitmap(bm, 80);
+
+            UploadTask uploadTask = null;
+            uploadTask = storageReference.putBytes(bytes);
+
+            uploadTask.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                    if(!task.isSuccessful()) {
+                        try {
+                            throw task.getException();
+                        } catch (Exception e) {
+                            Log.e(TAG, "onComplete: Exception" + e.getMessage());
+                        }
+                    }
+            }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Task<Uri> firebaseUri = taskSnapshot.getStorage().getDownloadUrl();
+                    Log.d(TAG, "onSuccess: Photo upload success");
+                    Toast.makeText(mContext, "Photo upload success", Toast.LENGTH_SHORT).show();
+                    //add the new photo
+                    addPhotoToDatabase(caption, firebaseUri.toString());
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG, "onFailure: Photo upload failed.");
+                    Toast.makeText(mContext, "Photo upload failed ", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+
+                    if(progress - 15 > mPhotoUploadProgress){
+                        Toast.makeText(mContext, "Photo upload progress " + String.format("%.0f", progress) + "%", Toast.LENGTH_SHORT).show();
+                        mPhotoUploadProgress = progress;
+                    }
+
+                    Log.d(TAG, "onProgress: upload progress: " + progress + "% done");
+                }
+            });
+
+        }
+        //case new profile photo
+        else if(photoType.equals(mContext.getString(R.string.profile_photo))){
+            Log.d(TAG, "uploadNewPhoto: uploading new PROFILE photo");
+        }
+
+    }
+
+    private String getTimestamp() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss'Z'", Locale.CANADA);
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
+        return sdf.format(new Date());
+    }
+
+    private void addPhotoToDatabase(String caption, String url){
+        Log.d(TAG, "addPhotoToDatabase: adding photo to database");
+
+        String tags = StringManipulation.getTags(caption);
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String newPhotoKey = myRef.child(mContext.getString(R.string.db_photos)).push().getKey();
+        Photo photo = new Photo();
+        photo.setCaption(caption);
+        photo.setDate_created(getTimestamp());
+        photo.setImage_path(url);
+        photo.setTags(tags);
+        photo.setUser_id(userID);
+        photo.setPhoto_id(newPhotoKey);
+
+        //insert to database
+        myRef.child(mContext.getString(R.string.db_photos)).child(userID).child(newPhotoKey).setValue(photo);
+        myRef.child(mContext.getString(R.string.db_users_photo)).child(newPhotoKey).setValue(photo);
+    }
+
+
+    public int getImageCount(DataSnapshot dataSnapshot){
+        int imageCount = 0;
+        for (DataSnapshot ds: dataSnapshot
+                .child(mContext.getString(R.string.db_photos))
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .getChildren()
+        ){
+            imageCount++;
+        }
+        return imageCount;
     }
 
     public void updateUsername(final String username){
@@ -89,23 +212,6 @@ public class FirebaseMethods {
 
     }
 
-//    public boolean checkIfUsernameExist(String username, DataSnapshot dataSnapshot){
-//        Log.d(TAG, "checkIfUsernameExist: checking if " + username + "already exist");
-//
-//        User user = new User();
-//        for (DataSnapshot ds: dataSnapshot.child(userID).getChildren()){
-//            Log.d(TAG, "checkIfUsernameExist: datasnapshot " + ds);
-//            user.setUsername(ds.getValue(User.class).getUsername());
-//            Log.d(TAG, "checkIfUsernameExist: username: " + user.getUsername());
-//
-//            if (StringManipulation.expandUsername(user.getUsername()).equals(username)) {
-//                Log.d(TAG, "checkIfUsernameExist: found a match " + user.getUsername());
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
     private void sendVerificationEmail(){
         FirebaseUser user = mAuth.getCurrentUser();
 
@@ -135,6 +241,8 @@ public class FirebaseMethods {
 
                             userID = mAuth.getCurrentUser().getUid();
                             sendVerificationEmail();
+                            Log.d(TAG, "onComplete: Please verify email");
+                            Toast.makeText(mContext, "Please verify email", Toast.LENGTH_LONG).show();
                             mAuth.signOut();
                             Intent intent = new Intent(mContext, LoginActivity.class);
                             mContext.startActivity(intent);

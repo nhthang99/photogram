@@ -39,12 +39,14 @@ dependencies {
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     implementation 'org.jetbrains:annotations-java5:15.0'
 
-    implementation 'com.google.firebase:firebase-core:16.0.9'
     //Firebase Authentication
     implementation 'com.google.firebase:firebase-auth:17.0.0'
 
     //Firebase Database
     implementation 'com.google.firebase:firebase-database:17.0.0'
+
+    //Firebase Storage
+    implementation 'com.google.firebase:firebase-storage:17.0.0'
 }
 
 //Firebase

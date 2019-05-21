@@ -6,9 +6,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -41,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Context mContext = RegisterActivity.this;
     private ProgressBar mProgressBar;
     private EditText mEmail, mPassword, mUsername;
+    private CheckBox cbShowPassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,14 +52,31 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         Log.d(TAG, "onCreate: starting.");
         firebaseMethods = new FirebaseMethods(mContext);
+        btnRegister = (Button)findViewById(R.id.btn_register);
+        mEmail = (EditText)findViewById(R.id.input_email);
+        mPassword = (EditText)findViewById(R.id.input_password);
+        mUsername = (EditText)findViewById(R.id.input_username);
+        mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
+        mProgressBar.setVisibility(View.GONE);
 
-        initializeFields();
         setupFirebaseAuth();
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerNewUser();
+            }
+        });
+
+        cbShowPassword = (CheckBox)findViewById(R.id.showPassword);
+        cbShowPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked){
+                    mPassword.setTransformationMethod(new PasswordTransformationMethod());
+                }else{
+                    mPassword.setTransformationMethod(null);
+                }
             }
         });
 
@@ -160,15 +181,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         };
-    }
-
-    private void initializeFields(){
-        btnRegister = (Button)findViewById(R.id.btn_register);
-        mEmail = (EditText)findViewById(R.id.input_email);
-        mPassword = (EditText)findViewById(R.id.input_password);
-        mUsername = (EditText)findViewById(R.id.input_username);
-        mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
-        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override

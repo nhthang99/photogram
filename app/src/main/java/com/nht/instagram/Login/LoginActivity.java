@@ -7,9 +7,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private TextView linkSignUp;
     private Context mContext = LoginActivity.this;
+    private CheckBox cbShowPassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.GONE);
+        mEmail = (EditText)findViewById(R.id.input_email);
+        mPassword = (EditText)findViewById(R.id.input_password);
 
         setupFirebaseAuth();
 
@@ -61,6 +67,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        cbShowPassword = (CheckBox)findViewById(R.id.showPassword);
+        cbShowPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (!isChecked){
+                    mPassword.setTransformationMethod(new PasswordTransformationMethod());
+                }else{
+                    mPassword.setTransformationMethod(null);
+                }
+            }
+        });
+
         if(mAuth.getCurrentUser() != null){
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
@@ -76,9 +94,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setupSignIn(){
         Log.d(TAG, "onClick: starting to log in");
-
-        mEmail = (EditText)findViewById(R.id.input_email);
-        mPassword = (EditText)findViewById(R.id.input_password);
         String email = mEmail.getText().toString();
         String password = mPassword.getText().toString();
 

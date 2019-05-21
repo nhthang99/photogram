@@ -30,6 +30,7 @@
         <activity android:name=".Profile.AccountSettingActivity" />
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Login.RegisterActivity" />
+        <activity android:name=".Share.NextActivity" />
 
     </application>
 

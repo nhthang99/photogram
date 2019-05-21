@@ -1054,6 +1054,7 @@ drawable ic_account
 drawable ic_account_full
 drawable ic_android
 drawable ic_arrow
+drawable ic_back
 drawable ic_backarrow
 drawable ic_camera
 drawable ic_check
@@ -1135,6 +1136,7 @@ id all
 id always
 id async
 id auto
+id back
 id backArrow
 id barrier
 id beginning
@@ -1148,6 +1150,7 @@ id btn_login
 id btn_register
 id buttonPanel
 id cancel_action
+id caption
 id center
 id center_horizontal
 id center_vertical
@@ -1215,6 +1218,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageShare
 id image_caption
 id image_comments_link
 id image_heart
@@ -1309,9 +1313,11 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id sharePost
 id shortcut
 id showCustom
 id showHome
+id showPassword
 id showTitle
 id smallLabel
 id snackbar_action
@@ -1372,6 +1378,7 @@ id tvBackLabel
 id tvConfirmSignout
 id tvFollowers
 id tvFollowing
+id tvNewPost
 id tvNext
 id tvPost
 id uniform
@@ -1491,7 +1498,9 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout snipper_top_nexttoolbar
 layout snippet_center_editprofile
+layout snippet_center_newpost
 layout snippet_top_accountsettingtoolbar
 layout snippet_top_editprofile_toolbar
 layout snippet_top_gallerytoolbar
@@ -1567,8 +1576,10 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string db_photos
 string db_user_account_settings
 string db_users
+string db_users_photo
 string default_web_client_id
 string edit_profile_fragment
 string fab_transformation_scrim_behavior
@@ -1586,6 +1597,7 @@ string google_crash_reporting_api_key
 string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
 string mtrl_chip_close_icon_content_description
+string new_photo
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -1593,6 +1605,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string photo
 string profile_activity
+string profile_photo
 string project_id
 string search_menu_title
 string selected_image

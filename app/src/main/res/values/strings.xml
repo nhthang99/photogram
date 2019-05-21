@@ -15,6 +15,10 @@
     <string name="field_displayname">display_name</string>
     <string name="field_descriptions">descriptions</string>
     <string name="field_phone_number">phone_number</string>
+    <string name="db_users_photo">users_photo</string>
+    <string name="db_photos">photos</string>
+    <string name="new_photo">new_photo</string>
+    <string name="profile_photo">profile_photo</string>
 
     <!-- Intent Extra-->
     <string name="calling_activity">calling_activity</string>
