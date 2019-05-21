@@ -1079,6 +1079,7 @@ drawable ic_search_full
 drawable ic_share
 drawable ic_share_full
 drawable ic_speech_bubble
+drawable ic_white_heart
 drawable instagram_logo
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1098,6 +1099,7 @@ drawable notify_panel_notification_icon_bg
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable vector_red_heart
+drawable vector_white_heart
 drawable white_grey_border
 drawable white_grey_border_bottom
 drawable white_grey_border_top
@@ -1586,9 +1588,16 @@ string default_web_client_id
 string edit_profile_fragment
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string field_caption
+string field_date_created
 string field_descriptions
 string field_displayname
+string field_image_path
+string field_likes
 string field_phone_number
+string field_photo_id
+string field_tags
+string field_user_id
 string field_username
 string firebase_database_url
 string gallery

@@ -30,6 +30,7 @@ public class UniversalImageLoader {
                 .showImageOnFail(defaultImage)
                 .showImageForEmptyUri(defaultImage)
                 .cacheOnDisk(true).cacheInMemory(true)
+                .considerExifParams(true)
                 .cacheOnDisk(true).resetViewBeforeLoading(true)
                 .imageScaleType(ImageScaleType.EXACTLY)
                 .displayer(new FadeInBitmapDisplayer(300)).build();

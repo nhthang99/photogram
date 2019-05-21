@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 
 import com.nht.instagram.Models.Photo;
 import com.nht.instagram.R;
-import com.nht.instagram.ViewPostFragment;
+import com.nht.instagram.Utils.ViewPostFragment;
 
 public class ProfileActivity extends AppCompatActivity implements ProfileFragment.OnGridImageSelectedListener{
 

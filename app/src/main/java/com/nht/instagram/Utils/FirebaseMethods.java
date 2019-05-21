@@ -230,8 +230,8 @@ public class FirebaseMethods {
         photo.setPhoto_id(newPhotoKey);
 
         //insert to database
-        myRef.child(mContext.getString(R.string.db_photos)).child(userID).child(newPhotoKey).setValue(photo);
-        myRef.child(mContext.getString(R.string.db_users_photo)).child(newPhotoKey).setValue(photo);
+        myRef.child(mContext.getString(R.string.db_users_photo)).child(userID).child(newPhotoKey).setValue(photo);
+        myRef.child(mContext.getString(R.string.db_photos)).child(newPhotoKey).setValue(photo);
     }
 
     public void updateUsername(final String username){
@@ -358,7 +358,8 @@ public class FirebaseMethods {
                 0,
                 0,
                 profile_photo,
-                StringManipulation.condenseUsername(username)
+                StringManipulation.condenseUsername(username),
+                userID
         );
 
         myRef.child(mContext.getString(R.string.db_user_account_settings))
