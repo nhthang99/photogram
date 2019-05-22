@@ -1607,6 +1607,7 @@ string photo
 string profile_activity
 string profile_photo
 string project_id
+string return_to_fragment
 string search_menu_title
 string selected_image
 string sign_out_fragment

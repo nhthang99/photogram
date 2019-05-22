@@ -6,7 +6,6 @@
     <string name="photo">PHOTO</string>
     <string name="string_open_camera">OPEN CAMERA</string>
     <string name="string_next">Next</string>
-    <string name="selected_image">selected_image</string>
 
     <!-- Firebase Database Fields-->
     <string name="db_users">users</string>
@@ -22,6 +21,8 @@
 
     <!-- Intent Extra-->
     <string name="calling_activity">calling_activity</string>
+    <string name="return_to_fragment">return_to_fragment</string>
+    <string name="selected_image">selected_image</string>
 
     <!-- Activity name -->
     <string name="profile_activity">Profile Activity</string>

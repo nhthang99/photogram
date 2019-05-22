@@ -26,6 +26,7 @@ import com.nht.instagram.Models.User;
 import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.Models.UserSettings;
 import com.nht.instagram.R;
+import com.nht.instagram.Share.ShareActivity;
 import com.nht.instagram.Utils.FirebaseMethods;
 import com.nht.instagram.Utils.UniversalImageLoader;
 
@@ -169,6 +170,16 @@ public class EditProfileFragment extends Fragment {
         mDescription.setText(settings.getDescriptions());
         mEmail.setText(userSettings.getUser().getEmail());
         mPhoneNumber.setText(String.valueOf(userSettings.getUser().getPhone_number()));
+
+        mChangeProfilePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: changing profile photo");
+                Intent intent = new Intent(getActivity(), ShareActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getActivity().startActivity(intent);
+            }
+        });
 
     }
 

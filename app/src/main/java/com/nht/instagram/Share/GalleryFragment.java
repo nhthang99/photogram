@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.nht.instagram.Profile.AccountSettingActivity;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.FilePaths;
 import com.nht.instagram.Utils.FileSearch;
@@ -38,6 +39,7 @@ public class GalleryFragment extends Fragment {
     private ArrayList<String> directories;
 
     private static final int NUM_GRID_COLUMNS = 3;
+    private static final int TASK_SHARE_ACTIVITY = 268435456;
     private String mAppend = "file:/";
     private String mSelectedImage;
 
@@ -66,16 +68,33 @@ public class GalleryFragment extends Fragment {
         nextScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: navigating to final share screen");
-                Intent intent = new Intent(getActivity(), NextActivity.class);
-                intent.putExtra(getString(R.string.selected_image), mSelectedImage);
-                startActivity(intent);
+                if(isRootTask()) {
+                    Log.d(TAG, "onClick: navigating to final share screen");
+                    Intent intent = new Intent(getActivity(), NextActivity.class);
+                    intent.putExtra(getString(R.string.selected_image), mSelectedImage);
+                    startActivity(intent);
+                }else{
+                    Log.d(TAG, "onClick: navigating to final share screen");
+                    Intent intent = new Intent(getActivity(), AccountSettingActivity.class);
+                    intent.putExtra(getString(R.string.selected_image), mSelectedImage);
+                    intent.putExtra(getString(R.string.return_to_fragment), getString(R.string.edit_profile_fragment));
+                    startActivity(intent);
+                }
             }
         });
 
         init();
 
         return view;
+    }
+
+    private boolean isRootTask(){
+        if(((ShareActivity)getActivity()).getTask() == TASK_SHARE_ACTIVITY){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     private void init(){

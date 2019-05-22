@@ -45,6 +45,11 @@ public class ShareActivity extends AppCompatActivity {
         }
     }
 
+    public int getTask(){
+        Log.d(TAG, "getTask: TASK: " + getIntent().getFlags());
+        return getIntent().getFlags();
+    }
+
     public int getCurrentTabNumber(){
         return viewPager.getCurrentItem();
     }
