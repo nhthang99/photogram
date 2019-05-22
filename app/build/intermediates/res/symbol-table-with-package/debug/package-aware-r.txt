@@ -1500,6 +1500,7 @@ layout layout_center_view_profile
 layout layout_center_viewpager
 layout layout_comment
 layout layout_grid_imageview
+layout layout_mainfeed_listitem
 layout layout_top_tabs
 layout layout_user_listitem
 layout layout_view_post
@@ -1585,6 +1586,8 @@ string activity_number
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string bundle_photo
+string bundle_user_account_settings
 string calling_activity
 string character_counter_content_description
 string character_counter_pattern
@@ -1636,6 +1639,7 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
+string home_activity
 string intent_user
 string mtrl_chip_close_icon_content_description
 string new_photo

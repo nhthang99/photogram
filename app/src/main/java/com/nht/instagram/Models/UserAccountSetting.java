@@ -1,6 +1,9 @@
 package com.nht.instagram.Models;
 
-public class UserAccountSetting {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class UserAccountSetting implements Parcelable {
 
     private String descriptions;
     private String display_name;
@@ -25,6 +28,46 @@ public class UserAccountSetting {
     public UserAccountSetting(){
 
     }
+
+    protected UserAccountSetting(Parcel in) {
+        descriptions = in.readString();
+        display_name = in.readString();
+        followers = in.readLong();
+        following = in.readLong();
+        posts = in.readLong();
+        profile_photo = in.readString();
+        username = in.readString();
+        user_id = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(descriptions);
+        dest.writeString(display_name);
+        dest.writeLong(followers);
+        dest.writeLong(following);
+        dest.writeLong(posts);
+        dest.writeString(profile_photo);
+        dest.writeString(username);
+        dest.writeString(user_id);
+    }
+
+    public static final Creator<UserAccountSetting> CREATOR = new Creator<UserAccountSetting>() {
+        @Override
+        public UserAccountSetting createFromParcel(Parcel in) {
+            return new UserAccountSetting(in);
+        }
+
+        @Override
+        public UserAccountSetting[] newArray(int size) {
+            return new UserAccountSetting[size];
+        }
+    };
 
     public String getUser_id() {
         return user_id;
@@ -88,5 +131,19 @@ public class UserAccountSetting {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "UserAccountSetting{" +
+                "descriptions='" + descriptions + '\'' +
+                ", display_name='" + display_name + '\'' +
+                ", followers=" + followers +
+                ", following=" + following +
+                ", posts=" + posts +
+                ", profile_photo='" + profile_photo + '\'' +
+                ", username='" + username + '\'' +
+                ", user_id='" + user_id + '\'' +
+                '}';
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -16,10 +17,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nht.instagram.Login.LoginActivity;
+import com.nht.instagram.Models.Photo;
+import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
 import com.nht.instagram.Utils.UniversalImageLoader;
+import com.nht.instagram.Utils.ViewCommentFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -30,16 +36,38 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
+    //vars
+    private ArrayList<Photo> mPhotos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting.");
 
+        mPhotos = new ArrayList<>();
+
+
         setupFirebaseAuth();
         setupBottomNavigationView();
-//        setupViewPager();
+        setupViewPager();
         initImageLoader();
+
+    }
+
+    public void onCommentThreadSelected(Photo photo, UserAccountSetting settings){
+        Log.d(TAG, "onCommentThreadSelected: selected a coemment thread");
+
+        ViewCommentFragment fragment  = new ViewCommentFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(getString(R.string.bundle_photo), photo);
+        args.putParcelable(getString(R.string.bundle_user_account_settings), settings);
+        fragment.setArguments(args);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.addToBackStack(getString(R.string.view_comments_fragment));
+        transaction.commit();
 
     }
 
