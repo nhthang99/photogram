@@ -9,11 +9,11 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:id="@+id/comment_profile_image"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:src="@drawable/ic_android"
-        app:civ_border_color="@color/black"
-        app:civ_border_width="0.5dp"/>
+        app:civ_border_color="@color/grey"
+        app:civ_border_width="0.25dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,12 +21,11 @@
         android:id="@+id/relLayout1"
         android:layout_toRightOf="@+id/comment_profile_image"
         android:layout_marginTop="15dp"
-        android:background="@drawable/grey_border_bottom">
+        android:background="@color/white">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="60dp"
             android:layout_marginBottom="20dp">
 
 
@@ -88,17 +87,17 @@
                 android:layout_below="@+id/comment"
                 android:layout_toRightOf="@+id/comment_likes"/>
 
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/comment_like"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_white_heart"
+                android:layout_centerVertical="true"/>
+
 
         </RelativeLayout>
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:id="@+id/comment_like"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/ic_white_heart"
-            android:layout_centerVertical="true"/>
 
 
     </RelativeLayout>

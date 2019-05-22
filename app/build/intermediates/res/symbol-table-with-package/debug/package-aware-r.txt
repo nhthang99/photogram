@@ -1164,6 +1164,13 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id comment
+id comment_like
+id comment_likes
+id comment_profile_image
+id comment_reply
+id comment_time_posted
+id comment_username
 id container
 id content
 id contentPanel
@@ -1184,6 +1191,7 @@ id direct
 id disableHome
 id display_name
 id edit_query
+id email
 id email_address
 id end
 id end_padder
@@ -1247,6 +1255,7 @@ id line1
 id line3
 id link_signup
 id listMode
+id listView
 id list_item
 id lvAccountSetting
 id masked
@@ -1279,6 +1288,7 @@ id profileMenu
 id profileName
 id profileToolBar
 id profileToolbar
+id profile_image
 id profile_photo
 id progressBar
 id progress_circular
@@ -1304,6 +1314,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id search
 id search_badge
 id search_bar
 id search_button
@@ -1384,6 +1395,7 @@ id tvFollowing
 id tvNewPost
 id tvNext
 id tvPost
+id tvPostComment
 id uniform
 id unlabeled
 id up
@@ -1449,6 +1461,7 @@ layout activity_login
 layout activity_next
 layout activity_profile
 layout activity_register
+layout activity_search
 layout activity_share
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1472,14 +1485,17 @@ layout fragment_message
 layout fragment_photo
 layout fragment_profile
 layout fragment_signout
+layout fragment_view_comment
 layout fragment_view_post
 layout layout_bottom_navigation_view
 layout layout_bottom_tabs
 layout layout_center_accountsetting
 layout layout_center_profile
 layout layout_center_viewpager
+layout layout_comment
 layout layout_grid_imageview
 layout layout_top_tabs
+layout layout_user_listitem
 layout layout_view_post
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
@@ -1504,6 +1520,8 @@ layout select_dialog_singlechoice_material
 layout snipper_top_nexttoolbar
 layout snippet_center_editprofile
 layout snippet_center_newpost
+layout snippet_comments_toolbar
+layout snippet_search_toolbar
 layout snippet_top_accountsettingtoolbar
 layout snippet_top_editprofile_toolbar
 layout snippet_top_gallerytoolbar
@@ -1589,6 +1607,7 @@ string edit_profile_fragment
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string field_caption
+string field_comments
 string field_date_created
 string field_descriptions
 string field_displayname
@@ -1626,6 +1645,7 @@ string sign_out_fragment
 string status_bar_notification_info_overflow
 string string_next
 string string_open_camera
+string view_comments_fragment
 string view_post_fragment
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

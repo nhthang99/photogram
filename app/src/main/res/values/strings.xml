@@ -9,6 +9,8 @@
     <string name="string_open_camera">OPEN CAMERA</string>
     <string name="string_next">Next</string>
     <string name="view_post_fragment">View Post</string>
+    <string name="view_profile_fragment">ViewProfile</string>
+    <string name="profile_fragment">Profile</string>
 
     <!-- Firebase Database Fields-->
     <string name="db_users">users</string>
@@ -28,16 +30,20 @@
     <string name="field_photo_id">photo_id</string>
     <string name="field_tags">tags</string>
     <string name="field_image_path">image_path</string>
+    <string name="view_comments_fragment">View Comments</string>
+    <string name="field_comments">comments</string>
 
     <!-- Intent Extra-->
     <string name="calling_activity">calling_activity</string>
     <string name="return_to_fragment">return_to_fragment</string>
     <string name="selected_image">selected_image</string>
     <string name="selected_bitmap">selected_bitmap</string>
+    <string name="intent_user">intent_user</string>
 
     <!--Bundle arg names-->
     <string name="activity_number">activity_number</string>
 
     <!-- Activity name -->
     <string name="profile_activity">Profile Activity</string>
+    <string name="search_activity">Search Activity</string>
 </resources>

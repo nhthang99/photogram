@@ -54,6 +54,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="20dp"
+            android:id="@+id/tvPostComment"
             android:textColor="@color/blue_link"
             android:textSize="18sp"/>
 

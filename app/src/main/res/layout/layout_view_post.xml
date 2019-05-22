@@ -94,7 +94,7 @@
 
                 <ImageView
                     android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_height="30dp"
                     android:id="@+id/speech_bubble"
                     android:layout_toRightOf="@+id/heartLayout"
                     android:layout_marginLeft="20dp"

@@ -210,7 +210,7 @@ public class FirebaseMethods {
     }
 
     private String getTimestamp() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss'Z'", Locale.CANADA);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.CANADA);
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
         return sdf.format(new Date());
     }
