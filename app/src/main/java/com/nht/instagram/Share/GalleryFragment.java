@@ -55,6 +55,8 @@ public class GalleryFragment extends Fragment {
         directories = new ArrayList<>();
         mProgressBar.setVisibility(View.GONE);
 
+        init();
+
         ImageView shareClose = (ImageView)view.findViewById(R.id.ivCloseShare);
         shareClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,11 +81,10 @@ public class GalleryFragment extends Fragment {
                     intent.putExtra(getString(R.string.selected_image), mSelectedImage);
                     intent.putExtra(getString(R.string.return_to_fragment), getString(R.string.edit_profile_fragment));
                     startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
-
-        init();
 
         return view;
     }

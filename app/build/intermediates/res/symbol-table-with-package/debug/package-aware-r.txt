@@ -15,6 +15,8 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fade_in
+anim fade_out
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1077,7 +1079,6 @@ drawable ic_search_full
 drawable ic_share
 drawable ic_share_full
 drawable ic_speech_bubble
-drawable image
 drawable instagram_logo
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1552,6 +1553,7 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string activity_number
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
@@ -1609,11 +1611,13 @@ string profile_photo
 string project_id
 string return_to_fragment
 string search_menu_title
+string selected_bitmap
 string selected_image
 string sign_out_fragment
 string status_bar_notification_info_overflow
 string string_next
 string string_open_camera
+string view_post_fragment
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

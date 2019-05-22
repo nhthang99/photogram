@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
     private static final byte ACTIVITY_NUM = 0;
 //    private ViewPager mViewPager;
-    private Context context = HomeActivity.this;
+    private Context mContext = HomeActivity.this;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initImageLoader(){
-        UniversalImageLoader universalImageLoader = new UniversalImageLoader(context);
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(mContext);
         ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
@@ -77,7 +77,7 @@ public class HomeActivity extends AppCompatActivity {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavigationViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableBottomNavigationView(context, bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNavigation(mContext, this,bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_home_full));

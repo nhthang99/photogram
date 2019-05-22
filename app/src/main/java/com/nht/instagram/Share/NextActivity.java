@@ -1,6 +1,7 @@
 package com.nht.instagram.Share;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -39,6 +40,8 @@ public class NextActivity extends AppCompatActivity {
     private String mAppend = "file:/";
     private EditText mCaption;
     private String imgURL;
+    private Intent intent;
+    private Bitmap bitmap;
 
 
     @Override
@@ -46,7 +49,6 @@ public class NextActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next);
 
-        setImage();
         setupFirebaseAuth();
 
         back = (ImageView) findViewById(R.id.back);
@@ -57,7 +59,7 @@ public class NextActivity extends AppCompatActivity {
                 finish();
             }
         });
-        
+
         sharePost = (TextView)findViewById(R.id.sharePost);
         sharePost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,17 +69,36 @@ public class NextActivity extends AppCompatActivity {
                 //upload image to firebase
                 mCaption = (EditText)findViewById(R.id.caption);
                 String caption = mCaption.getText().toString();
-                mFirebaseMethods.uploadNewPhoto(getString(R.string.new_photo), caption, imgURL);
+
+                intent = getIntent();
+
+                if(intent.hasExtra(getString(R.string.selected_image))){
+                    imgURL = intent.getStringExtra(getString(R.string.selected_image));
+                    mFirebaseMethods.uploadNewPhoto(getString(R.string.new_photo), caption, imgURL,null);
+                }
+                else if(intent.hasExtra(getString(R.string.selected_bitmap))){
+                    bitmap = (Bitmap) intent.getParcelableExtra(getString(R.string.selected_bitmap));
+                    mFirebaseMethods.uploadNewPhoto(getString(R.string.new_photo), caption, null, bitmap);
+                }
             }
         });
-
+        setImage();
     }
 
     private void setImage(){
         Intent intent = getIntent();
         ImageView image = (ImageView)findViewById(R.id.imageShare);
-        imgURL = intent.getStringExtra(getString(R.string.selected_image));
-        UniversalImageLoader.setImage(imgURL, image, null, mAppend);
+
+        if(intent.hasExtra(getString(R.string.selected_image))){
+            imgURL = intent.getStringExtra(getString(R.string.selected_image));
+            Log.d(TAG, "setImage: got new image url: " + imgURL);
+            UniversalImageLoader.setImage(imgURL, image, null, mAppend);
+        }
+        else if(intent.hasExtra(getString(R.string.selected_bitmap))){
+            bitmap = (Bitmap) intent.getParcelableExtra(getString(R.string.selected_bitmap));
+            Log.d(TAG, "setImage: got new bitmap");
+            image.setImageBitmap(bitmap);
+        }
     }
 
     /*

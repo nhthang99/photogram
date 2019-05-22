@@ -1,4 +1,6 @@
 <resources>
+
+    <!-- Fragment names -->
     <string name="app_name">Instagram</string>
     <string name="edit_profile_fragment">Edit Profile</string>
     <string name="sign_out_fragment">Sign Out</string>
@@ -6,6 +8,7 @@
     <string name="photo">PHOTO</string>
     <string name="string_open_camera">OPEN CAMERA</string>
     <string name="string_next">Next</string>
+    <string name="view_post_fragment">View Post</string>
 
     <!-- Firebase Database Fields-->
     <string name="db_users">users</string>
@@ -23,6 +26,10 @@
     <string name="calling_activity">calling_activity</string>
     <string name="return_to_fragment">return_to_fragment</string>
     <string name="selected_image">selected_image</string>
+    <string name="selected_bitmap">selected_bitmap</string>
+
+    <!--Bundle arg names-->
+    <string name="activity_number">activity_number</string>
 
     <!-- Activity name -->
     <string name="profile_activity">Profile Activity</string>

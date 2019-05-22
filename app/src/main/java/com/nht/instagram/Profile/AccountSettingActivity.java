@@ -2,6 +2,7 @@ package com.nht.instagram.Profile;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,7 +33,7 @@ public class AccountSettingActivity extends AppCompatActivity {
     private static final String TAG = "AccountSettingActivity";
     private static final byte ACTIVITY_NUM = 4;
     private Context mContext;
-    private SectionsStatePagerAdapter pagerAdapter;
+    public SectionsStatePagerAdapter pagerAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;
 
@@ -74,14 +75,21 @@ public class AccountSettingActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         //if there is an imageUrl attached as an extra, then it was chosen from the gallery/photo fragment
-        if(intent.hasExtra(getString(R.string.selected_image))){
-            Log.d(TAG, "getIncomingIntent: New incoming imgUrl");
-            if(intent.getStringExtra(getString(R.string.return_to_fragment)).equals(getString(R.string.edit_profile_fragment))){
+        if (intent.hasExtra(getString(R.string.selected_image)) || intent.hasExtra(getString(R.string.selected_bitmap))){
+            if(intent.hasExtra(getString(R.string.selected_image))){
+                Log.d(TAG, "getIncomingIntent: New incoming imgUrl");
+                if(intent.getStringExtra(getString(R.string.return_to_fragment)).equals(getString(R.string.edit_profile_fragment))){
 
+                    //set the new profile picture
+                    FirebaseMethods firebaseMethods = new FirebaseMethods(AccountSettingActivity.this);
+                    firebaseMethods.uploadNewPhoto(getString(R.string.profile_photo), null,
+                            intent.getStringExtra(getString(R.string.selected_image)), null );
+                }
+            }else if(intent.hasExtra(getString(R.string.selected_bitmap))){
                 //set the new profile picture
                 FirebaseMethods firebaseMethods = new FirebaseMethods(AccountSettingActivity.this);
                 firebaseMethods.uploadNewPhoto(getString(R.string.profile_photo), null,
-                        intent.getStringExtra(getString(R.string.selected_image)));
+                        null,(Bitmap) intent.getParcelableExtra(getString(R.string.selected_bitmap)));
             }
         }
 
@@ -97,7 +105,7 @@ public class AccountSettingActivity extends AppCompatActivity {
         pagerAdapter.addFragment(new SignOutFragment(), getString(R.string.sign_out_fragment));
     }
 
-    private void setViewPager(int fragmentNumber){
+    public void setViewPager(int fragmentNumber){
         mRelativeLayout.setVisibility(View.GONE);
         Log.d(TAG, "setViewPager: navigating to fragment: " + fragmentNumber);
         mViewPager.setAdapter(pagerAdapter);

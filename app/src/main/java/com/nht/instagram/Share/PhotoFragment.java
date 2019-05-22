@@ -1,6 +1,7 @@
 package com.nht.instagram.Share;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.nht.instagram.Profile.AccountSettingActivity;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.Permissions;
 
@@ -20,6 +22,7 @@ public class PhotoFragment extends Fragment {
     private static final int PHOTO_FRAGMENT_NUM = 1;
     private static final int GALLERY_FRAGMENT_NUM = 2;
     private static final int CAMERA_REQUEST_CODE = 5;
+    private static final int TASK_SHARE_ACTIVITY = 268435456;
 
     private Button btnLaunchCamera;
 
@@ -50,6 +53,15 @@ public class PhotoFragment extends Fragment {
         return view;
     }
 
+    private boolean isRootTask(){
+        if(((ShareActivity)getActivity()).getTask() == TASK_SHARE_ACTIVITY){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -57,7 +69,30 @@ public class PhotoFragment extends Fragment {
         if (requestCode == CAMERA_REQUEST_CODE){
             Log.d(TAG, "onActivityResult: done taking a photo");
             Log.d(TAG, "onActivityResult: attemping to navigate to final share screen");
+            Bitmap bitmap;
+            bitmap = (Bitmap) data.getExtras().get("data");
 
+            if(isRootTask()){
+                try{
+                    Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);
+                    Intent intent = new Intent(getActivity(), NextActivity.class);
+                    intent.putExtra(getString(R.string.selected_bitmap), bitmap);
+                    startActivity(intent);
+                }catch (NullPointerException e){
+                    Log.d(TAG, "onActivityResult: NullPointerException: " + e.getMessage());
+                }
+            }else{
+                try{
+                    Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);
+                    Intent intent = new Intent(getActivity(), AccountSettingActivity.class);
+                    intent.putExtra(getString(R.string.selected_bitmap), bitmap);
+                    intent.putExtra(getString(R.string.return_to_fragment), getString(R.string.edit_profile_fragment));
+                    startActivity(intent);
+                    getActivity().finish();
+                }catch (NullPointerException e){
+                    Log.d(TAG, "onActivityResult: NullPointerException: " + e.getMessage());
+                }
+            }
         }
     }
 }

@@ -21,7 +21,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:weightSum="100">
+                android:weightSum="100"
+                android:background="@color/white">
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -51,16 +52,18 @@
                 </RelativeLayout>
 
             </LinearLayout>
-            
+
             <LinearLayout
+                android:id="@+id/linLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/linLayout"
-                android:id="@+id/linLayout2"
-                android:orientation="vertical"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="5dp"
-                android:padding="10dp"
-                android:layout_marginStart="10dp">
+                android:layout_marginEnd="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="10dp">
 
 
                 <TextView
@@ -69,20 +72,20 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:fontFamily="sans-serif-light"
-                    android:text="Nguyễn Hữu Thắng"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:background="@color/white"
-                    android:id="@+id/description"
-                    android:text="HCM City University of Technology"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginTop="5dp"/>
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -101,7 +104,8 @@
                     android:horizontalSpacing="1dp"
                     android:stretchMode="columnWidth"
                     android:gravity="center"
-                    android:numColumns="3">
+                    android:numColumns="3"
+                    android:background="@drawable/white_grey_border_top">
 
                 </GridView>
 

@@ -32,6 +32,7 @@ import com.nht.instagram.Models.Photo;
 import com.nht.instagram.Models.User;
 import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.Models.UserSettings;
+import com.nht.instagram.Profile.AccountSettingActivity;
 import com.nht.instagram.R;
 
 import java.text.SimpleDateFormat;
@@ -67,7 +68,7 @@ public class FirebaseMethods {
         }
     }
 
-    public void uploadNewPhoto(String photoType, final String caption, final String imgUrl){
+    public void uploadNewPhoto(String photoType, final String caption, final String imgUrl, Bitmap bitmap){
         Log.d(TAG, "uploadNewPhoto: attempting to upload new photo.");
 
         FilePaths filePaths = new FilePaths();
@@ -80,8 +81,10 @@ public class FirebaseMethods {
                     .child(filePaths.FIREBASE_IMAGE_STORAGE + "/" + user_id + "/photo" + UUID.randomUUID().toString());
 
             //convert image url to bitmap
-            Bitmap bm = ImageManager.getBitmap(imgUrl);
-            byte[] bytes = ImageManager.getBytesFromBitmap(bm, 100);
+            if (bitmap == null){
+                bitmap = ImageManager.getBitmap(imgUrl);
+            }
+            byte[] bytes = ImageManager.getBytesFromBitmap(bitmap, 100);
 
             UploadTask uploadTask = null;
             uploadTask = storageReference.putBytes(bytes);
@@ -147,8 +150,11 @@ public class FirebaseMethods {
                     .child(filePaths.FIREBASE_IMAGE_STORAGE + "/" + user_id + "/profile_photo");
 
             //convert image url to bitmap
-            Bitmap bm = ImageManager.getBitmap(imgUrl);
-            byte[] bytes = ImageManager.getBytesFromBitmap(bm, 100);
+            if (bitmap == null){
+                bitmap = ImageManager.getBitmap(imgUrl);
+            }
+
+            byte[] bytes = ImageManager.getBytesFromBitmap(bitmap, 100);
 
             UploadTask uploadTask = null;
             uploadTask = storageReference.putBytes(bytes);
@@ -163,7 +169,13 @@ public class FirebaseMethods {
                             setProfilePhoto(uri.toString());
                         }
                     });
+
                     Toast.makeText(mContext, "Photo upload success", Toast.LENGTH_SHORT).show();
+                    ((AccountSettingActivity)mContext).setViewPager(
+                            ((AccountSettingActivity)mContext).pagerAdapter
+                                    .getFragmentNumber(mContext.getString(R.string.edit_profile_fragment))
+                    );
+
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

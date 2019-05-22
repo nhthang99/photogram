@@ -58,7 +58,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/post_image"
                 android:layout_below="@id/relLayout1"
-                android:src="@drawable/image"
                 android:scaleType="centerCrop"/>
 
             <RelativeLayout
