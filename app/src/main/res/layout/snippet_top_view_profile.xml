@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="10dp"
+        android:id="@+id/relLayout1">
+
+        <TextView
+            android:id="@+id/posts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/tvPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Posts"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/posts"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relLayout2">
+
+        <TextView
+            android:id="@+id/followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/tvFollowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Followers"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/followers"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="10dp"
+        android:id="@+id/relLayout3">
+
+        <TextView
+            android:id="@+id/following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/tvFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Following"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/following"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/follow"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Follow"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/relLayout2"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@drawable/follow_button"/>
+
+    <TextView
+        android:id="@+id/unfollow"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Unfollow"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/relLayout2"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@drawable/unfollow_button"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/textEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Edit your profile"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/relLayout2"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@drawable/white_grey_border"
+        android:visibility="gone"/>
+
+
+</RelativeLayout>

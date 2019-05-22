@@ -1049,6 +1049,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable follow_button
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable grey_border_bottom
@@ -1098,6 +1099,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable unfollow_button
 drawable vector_red_heart
 drawable vector_white_heart
 drawable white_grey_border
@@ -1205,6 +1207,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id fixed
+id follow
 id followers
 id following
 id forever
@@ -1396,6 +1399,7 @@ id tvNewPost
 id tvNext
 id tvPost
 id tvPostComment
+id unfollow
 id uniform
 id unlabeled
 id up
@@ -1487,10 +1491,12 @@ layout fragment_profile
 layout fragment_signout
 layout fragment_view_comment
 layout fragment_view_post
+layout fragment_view_profile
 layout layout_bottom_navigation_view
 layout layout_bottom_tabs
 layout layout_center_accountsetting
 layout layout_center_profile
+layout layout_center_view_profile
 layout layout_center_viewpager
 layout layout_comment
 layout layout_grid_imageview
@@ -1527,6 +1533,7 @@ layout snippet_top_editprofile_toolbar
 layout snippet_top_gallerytoolbar
 layout snippet_top_profile
 layout snippet_top_profilebar
+layout snippet_top_view_profile
 layout snippet_view_toolbar
 layout support_simple_spinner_dropdown_item
 menu bottom_navigation_menu
@@ -1626,6 +1633,7 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
+string intent_user
 string mtrl_chip_close_icon_content_description
 string new_photo
 string password_toggle_content_description
@@ -1635,9 +1643,11 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string photo
 string profile_activity
+string profile_fragment
 string profile_photo
 string project_id
 string return_to_fragment
+string search_activity
 string search_menu_title
 string selected_bitmap
 string selected_image
@@ -1647,6 +1657,7 @@ string string_next
 string string_open_camera
 string view_comments_fragment
 string view_post_fragment
+string view_profile_fragment
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
