@@ -17,7 +17,8 @@ import com.nht.instagram.Utils.ViewCommentFragment;
 import com.nht.instagram.Utils.ViewPostFragment;
 import com.nht.instagram.Utils.ViewProfileFragment;
 
-public class ProfileActivity extends AppCompatActivity implements ProfileFragment.OnGridImageSelectedListener, ViewPostFragment.OnCommentThreadSelectedListener{
+public class ProfileActivity extends AppCompatActivity implements ProfileFragment.OnGridImageSelectedListener,
+        ViewPostFragment.OnCommentThreadSelectedListener, ViewProfileFragment.OnGridImageSelectedListener{
 
     private static final String TAG = "ProfileActivity";
 

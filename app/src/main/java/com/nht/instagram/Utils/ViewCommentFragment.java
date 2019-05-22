@@ -145,7 +145,7 @@ public class ViewCommentFragment extends Fragment {
 
         //insert into user_photos node
         myRef.child(getString(R.string.db_users_photo))
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .child(mPhoto.getUser_id())
                 .child(mPhoto.getPhoto_id())
                 .child(getString(R.string.field_comments))
                 .child(commentID)

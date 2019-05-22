@@ -32,6 +32,8 @@
     <string name="field_image_path">image_path</string>
     <string name="view_comments_fragment">View Comments</string>
     <string name="field_comments">comments</string>
+    <string name="dbname_following">following</string>
+    <string name="dbname_followers">followers</string>
 
     <!-- Intent Extra-->
     <string name="calling_activity">calling_activity</string>

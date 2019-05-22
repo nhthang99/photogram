@@ -25,7 +25,9 @@
 
         <activity android:name=".Profile.ProfileActivity"/>
         <activity android:name=".React.ReactActivity" />
-        <activity android:name=".Search.SearchActivity" />
+        <activity android:name=".Search.SearchActivity"
+            android:windowSoftInputMode="adjustNothing"
+            />
         <activity android:name=".Share.ShareActivity" />
         <activity android:name=".Profile.AccountSettingActivity" />
         <activity android:name=".Login.LoginActivity" />
