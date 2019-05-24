@@ -16,7 +16,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/relLayout1">
+                android:id="@+id/relLayout1"
+                android:background="@drawable/gradient_color">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="30dp"
@@ -40,16 +41,6 @@
                     android:id="@+id/username"
                     android:textColor="@color/black"
                     />
-
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_ellipses"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:id="@+id/ivEllipses"/>
 
             </RelativeLayout>
 
@@ -134,7 +125,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View all 3 comments"
+                    android:text=""
                     android:textColor="@color/grey"
                     android:textSize="14sp"
                     android:layout_below="@+id/image_caption"
@@ -143,7 +134,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3 DAYS AGO"
+                    android:text=""
                     android:textColor="@color/grey"
                     android:textSize="12sp"
                     android:layout_below="@+id/image_comments_link"

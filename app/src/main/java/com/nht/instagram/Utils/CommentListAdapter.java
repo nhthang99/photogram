@@ -86,7 +86,9 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
         long minutes = timestampDifference;
         long hours = timestampDifference / 60;
         long days = timestampDifference / 60 / 24;
-        if (days == 0){
+        if (days != 0){
+            holder.timestamp.setText(Long.toString(days) + " days ago");
+        }else{
             if (hours == 0){
                 if (minutes == 0){
                     holder.timestamp.setText("Just now");
@@ -99,8 +101,6 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
             }else{
                 holder.timestamp.setText(Long.toString(hours) + " hours ago");
             }
-        }else{
-            holder.timestamp.setText(Long.toString(days) + " days ago");
         }
 
         //set the username and profile image

@@ -9,4 +9,7 @@
     <color name="black">#000000</color>
     <color name="bluesky">#00BFFF</color>
     <color name="blue_link"> #0000ff</color>
+    <color name="gold">#FFD700</color>
+    <color name="orange">#FFA500</color>
+    <color name="dark_orange">#FF8C00</color>
 </resources>

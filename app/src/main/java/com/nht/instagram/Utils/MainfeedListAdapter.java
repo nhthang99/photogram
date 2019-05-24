@@ -45,6 +45,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainfeedListAdapter extends ArrayAdapter<Photo> {
     private static final String TAG = "MainfeedListAdapter";
 
+    public interface OnLoadMoreItemsListener{
+        void onLoadMoreItems();
+    }
+    OnLoadMoreItemsListener mOnLoadMoreItemsListener;
+
     private LayoutInflater mInflater;
     private int mLayoutResource;
     private Context mContext;
@@ -110,21 +115,23 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         //get the current users username (need for checking likes string)
         getCurrentUsername();
 
-
-
         //get likes string
         getLikesString(holder);
+
+        //set the caption
+        holder.caption.setText(getItem(position).getCaption());
 
         //set the comment
         List<Comment> comments = getItem(position).getComments();
         holder.comments.setText("View all " + comments.size() + " comments");
-        holder.comment.setOnClickListener(new View.OnClickListener() {
+        holder.comments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: loading comment thread for " + getItem(position).getPhoto_id());
-                ((HomeActivity)mContext).onCommentThreadSelected(getItem(position), holder.settings);
+                ((HomeActivity)mContext).onCommentThreadSelected(getItem(position), mContext.getString(R.string.home_activity));
 
                 //going to need to do something else?
+                ((HomeActivity)mContext).hideLayout();
             }
         });
 
@@ -133,7 +140,13 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         long minutes = timestampDiff;
         long hours = timestampDiff / 24;
         long days = timestampDiff / 60 / 24;
-        if (days == 0){
+        if (days != 0){
+            if (days != 1){
+                holder.timeDetla.setText(Long.toString(days) + " days ago");
+            }else{
+                holder.timeDetla.setText("1 day ago");
+            }
+        }else{
             if (hours == 0){
                 if (minutes == 0){
                     holder.timeDetla.setText("Just now");
@@ -146,8 +159,6 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
             }else{
                 holder.timeDetla.setText(Long.toString(hours) + " hours ago");
             }
-        }else{
-            holder.timeDetla.setText(Long.toString(days) + " days ago");
         }
 
 
@@ -209,9 +220,11 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                     holder.comment.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            ((HomeActivity)mContext).onCommentThreadSelected(getItem(position), holder.settings);
+                            ((HomeActivity)mContext).onCommentThreadSelected(getItem(position),
+                                    mContext.getString(R.string.home_activity));
 
                             //another thing?
+                            ((HomeActivity)mContext).hideLayout();
                         }
                     });
                 }
@@ -247,8 +260,30 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
             }
         });
 
+        if(reachedEndOfList(position)){
+            loadMoreData();
+        }
 
         return convertView;
+    }
+
+    private boolean reachedEndOfList(int position){
+        return position == getCount() - 1;
+    }
+
+    private void loadMoreData(){
+
+        try{
+            mOnLoadMoreItemsListener = (OnLoadMoreItemsListener) getContext();
+        }catch (ClassCastException e){
+            Log.e(TAG, "loadMoreData: ClassCastException: " +e.getMessage() );
+        }
+
+        try{
+            mOnLoadMoreItemsListener.onLoadMoreItems();
+        }catch (NullPointerException e){
+            Log.e(TAG, "loadMoreData: ClassCastException: " +e.getMessage() );
+        }
     }
 
     private void getCurrentUsername(){
@@ -407,7 +442,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
 
                                 String[] splitUsers = holder.users.toString().split(",");
 
-                                if(holder.users.toString().contains(holder.user.getUsername() + ",")){//mitch, mitchell.tabian
+                                if(holder.users.toString().contains(currentUsername + ",")){//mitch, mitchell.tabian
                                     holder.likeByCurrentUser = true;
                                 }else{
                                     holder.likeByCurrentUser = false;

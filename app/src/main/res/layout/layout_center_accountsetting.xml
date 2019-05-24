@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textSetting"
             android:text="Account Setting"
-            android:textColor="@color/black"
+            android:textColor="@color/dark_orange"
             android:textSize="35dp"
             android:background="@drawable/grey_border_bottom"/>
 

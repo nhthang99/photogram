@@ -5,11 +5,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingTop="55dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
+        android:background="@color/white"
         >
 
         <TextView
@@ -17,9 +18,9 @@
             android:layout_height="wrap_content"
             android:text="REGISTER A NEW ACCOUNT"
             android:textSize="20sp"
-            android:textColor="@color/black"
+            android:textColor="@color/dark_orange"
             android:gravity="center_horizontal"
-            android:layout_marginBottom="40dp"/>
+            android:layout_marginBottom="40dp" />
 
 
         <android.support.design.widget.TextInputLayout
@@ -31,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/black"
                 android:hint="Email"
                 android:id="@+id/input_email"/>
 
@@ -70,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/showPassword"
+            android:textColor="@color/black"
             android:text="Show password"
             android:layout_marginStart="10dp"/>
 

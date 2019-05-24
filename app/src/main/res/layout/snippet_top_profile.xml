@@ -111,7 +111,7 @@
         android:layout_below="@id/relLayout2"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:background="@drawable/white_grey_border"/>
+        android:background="@drawable/white_rounded_button"/>
 
 
 </RelativeLayout>

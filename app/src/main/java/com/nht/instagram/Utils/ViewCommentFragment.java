@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.nht.instagram.Home.HomeActivity;
 import com.nht.instagram.Models.Comment;
 import com.nht.instagram.Models.Photo;
 import com.nht.instagram.R;
@@ -112,7 +113,12 @@ public class ViewCommentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: navigating back");
-                getActivity().getSupportFragmentManager().popBackStack();
+                if(getCallingActivityFromBundle().equals(getString(R.string.home_activity))){
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    ((HomeActivity)getActivity()).showLayout();
+                }else{
+                    getActivity().getSupportFragmentManager().popBackStack();
+                }
             }
         });
     }
@@ -122,6 +128,21 @@ public class ViewCommentFragment extends Fragment {
         if(view != null){
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    /**
+     * retrieve the photo from the incoming bundle from profileActivity interface
+     * @return
+     */
+    private String getCallingActivityFromBundle(){
+        Log.d(TAG, "getPhotoFromBundle: arguments: " + getArguments());
+
+        Bundle bundle = this.getArguments();
+        if(bundle != null) {
+            return bundle.getString(getString(R.string.home_activity));
+        }else{
+            return null;
         }
     }
 
@@ -217,15 +238,15 @@ public class ViewCommentFragment extends Fragment {
             setupWidgets();
         }
 
-        myRef.child(getString(R.string.db_photos))
+        myRef.child(mContext.getString(R.string.db_photos))
                 .child(mPhoto.getPhoto_id())
-                .child(getString(R.string.field_comments))
+                .child(mContext.getString(R.string.field_comments))
                 .addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                         Query query = myRef
-                                .child(getString(R.string.db_photos))
-                                .orderByChild(getString(R.string.field_photo_id))
+                                .child(mContext.getString(R.string.db_photos))
+                                .orderByChild(mContext.getString(R.string.field_photo_id))
                                 .equalTo(mPhoto.getPhoto_id());
                         query.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override

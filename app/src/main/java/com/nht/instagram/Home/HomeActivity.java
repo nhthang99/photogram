@@ -12,38 +12,64 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nht.instagram.Login.LoginActivity;
 import com.nht.instagram.Models.Photo;
-import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
+import com.nht.instagram.Utils.MainfeedListAdapter;
 import com.nht.instagram.Utils.UniversalImageLoader;
 import com.nht.instagram.Utils.ViewCommentFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements MainfeedListAdapter.OnLoadMoreItemsListener {
 
     private static final String TAG = "HomeActivity";
+
+    @Override
+    public void onLoadMoreItems() {
+        Log.d(TAG, "onLoadMoreItems: displaying more photos");
+        HomeFragment fragment = (HomeFragment)getSupportFragmentManager()
+                .findFragmentByTag("android:switcher:" + R.id.viewpager_container + ":" + mViewPager.getCurrentItem());
+        if(fragment != null){
+            fragment.displayMorePhotos();
+        }
+    }
+
     private static final byte ACTIVITY_NUM = 0;
-//    private ViewPager mViewPager;
+    private static final int HOME_FRAGMENT = 1;
+
     private Context mContext = HomeActivity.this;
+
+    //Firebase
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     //vars
     private ArrayList<Photo> mPhotos;
 
+    //widgets
+    private ViewPager mViewPager;
+    private FrameLayout mFrameLayout;
+    private RelativeLayout mRelativeLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting.");
+
+        mViewPager = (ViewPager) findViewById(R.id.viewpager_container);
+        mFrameLayout = (FrameLayout) findViewById(R.id.container);
+        mRelativeLayout = (RelativeLayout) findViewById(R.id.relLayoutParent);
 
         mPhotos = new ArrayList<>();
 
@@ -55,13 +81,13 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void onCommentThreadSelected(Photo photo, UserAccountSetting settings){
+    public void onCommentThreadSelected(Photo photo,  String callingActivity){
         Log.d(TAG, "onCommentThreadSelected: selected a coemment thread");
 
         ViewCommentFragment fragment  = new ViewCommentFragment();
         Bundle args = new Bundle();
-        args.putParcelable(getString(R.string.bundle_photo), photo);
-        args.putParcelable(getString(R.string.bundle_user_account_settings), settings);
+        args.putParcelable(getString(R.string.photo), photo);
+        args.putString(getString(R.string.home_activity), getString(R.string.home_activity));
         fragment.setArguments(args);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -69,6 +95,27 @@ public class HomeActivity extends AppCompatActivity {
         transaction.addToBackStack(getString(R.string.view_comments_fragment));
         transaction.commit();
 
+    }
+
+    public void hideLayout(){
+        Log.d(TAG, "hideLayout: hiding layout");
+        mRelativeLayout.setVisibility(View.GONE);
+        mFrameLayout.setVisibility(View.VISIBLE);
+    }
+
+
+    public void showLayout(){
+        Log.d(TAG, "hideLayout: showing layout");
+        mRelativeLayout.setVisibility(View.VISIBLE);
+        mFrameLayout.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(mFrameLayout.getVisibility() == View.VISIBLE){
+            showLayout();
+        }
     }
 
     private void initImageLoader(){
@@ -85,12 +132,10 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFragment(new CameraFragment());
         adapter.addFragment(new HomeFragment());
         adapter.addFragment(new MessageFragment());
-
-        ViewPager viewPager = findViewById(R.id.container);
-        viewPager.setAdapter(adapter);
+        mViewPager.setAdapter(adapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(mViewPager);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_instagram);
@@ -150,6 +195,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthStateListener);
+        mViewPager.setCurrentItem(HOME_FRAGMENT);
         checkCurrenUser(mAuth.getCurrentUser());
     }
 

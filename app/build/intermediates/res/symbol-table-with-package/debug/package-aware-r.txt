@@ -634,6 +634,7 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color dark_orange
 color design_bottom_navigation_shadow_color
 color design_default_color_primary
 color design_default_color_primary_dark
@@ -655,6 +656,7 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color gold
 color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
@@ -700,6 +702,7 @@ color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
+color orange
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -1052,6 +1055,7 @@ drawable design_snackbar_background
 drawable follow_button
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable gradient_color
 drawable grey_border_bottom
 drawable ic_account
 drawable ic_account_full
@@ -1081,7 +1085,6 @@ drawable ic_share
 drawable ic_share_full
 drawable ic_speech_bubble
 drawable ic_white_heart
-drawable instagram_logo
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1097,6 +1100,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable orange_button_filled
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable unfollow_button
@@ -1247,7 +1251,6 @@ id invisible
 id italic
 id item_touch_helper_previous_elevation
 id ivCloseShare
-id ivEllipses
 id labeled
 id largeLabel
 id left
@@ -1304,6 +1307,7 @@ id relLayout3
 id relLayout5
 id relLayout6
 id relLayoutEditText
+id relLayoutParent
 id right
 id right_icon
 id right_side
@@ -1406,6 +1410,7 @@ id up
 id useLogo
 id username
 id view_offset_helper
+id viewpager_container
 id visible
 id wide
 id withText

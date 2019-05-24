@@ -94,7 +94,6 @@ public class ViewPostFragment extends Fragment {
         mCaption = (TextView) view.findViewById(R.id.image_caption);
         mUsername = (TextView) view.findViewById(R.id.username);
         mTimestamp = (TextView) view.findViewById(R.id.image_time_posted);
-        mEllipses = (ImageView) view.findViewById(R.id.ivEllipses);
         mHeartRed = (ImageView) view.findViewById(R.id.image_heart_red);
         mHeartWhite = (ImageView) view.findViewById(R.id.image_heart);
         mProfileImage = (ImageView) view.findViewById(R.id.profile_photo);
@@ -430,11 +429,14 @@ public class ViewPostFragment extends Fragment {
         });
     }
     private void setupWidgets(){
-        long timestampDiff = getTimestampDifference();
-        long minutes = timestampDiff;
-        long hours = timestampDiff / 24;
-        long days = timestampDiff / 60 / 24;
-        if (days == 0){
+        //set the timestamp difference
+        long timestampDifference = getTimestampDifference();
+        long minutes = timestampDifference;
+        long hours = timestampDifference / 60;
+        long days = timestampDifference / 60 / 24;
+        if (days != 0){
+            mTimestamp.setText(Long.toString(days) + " days ago");
+        }else{
             if (hours == 0){
                 if (minutes == 0){
                     mTimestamp.setText("Just now");
@@ -447,8 +449,6 @@ public class ViewPostFragment extends Fragment {
             }else{
                 mTimestamp.setText(Long.toString(hours) + " hours ago");
             }
-        }else{
-            mTimestamp.setText(Long.toString(days) + " days ago");
         }
 
         UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");

@@ -28,10 +28,10 @@ public final class R {
     public static final class color {
         private color() {}
 
-        public static final int notification_action_color_filter = 0x7f05007a;
-        public static final int notification_icon_bg_color = 0x7f05007b;
-        public static final int ripple_material_light = 0x7f050086;
-        public static final int secondary_text_default_material_light = 0x7f050088;
+        public static final int notification_action_color_filter = 0x7f05007c;
+        public static final int notification_icon_bg_color = 0x7f05007d;
+        public static final int ripple_material_light = 0x7f050089;
+        public static final int secondary_text_default_material_light = 0x7f05008b;
     }
     public static final class dimen {
         private dimen() {}
@@ -92,13 +92,13 @@ public final class R {
         public static final int icon_group = 0x7f08007a;
         public static final int info = 0x7f080085;
         public static final int italic = 0x7f08008a;
-        public static final int line1 = 0x7f080094;
-        public static final int line3 = 0x7f080095;
-        public static final int normal = 0x7f0800a6;
-        public static final int notification_background = 0x7f0800a7;
-        public static final int notification_main_column = 0x7f0800a8;
-        public static final int notification_main_column_container = 0x7f0800a9;
-        public static final int parent_matrix = 0x7f0800af;
+        public static final int line1 = 0x7f080093;
+        public static final int line3 = 0x7f080094;
+        public static final int normal = 0x7f0800a5;
+        public static final int notification_background = 0x7f0800a6;
+        public static final int notification_main_column = 0x7f0800a7;
+        public static final int notification_main_column_container = 0x7f0800a8;
+        public static final int parent_matrix = 0x7f0800ae;
         public static final int right_icon = 0x7f0800c7;
         public static final int right_side = 0x7f0800c8;
         public static final int save_image_matrix = 0x7f0800ca;
