@@ -85,7 +85,7 @@
             android:text="Register"
             android:id="@+id/btn_register"
             android:padding="12dp"
-            android:background="@drawable/white_rounded_button"/>
+            android:background="@drawable/orange_button_filled"/>
 
 
     </LinearLayout>

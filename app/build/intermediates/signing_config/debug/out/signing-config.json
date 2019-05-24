@@ -1,1 +1,1 @@
-{"mName":"externalOverride","mStoreFile":"C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\ks.jks","mStorePassword":"28031999","mKeyAlias":"key0","mKeyPassword":"28031999","mStoreType":"jks","mV1SigningEnabled":false,"mV2SigningEnabled":true}
+{"mName":"debug","mStoreFile":"C:\\Users\\THANG\\.android\\debug.keystore","mStorePassword":"android","mKeyAlias":"AndroidDebugKey","mKeyPassword":"android","mStoreType":"jks","mV1SigningEnabled":true,"mV2SigningEnabled":true}

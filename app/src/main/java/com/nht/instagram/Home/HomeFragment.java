@@ -1,6 +1,8 @@
 package com.nht.instagram.Home;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,12 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.nht.instagram.Login.LoginActivity;
 import com.nht.instagram.Models.Comment;
 import com.nht.instagram.Models.Photo;
 import com.nht.instagram.R;
@@ -38,6 +42,9 @@ public class HomeFragment extends Fragment {
     private MainfeedListAdapter mAdapter;
     private int mResults;
 
+    //Firebase
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Nullable
     @Override
@@ -48,7 +55,9 @@ public class HomeFragment extends Fragment {
         mFollowing = new ArrayList<>();
         mPhotos = new ArrayList<>();
 
+        setupFirebaseAuth();
         getFollowing();
+
 
         return view;
     }
@@ -57,28 +66,33 @@ public class HomeFragment extends Fragment {
         Log.d(TAG, "getFollowing: searching for following");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Query query = reference
-                .child(getString(R.string.dbname_following))
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
-                    Log.d(TAG, "onDataChange: found user: " +
-                            singleSnapshot.child(getString(R.string.field_user_id)).getValue());
 
-                    mFollowing.add(singleSnapshot.child(getString(R.string.field_user_id)).getValue().toString());
+        try{
+            Query query = reference
+                    .child(getString(R.string.dbname_following))
+                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+                        Log.d(TAG, "onDataChange: found user: " +
+                                singleSnapshot.child(getString(R.string.field_user_id)).getValue());
+
+                        mFollowing.add(singleSnapshot.child(getString(R.string.field_user_id)).getValue().toString());
+                    }
+                    mFollowing.add(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    //get the photos
+                    getPhotos();
                 }
-                mFollowing.add(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                //get the photos
-                getPhotos();
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }catch (NullPointerException e){
+            Log.e(TAG, "getFollowing: NullPointerException" + e.getMessage());
+        }
     }
 
     private void getPhotos(){
@@ -192,6 +206,55 @@ public class HomeFragment extends Fragment {
             Log.e(TAG, "displayPhotos: NullPointerException: " + e.getMessage() );
         }catch (IndexOutOfBoundsException e){
             Log.e(TAG, "displayPhotos: IndexOutOfBoundsException: " + e.getMessage() );
+        }
+    }
+
+    /*
+   --------------------------------------- Firebase Authentication -------------------------------
+    */
+    private void checkCurrenUser(FirebaseUser user){
+        Log.d(TAG, "checkCurrenUser: checking user");
+
+        // Not found user
+        if (user == null){
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private void setupFirebaseAuth(){
+        Log.d(TAG, "setupFirebase: setting up firebase auth");
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                checkCurrenUser(user);
+
+                if(user != null){
+                    Log.d(TAG, "onAuthStateChanged: sign in: " + user.getUid());
+                }
+                else{
+                    Log.d(TAG, "onAuthStateChanged: sign out");
+                }
+            }
+        };
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthStateListener);
+        checkCurrenUser(mAuth.getCurrentUser());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthStateListener != null){
+            mAuth.removeAuthStateListener(mAuthStateListener);
         }
     }
 }
