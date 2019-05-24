@@ -57,6 +57,16 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (getFragmentManager().getBackStackEntryCount() == 1) {
+            finish();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     private static final int NUM_GRID_COLUMNS = 3;
     private static final byte ACTIVITY_NUM = 4;
     private Context mContext = ProfileActivity.this;
@@ -113,6 +123,5 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
             transaction.addToBackStack(getString(R.string.profile_fragment));
             transaction.commit();
         }
-
     }
 }

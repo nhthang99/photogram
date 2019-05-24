@@ -311,6 +311,8 @@ public class ProfileFragment extends Fragment {
         });
     }
 
+
+
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);

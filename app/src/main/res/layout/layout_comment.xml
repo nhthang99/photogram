@@ -12,8 +12,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:src="@drawable/ic_android"
-        app:civ_border_color="@color/grey"
-        app:civ_border_width="0.25dp"/>
+        app:civ_border_color="@color/dark_orange"
+        app:civ_border_width="0.5dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="mitch.tabian"
+                android:text="ng.huuthang"
                 android:id="@+id/comment_username"
                 android:layout_marginLeft="15dp"
                 android:textColor="@color/black"
