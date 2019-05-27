@@ -81,7 +81,7 @@ public class PhotoFragment extends Fragment {
                     if (bitmap == null){
                         Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);
                         Intent intent = new Intent(getActivity(), ShareActivity.class);
-                        intent.putExtra(getString(R.string.selected_bitmap), bitmap);
+//                        intent.putExtra(getString(R.string.selected_bitmap), bitmap);
                         startActivity(intent);
                     }else{
                         Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);

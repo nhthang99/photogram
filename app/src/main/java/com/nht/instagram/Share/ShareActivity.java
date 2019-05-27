@@ -6,17 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nht.instagram.Home.SectionPagerAdapter;
 import com.nht.instagram.R;
-import com.nht.instagram.Utils.BottomNavigationViewHelper;
 import com.nht.instagram.Utils.Permissions;
 
 public class ShareActivity extends AppCompatActivity {
@@ -35,8 +30,6 @@ public class ShareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
         Log.d(TAG, "onCreate: starting.");
-
-//        setupBottomNavigationView();
 
         if(checkPermissionsArray(Permissions.PERMISSIONS)){
             setupViewPager();
@@ -117,17 +110,6 @@ public class ShareActivity extends AppCompatActivity {
         }
     }
 
-
-    private void setupBottomNavigationView(){
-        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationViewBar);
-        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableNavigation(mContext, this,bottomNavigationViewEx);
-        Menu menu = bottomNavigationViewEx.getMenu();
-        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
-        menuItem.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_share_full));
-        menuItem.setChecked(true);
-    }
 
     @Override
     protected void onStop() {

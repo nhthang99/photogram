@@ -108,6 +108,7 @@ public class GalleryFragment extends Fragment {
 
         directories.add(filePaths.CAMERA);
 
+        //remove empty directories
         for (int i = 0 ; i < directories.size(); i++){
             if (FileSearch.getFilePaths(directories.get(i)).isEmpty()){
                 directories.remove(i);
