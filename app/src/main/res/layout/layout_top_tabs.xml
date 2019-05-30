@@ -9,12 +9,42 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tabs"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/white_grey_border_bottom">
-            </android.support.design.widget.TabLayout>
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:id="@+id/ic_photogram"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:src="@mipmap/ic_launcher"
+                    />
+
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="50dp"
+                    android:text="PhotoGram"
+                    android:textColor="@color/dark_orange"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/title_font"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/ic_photogram"
+                    android:layout_marginLeft="15dp"
+                    />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_arrow"/>
+
+            </RelativeLayout>
 
         </android.support.design.widget.AppBarLayout>
 

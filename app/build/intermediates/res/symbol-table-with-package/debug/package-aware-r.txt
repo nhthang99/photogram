@@ -1113,6 +1113,8 @@ drawable white_grey_border
 drawable white_grey_border_bottom
 drawable white_grey_border_top
 drawable white_rounded_button
+font title_font
+font vegan_style
 id ALT
 id CTRL
 id FUNCTION
@@ -1231,6 +1233,7 @@ id home
 id homeAsUp
 id ic_account
 id ic_home
+id ic_photogram
 id ic_react
 id ic_search
 id ic_share
@@ -1364,7 +1367,6 @@ id stretch
 id submenuarrow
 id submit_area
 id tabMode
-id tabs
 id tabsBottom
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1492,7 +1494,6 @@ layout design_text_input_password_icon
 layout fragment_camera
 layout fragment_editprofile
 layout fragment_gallery
-layout fragment_home
 layout fragment_message
 layout fragment_photo
 layout fragment_profile

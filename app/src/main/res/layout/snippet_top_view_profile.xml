@@ -111,14 +111,14 @@
         android:layout_below="@id/relLayout2"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:background="@drawable/follow_button"/>
+        android:background="@drawable/orange_button_filled"/>
 
     <TextView
         android:id="@+id/unfollow"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:text="Unfollow"
-        android:textColor="@color/white"
+        android:textColor="@color/dark_orange"
         android:textSize="14sp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -126,7 +126,7 @@
         android:layout_below="@id/relLayout2"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:background="@drawable/unfollow_button"
+        android:background="@drawable/white_rounded_button"
         android:visibility="gone"/>
 
     <TextView

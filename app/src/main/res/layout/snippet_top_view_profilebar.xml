@@ -9,7 +9,8 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/profileToolbar">
+            android:id="@+id/profileToolbar"
+            android:background="@drawable/gradient_color">
 
             <RelativeLayout
                 android:layout_width="match_parent"
