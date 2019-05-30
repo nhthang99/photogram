@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Fragment names -->
-    <string name="app_name">Instagram</string>
+    <string name="app_name">PhoGram</string>
     <string name="edit_profile_fragment">Edit Profile</string>
     <string name="sign_out_fragment">Sign Out</string>
     <string name="gallery">GALLERY</string>
@@ -11,6 +11,7 @@
     <string name="view_post_fragment">View Post</string>
     <string name="view_profile_fragment">ViewProfile</string>
     <string name="profile_fragment">Profile</string>
+    <string name="view_comments_fragment">View Comments</string>
 
     <!-- Firebase Database Fields-->
     <string name="db_users">users</string>
@@ -30,7 +31,6 @@
     <string name="field_photo_id">photo_id</string>
     <string name="field_tags">tags</string>
     <string name="field_image_path">image_path</string>
-    <string name="view_comments_fragment">View Comments</string>
     <string name="field_comments">comments</string>
     <string name="dbname_following">following</string>
     <string name="dbname_followers">followers</string>

@@ -12,4 +12,7 @@
     <color name="gold">#FFD700</color>
     <color name="orange">#FFA500</color>
     <color name="dark_orange">#FF8C00</color>
+    <color name="dark_ocean">#1197F0</color>
+    <color name="mid_ocean">#AED6F1</color>
+
 </resources>

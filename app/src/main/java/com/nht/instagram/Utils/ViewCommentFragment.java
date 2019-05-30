@@ -139,10 +139,10 @@ public class ViewCommentFragment extends Fragment {
         Log.d(TAG, "getPhotoFromBundle: arguments: " + getArguments());
 
         Bundle bundle = this.getArguments();
-        if(bundle != null) {
+        if(bundle.getString(getString(R.string.home_activity)) != null) {
             return bundle.getString(getString(R.string.home_activity));
         }else{
-            return null;
+            return "not";
         }
     }
 

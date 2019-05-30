@@ -48,7 +48,7 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment{
     private static final String TAG = "ProfileFragment";
 
     public interface OnGridImageSelectedListener{

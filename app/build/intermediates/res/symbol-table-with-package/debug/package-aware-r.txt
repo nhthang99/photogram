@@ -634,6 +634,7 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color dark_ocean
 color dark_orange
 color design_bottom_navigation_shadow_color
 color design_default_color_primary
@@ -673,6 +674,7 @@ color material_grey_600
 color material_grey_800
 color material_grey_850
 color material_grey_900
+color mid_ocean
 color mtrl_bottom_nav_colored_item_tint
 color mtrl_bottom_nav_item_tint
 color mtrl_btn_bg_color_disabled
@@ -1056,6 +1058,7 @@ drawable follow_button
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable gradient_color
+drawable gradient_login
 drawable grey_border_bottom
 drawable ic_account
 drawable ic_account_full
