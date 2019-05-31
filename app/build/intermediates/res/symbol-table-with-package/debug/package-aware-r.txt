@@ -1285,6 +1285,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id notifyToolbar
 id outline
 id packed
 id parallax
@@ -1473,6 +1474,7 @@ layout activity_accountsetting
 layout activity_home
 layout activity_login
 layout activity_next
+layout activity_notify
 layout activity_profile
 layout activity_register
 layout activity_search
@@ -1541,6 +1543,7 @@ layout snippet_search_toolbar
 layout snippet_top_accountsettingtoolbar
 layout snippet_top_editprofile_toolbar
 layout snippet_top_gallerytoolbar
+layout snippet_top_notifytoolbar
 layout snippet_top_profile
 layout snippet_top_profilebar
 layout snippet_top_view_profile
@@ -1598,6 +1601,8 @@ string bottom_sheet_behavior
 string bundle_photo
 string bundle_user_account_settings
 string calling_activity
+string channel_description
+string channel_name
 string character_counter_content_description
 string character_counter_pattern
 string common_google_play_services_enable_button
@@ -2255,3 +2260,4 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml file_paths

@@ -1,4 +1,4 @@
-#Thu May 30 14:26:47 ICT 2019
+#Fri May 31 20:32:42 ICT 2019
 base.0=C\:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
 path.0=classes.dex
 renamed.0=classes.dex

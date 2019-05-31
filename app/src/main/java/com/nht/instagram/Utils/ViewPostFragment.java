@@ -300,23 +300,6 @@ public class ViewPostFragment extends Fragment {
         });
     }
 
-//    private void testToggle(){
-//        mHeartRed.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                Log.d(TAG, "onTouch: red heart touch detected.");
-//                return mGestureDetector.onTouchEvent(event);
-//            }
-//        });
-//        mHeartWhite.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                Log.d(TAG, "onTouch: white heart touch detected.");
-//                return mGestureDetector.onTouchEvent(event);
-//            }
-//        });
-//    }
-
     public class GestureListener extends GestureDetector.SimpleOnGestureListener{
         @Override
         public boolean onDown(MotionEvent e) {

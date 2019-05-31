@@ -1,5 +1,6 @@
 package com.nht.instagram.Utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -38,6 +39,7 @@ import com.nht.instagram.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.TimeZone;
 import java.util.UUID;
 
@@ -94,7 +96,7 @@ public class FirebaseMethods {
                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                     if(!task.isSuccessful()) {
                         try {
-                            throw task.getException();
+                            throw Objects.requireNonNull(task.getException());
                         } catch (Exception e) {
                             Log.e(TAG, "onComplete: Exception" + e.getMessage());
                         }
@@ -127,9 +129,10 @@ public class FirebaseMethods {
 
                 }
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @SuppressLint("DefaultLocale")
                 @Override
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                    double progress = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                    double progress = (100 * (float)taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
 
                     if(progress - 15 > mPhotoUploadProgress){
                         Toast.makeText(mContext, "Photo upload progress " + String.format("%.0f", progress) + "%", Toast.LENGTH_SHORT).show();
@@ -184,9 +187,10 @@ public class FirebaseMethods {
                     Toast.makeText(mContext, "Photo upload failed ", Toast.LENGTH_SHORT).show();
                 }
             }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @SuppressLint("DefaultLocale")
                 @Override
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                    double progress = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                    double progress = (100 * (float)taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
 
                     if(progress - 15 > mPhotoUploadProgress){
                         Toast.makeText(mContext, "Photo upload progress: " + String.format("%.0f", progress) + "%", Toast.LENGTH_SHORT).show();
@@ -312,7 +316,7 @@ public class FirebaseMethods {
                         } else {
                             try
                             {
-                                throw task.getException();
+                                throw Objects.requireNonNull(task.getException());
                             }
                             // if user enters wrong password.
                             catch (FirebaseAuthWeakPasswordException weakPassword)

@@ -151,6 +151,8 @@ public class ViewProfileFragment extends Fragment {
                         .child(getString(R.string.field_user_id))
                         .setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 setFollowing();
+
+                getFollowersCount();
             }
         });
 
@@ -172,6 +174,8 @@ public class ViewProfileFragment extends Fragment {
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .removeValue();
                 setUnfollowing();
+
+                getFollowersCount();
             }
         });
 
@@ -264,7 +268,6 @@ public class ViewProfileFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot singleSnapshot :  dataSnapshot.getChildren()){
                     Log.d(TAG, "onDataChange: found user:" + singleSnapshot.getValue());
-
                     setFollowing();
                 }
             }
@@ -274,7 +277,6 @@ public class ViewProfileFragment extends Fragment {
 
             }
         });
-
     }
 
     private void setFollowing(){

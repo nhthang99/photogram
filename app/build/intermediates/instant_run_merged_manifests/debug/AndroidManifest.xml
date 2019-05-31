@@ -45,6 +45,17 @@
         <activity android:name="com.nht.instagram.Login.LoginActivity" />
         <activity android:name="com.nht.instagram.Login.RegisterActivity" />
         <activity android:name="com.nht.instagram.Share.NextActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.nht.instagram.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"

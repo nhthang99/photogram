@@ -93,7 +93,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
     }
 
     public void onCommentThreadSelected(Photo photo,  String callingActivity){
-        Log.d(TAG, "onCommentThreadSelected: selected a coemment thread");
+        Log.d(TAG, "onCommentThreadSelected: selected a comment thread");
 
         ViewCommentFragment fragment  = new ViewCommentFragment();
         Bundle args = new Bundle();
