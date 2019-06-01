@@ -2,6 +2,7 @@ package com.nht.instagram.Share;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -77,7 +78,9 @@ public class NextActivity extends AppCompatActivity {
                     mFirebaseMethods.uploadNewPhoto(getString(R.string.new_photo), caption, imgURL,null);
                 }
                 else if(intent.hasExtra(getString(R.string.selected_bitmap))){
-                    bitmap = (Bitmap) intent.getParcelableExtra(getString(R.string.selected_bitmap));
+//                    bitmap = (Bitmap) intent.getParcelableExtra(getString(R.string.selected_bitmap));
+                    byte[] byteArray = intent.getByteArrayExtra(getString(R.string.selected_bitmap));
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
                     mFirebaseMethods.uploadNewPhoto(getString(R.string.new_photo), caption, null, bitmap);
                 }
             }
@@ -95,8 +98,9 @@ public class NextActivity extends AppCompatActivity {
             UniversalImageLoader.setImage(imgURL, image, null, mAppend);
         }
         else if(intent.hasExtra(getString(R.string.selected_bitmap))){
-            bitmap = (Bitmap) intent.getParcelableExtra(getString(R.string.selected_bitmap));
-            Log.d(TAG, "setImage: got new bitmap");
+//            bitmap = (Bitmap) intent.getParcelableExtra(getString(R.string.selected_bitmap));
+            byte[] byteArray = intent.getByteArrayExtra(getString(R.string.selected_bitmap));
+            Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
             image.setImageBitmap(bitmap);
         }
     }

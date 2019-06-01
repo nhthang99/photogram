@@ -86,6 +86,7 @@ public class FirebaseMethods {
             if (bitmap == null){
                 bitmap = ImageManager.getBitmap(imgUrl);
             }
+
             byte[] bytes = ImageManager.getBytesFromBitmap(bitmap, 100);
 
             UploadTask uploadTask = null;

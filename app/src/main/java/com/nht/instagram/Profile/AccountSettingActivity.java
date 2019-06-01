@@ -3,6 +3,7 @@ package com.nht.instagram.Profile;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -88,8 +89,10 @@ public class AccountSettingActivity extends AppCompatActivity {
             }else if(intent.hasExtra(getString(R.string.selected_bitmap))){
                 //set the new profile picture
                 FirebaseMethods firebaseMethods = new FirebaseMethods(AccountSettingActivity.this);
+                byte[] byteArray = getIntent().getByteArrayExtra(getString(R.string.selected_bitmap));
+                Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
                 firebaseMethods.uploadNewPhoto(getString(R.string.profile_photo), null,
-                        null,(Bitmap) intent.getParcelableExtra(getString(R.string.selected_bitmap)));
+                        null, bitmap);
             }
         }
 
