@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:text="ng.huuthang99"
+                    android:text=""
                     android:layout_toRightOf="@+id/profile_photo"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"
@@ -108,7 +108,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Liked by ng.huuthang99 and 30 others"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:id="@+id/image_likes"/>
@@ -116,7 +116,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hi, all"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:id="@+id/image_caption"

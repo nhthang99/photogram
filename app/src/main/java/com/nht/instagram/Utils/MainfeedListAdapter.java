@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -167,6 +168,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         imageLoader.displayImage(getItem(position).getImage_path(), holder.image);
 
 
+
         //get the profile image and username
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Query query = reference
@@ -198,8 +200,13 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                         }
                     });
 
-                    imageLoader.displayImage(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo(),
-                            holder.mProfileImage);
+                    Glide
+                            .with(getContext())
+                            .load(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo())
+                            .override(100, 100)
+                            .fitCenter()
+                            .into(holder.mProfileImage);
+
                     holder.mProfileImage.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -119,9 +120,16 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
 
                     ImageLoader imageLoader = ImageLoader.getInstance();
 
-                    imageLoader.displayImage(
-                            singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo(),
-                            holder.profileImage);
+//                    imageLoader.displayImage(
+//                            singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo(),
+//                            holder.profileImage);
+                    //        UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
+                    Glide
+                            .with(getContext())
+                            .load(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo())
+                            .override(100, 100)
+                            .fitCenter()
+                            .into(holder.profileImage);
                 }
 
             }

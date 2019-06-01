@@ -32,7 +32,6 @@ import com.nht.instagram.Utils.UserListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class SearchActivity extends AppCompatActivity{
     private static final String TAG = "SearchActivity";
@@ -80,7 +79,7 @@ public class SearchActivity extends AppCompatActivity{
             @Override
             public void afterTextChanged(Editable s) {
 
-                String text = mSearchParam.getText().toString().toLowerCase(Locale.getDefault());
+                String text = mSearchParam.getText().toString();
                 searchForMatch(text);
             }
         });

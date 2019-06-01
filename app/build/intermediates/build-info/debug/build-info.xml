@@ -2,41 +2,43 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="26"
-    build-mode="COLD"
+    build-mode="HOT_WARM"
     density="xxhdpi"
     format="10"
-    ir-eligibility="COMPATIBLE"
     plugin-version="3.4.1"
-    timestamp="1559372301184"
+    timestamp="1559390428731"
     token="6765123902284430861"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="953" />
+        duration="1206" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="32" />
     <task
         name="instant-run-transform"
-        duration="51" />
+        duration="50" />
     <task
         name="verifier"
-        duration="6" />
+        duration="13" />
 
     <artifact
-        location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-        type="SPLIT" />
+        location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
 
     <build
         build-mode="FULL"
-        timestamp="1559369777480"
+        timestamp="1559373985268"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
@@ -66,20 +68,93 @@
             location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
             location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1559387759283"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1559372301184"
+        timestamp="1559390101767"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1559390161456"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\builds\debug\1559390161456\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1559390192565"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\builds\debug\1559390192565\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1559390234479"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\builds\debug\1559390234479\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1559390288950"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1559390428731"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -434,10 +435,17 @@ public class ViewPostFragment extends Fragment {
             }
         }
 
-        UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
         mUsername.setText(mUserAccountSettings.getUsername());
         mLikes.setText(mLikesString);
         mCaption.setText(mPhoto.getCaption());
+
+//                UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
+        Glide
+                .with(getContext())
+                .load(mUserAccountSettings.getProfile_photo())
+                .override(100, 100)
+                .fitCenter()
+                .into(mProfileImage);
 
         if(mPhoto.getComments().size() > 0){
             mComments.setText("View all " + mPhoto.getComments().size() + " comments");

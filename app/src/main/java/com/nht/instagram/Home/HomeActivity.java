@@ -45,7 +45,6 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
 
     private static final String TAG = "HomeActivity";
 
-    @Override
     public void onLoadMoreItems() {
         displayMorePhotos();
     }
