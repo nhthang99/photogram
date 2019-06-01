@@ -60,7 +60,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/relLayout2"
-                    android:layout_below="@+id/post_image"
                     android:background="@drawable/white_grey_border">
 
                     <RelativeLayout

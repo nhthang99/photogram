@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -40,6 +39,7 @@ import com.nht.instagram.R;
 import com.nht.instagram.Utils.BottomNavigationViewHelper;
 import com.nht.instagram.Utils.FirebaseMethods;
 import com.nht.instagram.Utils.GridImageAdapter;
+import com.nht.instagram.Utils.UniversalImageLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -286,13 +286,13 @@ public class ProfileFragment extends Fragment{
         User user = userSettings.getUser();
         UserAccountSetting settings = userSettings.getSettings();
 
-//        UniversalImageLoader.setImage(settings.getProfile_photo(), mProfilePhoto, null, "");
-        Glide
-                .with(getContext())
-                .load(settings.getProfile_photo())
-                .override(300, 300)
-                .fitCenter()
-                .into(mProfilePhoto);
+        UniversalImageLoader.setImage(settings.getProfile_photo(), mProfilePhoto, null, "");
+//        Glide
+//                .with(getContext())
+//                .load(settings.getProfile_photo())
+//                .override(300, 300)
+//                .fitCenter()
+//                .into(mProfilePhoto);
         Log.d(TAG, "setProfileWidgets: "+ settings.getProfile_photo());
 
         mDisplayname.setText(settings.getDisplay_name());

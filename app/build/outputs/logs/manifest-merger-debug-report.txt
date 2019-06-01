@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-50:12
-INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-50:12
-INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-50:12
-INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-50:12
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-51:12
 MERGED from [com.github.ittianyu:BottomNavigationViewEx:2.0.4] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\287f6bfccf651389b3fd0ee27f23f39b\AndroidManifest.xml:2:1-14:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\b1b8af0170aaf380a41770729fd4f007\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\0ad1f4a6187b7e150d2b8d628cec4243\AndroidManifest.xml:17:1-22:12
@@ -51,20 +51,20 @@ MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\THANG\.gradle\cache
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\536f250be0130f141495d8c5c1221d10\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\cb070ed9aa610fbac1438432e93eb119\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\205c36a5f7b3b5b5557e748af4c9a346\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-50:12
-INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-50:12
-INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-50:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-51:12
+INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-51:12
 	package
 		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:3:5-32
 		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-50:12
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-51:12
 		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-50:12
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:1-51:12
 		INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:2:11-69
@@ -89,7 +89,7 @@ ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\Andr
 	android:name
 		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:8:22-78
 application
-ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:10:5-48:19
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:10:5-49:19
 MERGED from [com.github.ittianyu:BottomNavigationViewEx:2.0.4] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\287f6bfccf651389b3fd0ee27f23f39b\AndroidManifest.xml:11:5-12:19
 MERGED from [com.github.ittianyu:BottomNavigationViewEx:2.0.4] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\287f6bfccf651389b3fd0ee27f23f39b\AndroidManifest.xml:11:5-12:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\THANG\.gradle\caches\transforms-2\files-2.1\b1b8af0170aaf380a41770729fd4f007\AndroidManifest.xml:22:5-20
@@ -190,22 +190,26 @@ activity#com.nht.instagram.Share.NextActivity
 ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:35:9-56
 	android:name
 		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:35:19-53
+activity#com.nht.instagram.Home.MessageActivity
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:36:9-67
+	android:name
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:36:19-55
 provider#android.support.v4.content.FileProvider
-ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:38:9-46:20
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:39:9-47:20
 	android:grantUriPermissions
-		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:42:13-47
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:43:13-47
 	android:authorities
-		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:40:13-65
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:41:13-65
 	android:exported
-		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:41:13-37
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:42:13-37
 	android:name
-		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:39:13-67
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:40:13-67
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:43:13-45:64
+ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:44:13-46:64
 	android:resource
-		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:45:17-51
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:46:17-51
 	android:name
-		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:44:17-67
+		ADDED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml:45:17-67
 uses-sdk
 INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\THANG\AndroidStudioProjects\InstagramClone\app\src\main\AndroidManifest.xml

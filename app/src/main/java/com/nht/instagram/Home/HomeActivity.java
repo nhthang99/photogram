@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -71,6 +72,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
     private FrameLayout mFrameLayout;
     private RelativeLayout mRelativeLayout;
     //vars
+    private ImageView mMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
         mFrameLayout = (FrameLayout) findViewById(R.id.container);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relLayoutParent);
         mListView = (ListView)findViewById(R.id.listView);
+        mMessage = (ImageView)findViewById(R.id.message);
         mFollowing = new ArrayList<>();
         mPhotos = new ArrayList<>();
 
@@ -89,6 +92,15 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
         setupBottomNavigationView();
         initImageLoader();
         getFollowing();
+
+        mMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MessageActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     public void onCommentThreadSelected(Photo photo,  String callingActivity){

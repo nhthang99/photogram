@@ -43,6 +43,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="10dp"
+                    android:id="@+id/message"
                     android:src="@drawable/ic_arrow"/>
 
             </RelativeLayout>

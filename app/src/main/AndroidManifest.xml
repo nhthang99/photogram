@@ -33,6 +33,7 @@
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Login.RegisterActivity" />
         <activity android:name=".Share.NextActivity" />
+        <activity android:name=".Home.MessageActivity"></activity>
 
 
         <provider

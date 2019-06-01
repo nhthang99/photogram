@@ -46,6 +46,7 @@
         <activity android:name="com.nht.instagram.Login.LoginActivity" />
         <activity android:name="com.nht.instagram.Login.RegisterActivity" />
         <activity android:name="com.nht.instagram.Share.NextActivity" />
+        <activity android:name="com.nht.instagram.Home.MessageActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

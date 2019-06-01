@@ -1084,6 +1084,7 @@ drawable ic_react_full
 drawable ic_red_heart
 drawable ic_search
 drawable ic_search_full
+drawable ic_sentmessage
 drawable ic_share
 drawable ic_share_full
 drawable ic_speech_bubble
@@ -1148,6 +1149,7 @@ id adjust_width
 id alertTitle
 id all
 id always
+id app_tool
 id async
 id auto
 id back
@@ -1162,6 +1164,7 @@ id btnConfirmSignout
 id btnLaunchCamera
 id btn_login
 id btn_register
+id btn_send
 id buttonPanel
 id cancel_action
 id caption
@@ -1308,6 +1311,7 @@ id progressBar
 id progress_circular
 id progress_horizontal
 id radio
+id recycle_view
 id relLayout0
 id relLayout1
 id relLayout2
@@ -1387,6 +1391,8 @@ id textSpacerNoTitle
 id textStart
 id textUsername
 id text_input_password_toggle
+id text_message
+id text_send
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -1394,6 +1400,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -1474,6 +1481,7 @@ layout abc_tooltip
 layout activity_accountsetting
 layout activity_home
 layout activity_login
+layout activity_message
 layout activity_next
 layout activity_notify
 layout activity_profile

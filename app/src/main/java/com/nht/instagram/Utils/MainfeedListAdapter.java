@@ -15,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,12 +43,13 @@ import java.util.TimeZone;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainfeedListAdapter extends ArrayAdapter<Photo> {
-    private static final String TAG = "MainfeedListAdapter";
 
     public interface OnLoadMoreItemsListener{
         void onLoadMoreItems();
     }
     OnLoadMoreItemsListener mOnLoadMoreItemsListener;
+
+    private static final String TAG = "MainFeedListAdapter";
 
     private LayoutInflater mInflater;
     private int mLayoutResource;
@@ -66,7 +66,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
     }
 
     static class ViewHolder{
-        CircleImageView mProfileImage;
+        CircleImageView mprofileImage;
         String likesString;
         TextView username, timeDetla, caption, likes, comments;
         SquareImageView image;
@@ -101,17 +101,18 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
             holder.comments = (TextView) convertView.findViewById(R.id.image_comments_link);
             holder.caption = (TextView) convertView.findViewById(R.id.image_caption);
             holder.timeDetla = (TextView) convertView.findViewById(R.id.image_time_posted);
-            holder.mProfileImage = (CircleImageView) convertView.findViewById(R.id.profile_photo);
-            holder.heart = new Heart(holder.heartWhite, holder.heartRed);
-            holder.photo = getItem(position);
-            holder.detector = new GestureDetector(mContext, new GestureListener(holder));
-            holder.users = new StringBuilder();
+            holder.mprofileImage = (CircleImageView) convertView.findViewById(R.id.profile_photo);
 
             convertView.setTag(holder);
         }
         else{
-            holder = (ViewHolder)convertView.getTag();
+            holder = (ViewHolder) convertView.getTag();
         }
+
+        holder.photo = getItem(position);
+        holder.detector = new GestureDetector(mContext, new GestureListener(holder));
+        holder.users = new StringBuilder();
+        holder.heart = new Heart(holder.heartWhite, holder.heartRed);
 
         //get the current users username (need for checking likes string)
         getCurrentUsername();
@@ -129,10 +130,12 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: loading comment thread for " + getItem(position).getPhoto_id());
-                ((HomeActivity)mContext).onCommentThreadSelected(getItem(position), mContext.getString(R.string.home_activity));
+                ((HomeActivity)mContext).onCommentThreadSelected(getItem(position),
+                        mContext.getString(R.string.home_activity));
 
                 //going to need to do something else?
                 ((HomeActivity)mContext).hideLayout();
+
             }
         });
 
@@ -162,11 +165,9 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
             }
         }
 
-
         //set the profile image
         final ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.displayImage(getItem(position).getImage_path(), holder.image);
-
 
 
         //get the profile image and username
@@ -200,14 +201,9 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                         }
                     });
 
-                    Glide
-                            .with(getContext())
-                            .load(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo())
-                            .override(100, 100)
-                            .fitCenter()
-                            .into(holder.mProfileImage);
-
-                    holder.mProfileImage.setOnClickListener(new View.OnClickListener() {
+                    imageLoader.displayImage(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo(),
+                            holder.mprofileImage);
+                    holder.mprofileImage.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Log.d(TAG, "onClick: navigating to profile of: " +
@@ -293,29 +289,6 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         }
     }
 
-    private void getCurrentUsername(){
-        Log.d(TAG, "getCurrentUsername: retrieving user account settings");
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Query query = reference
-                .child(mContext.getString(R.string.db_users))
-                .orderByChild(mContext.getString(R.string.field_user_id))
-                .equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
-                    currentUsername = singleSnapshot.getValue(UserAccountSetting.class).getUsername();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-
     public class GestureListener extends GestureDetector.SimpleOnGestureListener{
 
         ViewHolder mHolder;
@@ -332,6 +305,8 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         public boolean onDoubleTap(MotionEvent e) {
             Log.d(TAG, "onDoubleTap: double tap detected.");
 
+            Log.d(TAG, "onDoubleTap: clicked on photo: " + mHolder.photo.getPhoto_id());
+
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
             Query query = reference
                     .child(mContext.getString(R.string.db_photos))
@@ -345,9 +320,10 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                         String keyID = singleSnapshot.getKey();
 
                         //case1: Then user already liked the photo
-                        if(mHolder.likeByCurrentUser &&
-                                singleSnapshot.getValue(Like.class).getUser_id()
-                                        .equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                        if(mHolder.likeByCurrentUser
+//                                && singleSnapshot.getValue(Like.class).getUser_id()
+//                                        .equals(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        ){
 
                             mReference.child(mContext.getString(R.string.db_photos))
                                     .child(mHolder.photo.getPhoto_id())
@@ -356,7 +332,8 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                                     .removeValue();
 ///
                             mReference.child(mContext.getString(R.string.db_users_photo))
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child(mHolder.photo.getUser_id())
                                     .child(mHolder.photo.getPhoto_id())
                                     .child(mContext.getString(R.string.field_likes))
                                     .child(keyID)
@@ -388,7 +365,6 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         }
     }
 
-
     private void addNewLike(final ViewHolder holder){
         Log.d(TAG, "addNewLike: adding new like");
 
@@ -413,13 +389,34 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         getLikesString(holder);
     }
 
+    private void getCurrentUsername(){
+        Log.d(TAG, "getCurrentUsername: retrieving user account settings");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        Query query = reference
+                .child(mContext.getString(R.string.db_users))
+                .orderByChild(mContext.getString(R.string.field_user_id))
+                .equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+                    currentUsername = singleSnapshot.getValue(UserAccountSetting.class).getUsername();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     private void getLikesString(final ViewHolder holder){
         Log.d(TAG, "getLikesString: getting likes string");
 
+        Log.d(TAG, "getLikesString: photo id: " + holder.photo.getPhoto_id());
         try{
-
-
-
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
             Query query = reference
                     .child(mContext.getString(R.string.db_photos))
@@ -449,7 +446,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
 
                                 String[] splitUsers = holder.users.toString().split(",");
 
-                                if(holder.users.toString().contains(currentUsername + ",")){//mitch, mitchell.tabian
+                                if(holder.users.toString().contains(currentUsername + ",")){
                                     holder.likeByCurrentUser = true;
                                 }else{
                                     holder.likeByCurrentUser = false;
@@ -517,6 +514,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
     private void setupLikesString(final ViewHolder holder, String likesString){
         Log.d(TAG, "setupLikesString: likes string:" + holder.likesString);
 
+        Log.d(TAG, "setupLikesString: photo id: " + holder.photo.getPhoto_id());
         if(holder.likeByCurrentUser){
             Log.d(TAG, "setupLikesString: photo is liked by current user");
             holder.heartWhite.setVisibility(View.GONE);
@@ -567,3 +565,31 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
