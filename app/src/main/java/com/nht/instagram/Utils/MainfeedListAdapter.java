@@ -279,7 +279,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         try{
             mOnLoadMoreItemsListener = (OnLoadMoreItemsListener) getContext();
         }catch (ClassCastException e){
-            Log.e(TAG, "loadMoreData: ClassCastException: " +e.getMessage() );
+            Log.e(TAG, "loadMoreData: ClassCastException: " + e.getMessage() );
         }
 
         try{

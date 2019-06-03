@@ -160,4 +160,10 @@ public class SearchActivity extends AppCompatActivity{
         menuItem.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_search_full));
         menuItem.setChecked(true);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 }

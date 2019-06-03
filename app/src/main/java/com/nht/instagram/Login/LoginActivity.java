@@ -170,4 +170,10 @@ public class LoginActivity extends AppCompatActivity {
             mAuth.removeAuthStateListener(mAuthStateListener);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 }

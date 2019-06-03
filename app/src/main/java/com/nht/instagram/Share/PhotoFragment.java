@@ -82,11 +82,6 @@ public class PhotoFragment extends Fragment {
 
             Bitmap bitmap = BitmapFactory.decodeFile(pathToFile);
 
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            Log.d(TAG, "onActivityResult: byteArray: " + byteArray);
-
             if(isRootTask()){
                 try{
                     if (bitmap == null){
@@ -95,6 +90,11 @@ public class PhotoFragment extends Fragment {
                         startActivity(intent);
                     }else{
                         Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        Log.d(TAG, "onActivityResult: byteArray: " + byteArray);
+
                         Intent intent = new Intent(getActivity(), NextActivity.class);
 //                        intent.putExtra(getString(R.string.selected_bitmap), bitmap);
                         intent.putExtra(getString(R.string.selected_bitmap), byteArray);
@@ -107,6 +107,10 @@ public class PhotoFragment extends Fragment {
             }else{
                 try{
                     Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    
                     Intent intent = new Intent(getActivity(), AccountSettingActivity.class);
                     intent.putExtra(getString(R.string.selected_bitmap), byteArray);
                     intent.putExtra(getString(R.string.return_to_fragment), getString(R.string.edit_profile_fragment));

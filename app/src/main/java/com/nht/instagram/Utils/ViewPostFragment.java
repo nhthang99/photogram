@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -195,6 +194,9 @@ public class ViewPostFragment extends Fragment {
         Log.d(TAG, "getLikesString: getting likes string");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        if (getActivity() == null){
+            return;
+        }
         Query query = reference
                 .child(getString(R.string.db_photos))
                 .child(mPhoto.getPhoto_id())
@@ -204,7 +206,9 @@ public class ViewPostFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mUsers = new StringBuilder();
                 for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
-
+                    if (getActivity() == null){
+                        return;
+                    }
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
                     Query query = reference
                             .child(getString(R.string.db_users))
@@ -439,13 +443,13 @@ public class ViewPostFragment extends Fragment {
         mLikes.setText(mLikesString);
         mCaption.setText(mPhoto.getCaption());
 
-//                UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
-        Glide
-                .with(getContext())
-                .load(mUserAccountSettings.getProfile_photo())
-                .override(100, 100)
-                .fitCenter()
-                .into(mProfileImage);
+                UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
+//        Glide
+//                .with(getContext())
+//                .load(mUserAccountSettings.getProfile_photo())
+//                .override(100, 100)
+//                .fitCenter()
+//                .into(mProfileImage);
 
         if(mPhoto.getComments().size() > 0){
             mComments.setText("View all " + mPhoto.getComments().size() + " comments");

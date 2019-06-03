@@ -12,6 +12,7 @@
     <string name="view_profile_fragment">ViewProfile</string>
     <string name="profile_fragment">Profile</string>
     <string name="view_comments_fragment">View Comments</string>
+    <string name="home_fragment">Home</string>
 
     <!-- Firebase Database Fields-->
     <string name="db_users">users</string>

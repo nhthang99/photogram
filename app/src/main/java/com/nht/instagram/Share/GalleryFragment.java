@@ -109,10 +109,14 @@ public class GalleryFragment extends Fragment {
         directories.add(filePaths.CAMERA);
 
         //remove empty directories
-        for (int i = 0 ; i < directories.size(); i++){
-            if (FileSearch.getFilePaths(directories.get(i)).isEmpty()){
-                directories.remove(i);
+        try{
+            for (int i = 0 ; i < directories.size(); i++){
+                if (FileSearch.getFilePaths(directories.get(i)).isEmpty()){
+                    directories.remove(i);
+                }
             }
+        }catch (NullPointerException e){
+            Log.e(TAG, "init: NullPointerException" + e.getMessage());
         }
 
         ArrayList<String> directoryNames = new ArrayList<>();
@@ -155,14 +159,16 @@ public class GalleryFragment extends Fragment {
         int imageWidth = gridWidth/NUM_GRID_COLUMNS;
         gridView.setColumnWidth(imageWidth);
 
+        try{
         //use the grid adapter to adapter the images to gridview
         GridImageAdapter adapter = new GridImageAdapter(getActivity(), R.layout.layout_grid_imageview, mAppend, imgURLs);
         gridView.setAdapter(adapter);
 
         //set the first image to be displayed when the activity fragment view is inflated
-        if (!imgURLs.isEmpty()){
             setImage(imgURLs.get(0), galleryImage, mAppend);
             mSelectedImage = imgURLs.get(0);
+        }catch (NullPointerException e){
+            Log.d(TAG, "setupGridView: NullPointerException" + e.getMessage());
         }
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

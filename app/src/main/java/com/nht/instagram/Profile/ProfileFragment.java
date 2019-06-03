@@ -147,6 +147,9 @@ public class ProfileFragment extends Fragment{
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                if (getActivity() == null){
+                    return;
+                }
                 for ( DataSnapshot singleSnapshot :  dataSnapshot.getChildren()){
                     Photo photo = new Photo();
                     Map<String, Object> objectMap = (HashMap<String, Object>) singleSnapshot.getValue();
@@ -189,9 +192,9 @@ public class ProfileFragment extends Fragment{
                 int imageWidth = gridWidth/NUM_GRID_COLUMNS;
                 gridView.setColumnWidth(imageWidth);
 
-                ArrayList<String> imgUrls = new ArrayList<String>();
+                final ArrayList<String> imgUrls = new ArrayList<String>();
                 for(int i = 0; i < photos.size(); i++){
-                    imgUrls.add(photos.get(i).getImage_path());
+                    imgUrls.add(0, photos.get(i).getImage_path());
                 }
                 GridImageAdapter adapter = new GridImageAdapter(getActivity(),R.layout.layout_grid_imageview,
                         "", imgUrls);
@@ -200,7 +203,7 @@ public class ProfileFragment extends Fragment{
                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        mOnGridImageSelectedListener.onGridImageSelected(photos.get(position), ACTIVITY_NUM);
+                        mOnGridImageSelectedListener.onGridImageSelected(photos.get(photos.size() - position - 1), ACTIVITY_NUM);
                     }
                 });
             }

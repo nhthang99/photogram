@@ -7,8 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +21,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
         ViewPostFragment.OnCommentThreadSelectedListener, ViewProfileFragment.OnGridImageSelectedListener{
 
     private static final String TAG = "ProfileActivity";
+    private Context mContext = ProfileActivity.this;
 
     @Override
     public void onCommentThreadSelectedListener(Photo photo) {
@@ -35,6 +34,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
         fragment.setArguments(args);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setReorderingAllowed(true);
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(getString(R.string.view_comments_fragment));
         transaction.commit();
@@ -51,27 +51,11 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
         fragment.setArguments(args);
 
         FragmentTransaction transaction  = getSupportFragmentManager().beginTransaction();
+        transaction.setReorderingAllowed(true);
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(getString(R.string.view_post_fragment));
         transaction.commit();
-
     }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (getFragmentManager().getBackStackEntryCount() == 1) {
-            finish();
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    private static final int NUM_GRID_COLUMNS = 3;
-    private static final byte ACTIVITY_NUM = 4;
-    private Context mContext = ProfileActivity.this;
-    private ProgressBar mProgressBar;
-    private ImageView mProfilePhoto;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -100,6 +84,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
                     fragment.setArguments(args);
 
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.setAllowOptimization(true);
                     transaction.replace(R.id.container, fragment);
                     transaction.addToBackStack(getString(R.string.view_profile_fragment));
                     transaction.commit();
@@ -122,6 +107,19 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
             transaction.replace(R.id.container, fragment);
             transaction.addToBackStack(getString(R.string.profile_fragment));
             transaction.commit();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() == 1){
+            finish();
+        }else if (getFragmentManager().getBackStackEntryCount() > 1) {
+            getFragmentManager().popBackStackImmediate();
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        }else{
+            super.onBackPressed();
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }
     }
 }
