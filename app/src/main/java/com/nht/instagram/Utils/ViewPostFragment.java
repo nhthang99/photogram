@@ -60,7 +60,7 @@ public class ViewPostFragment extends Fragment {
     //widgets
     private SquareImageView mPostImage;
     private BottomNavigationViewEx bottomNavigationView;
-    private TextView mBackLabel, mCaption, mUsername, mTimestamp, mLikes, mComments;
+    private TextView mBackLabel, mCaption, mUsername, mTimestamp, mLikes, mComments, mUsernameCaption;
     private ImageView mBackArrow, mEllipses, mHeartRed, mHeartWhite, mProfileImage, mComment;
     private BottomNavigationViewEx bottomNavigationViewEx;
     private static final byte ACTIVITY_NUM = 4;
@@ -101,6 +101,8 @@ public class ViewPostFragment extends Fragment {
         mLikes = (TextView) view.findViewById(R.id.image_likes);
         mComment = (ImageView) view.findViewById(R.id.speech_bubble);
         mComments = (TextView) view.findViewById(R.id.image_comments_link);
+        mUsernameCaption = (TextView)view.findViewById(R.id.username_caption);
+
 
         mUserAccountSettings = new UserAccountSetting();
         mHeartRed.setVisibility(View.GONE);
@@ -122,6 +124,9 @@ public class ViewPostFragment extends Fragment {
             mActivityNumber = getActivityNumFromBundle();
             String photo_id = getPhotoFromBundle().getPhoto_id();
 
+            if (getActivity() == null){
+                return;
+            }
             Query query = FirebaseDatabase.getInstance().getReference()
                     .child(getString(R.string.db_photos))
                     .orderByChild(getString(R.string.field_photo_id))
@@ -241,22 +246,10 @@ public class ViewPostFragment extends Fragment {
                                 mLikesString = "Liked by " + splitUsers[0]
                                         + " and " + splitUsers[1];
                             }
-                            else if(length == 3){
+                            else if(length > 2){
                                 mLikesString = "Liked by " + splitUsers[0]
                                         + ", " + splitUsers[1]
-                                        + " and " + splitUsers[2];
-                            }
-                            else if(length == 4){
-                                mLikesString = "Liked by " + splitUsers[0]
-                                        + ", " + splitUsers[1]
-                                        + ", " + splitUsers[2]
-                                        + " and " + splitUsers[3];
-                            }
-                            else if(length > 4){
-                                mLikesString = "Liked by " + splitUsers[0]
-                                        + ", " + splitUsers[1]
-                                        + ", " + splitUsers[2]
-                                        + " and " + (splitUsers.length - 3) + " others";
+                                        + " and " + (splitUsers.length - 2) + " others";
                             }
                             Log.d(TAG, "onDataChange: likes string: " + mLikesString);
                             setupWidgets();
@@ -269,7 +262,6 @@ public class ViewPostFragment extends Fragment {
                     });
                 }
                 if(!dataSnapshot.exists()){
-                    mLikesString = "";
                     mLikedByCurrentUser = false;
                     setupWidgets();
                 }
@@ -280,7 +272,6 @@ public class ViewPostFragment extends Fragment {
 
             }
         });
-
     }
 
     private void getCurrentUser(){
@@ -440,22 +431,13 @@ public class ViewPostFragment extends Fragment {
         }
 
         mUsername.setText(mUserAccountSettings.getUsername());
+        mUsernameCaption.setText(mUserAccountSettings.getUsername());
         mLikes.setText(mLikesString);
         mCaption.setText(mPhoto.getCaption());
 
-                UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
-//        Glide
-//                .with(getContext())
-//                .load(mUserAccountSettings.getProfile_photo())
-//                .override(100, 100)
-//                .fitCenter()
-//                .into(mProfileImage);
+        UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
 
-        if(mPhoto.getComments().size() > 0){
-            mComments.setText("View all " + mPhoto.getComments().size() + " comments");
-        }else{
-            mComments.setText("");
-        }
+        mComments.setText("View all " + mPhoto.getComments().size() + " comments");
 
         mComments.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:text="ng.huuthang99"
+                    android:text=""
                     android:layout_toRightOf="@+id/profile_photo"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"
@@ -111,7 +111,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Liked by ng.huuthang99 and 30 others"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:id="@+id/image_likes"/>
@@ -119,16 +119,28 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hi, all"
+                        android:layout_below="@id/image_likes"
+                        android:text=""
                         android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:id="@+id/image_caption"
-                        android:layout_below="@+id/image_likes" />
+                        android:id="@+id/username_caption"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View all 3 comments"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:id="@+id/image_caption"
+                        android:layout_below="@+id/image_likes"
+                        android:layout_toRightOf="@id/username_caption"
+                        android:layout_marginLeft="5dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
                         android:textColor="@color/grey"
                         android:textSize="14sp"
                         android:layout_below="@+id/image_caption"
@@ -137,7 +149,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3 DAYS AGO"
+                        android:text=""
                         android:textColor="@color/grey"
                         android:textSize="12sp"
                         android:layout_below="@+id/image_comments_link"

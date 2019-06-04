@@ -32,6 +32,8 @@ import com.nht.instagram.Profile.ProfileActivity;
 import com.nht.instagram.R;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -68,7 +70,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
     static class ViewHolder{
         CircleImageView mprofileImage;
         String likesString;
-        TextView username, timeDetla, caption, likes, comments;
+        TextView username, timeDetla, caption, likes, comments, username_caption;
         SquareImageView image;
         ImageView heartRed, heartWhite, comment;
 
@@ -102,7 +104,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
             holder.caption = (TextView) convertView.findViewById(R.id.image_caption);
             holder.timeDetla = (TextView) convertView.findViewById(R.id.image_time_posted);
             holder.mprofileImage = (CircleImageView) convertView.findViewById(R.id.profile_photo);
-
+            holder.username_caption = (TextView)convertView.findViewById(R.id.username_caption);
             convertView.setTag(holder);
         }
         else{
@@ -178,7 +180,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                 .equalTo(getItem(position).getUser_id());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
 
                     // currentUsername = singleSnapshot.getValue(UserAccountSettings.class).getUsername();
@@ -188,6 +190,21 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
 
                     holder.username.setText(singleSnapshot.getValue(UserAccountSetting.class).getUsername());
                     holder.username.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Log.d(TAG, "onClick: navigating to profile of: " +
+                                    holder.user.getUsername());
+
+                            Intent intent = new Intent(mContext, ProfileActivity.class);
+                            intent.putExtra(mContext.getString(R.string.calling_activity),
+                                    mContext.getString(R.string.home_activity));
+                            intent.putExtra(mContext.getString(R.string.intent_user), holder.user);
+                            mContext.startActivity(intent);
+                        }
+                    });
+
+                    holder.username_caption.setText(singleSnapshot.getValue(UserAccountSetting.class).getUsername());
+                    holder.username_caption.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Log.d(TAG, "onClick: navigating to profile of: " +
@@ -285,7 +302,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         try{
             mOnLoadMoreItemsListener.onLoadMoreItems();
         }catch (NullPointerException e){
-            Log.e(TAG, "loadMoreData: ClassCastException: " +e.getMessage() );
+            Log.e(TAG, "loadMoreData: ClassCastException: " + e.getMessage() );
         }
     }
 
@@ -426,7 +443,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     holder.users = new StringBuilder();
-                    for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+                    for(final DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
 
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
                         Query query = reference
@@ -443,7 +460,6 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                                     holder.users.append(singleSnapshot.getValue(User.class).getUsername());
                                     holder.users.append(",");
                                 }
-
                                 String[] splitUsers = holder.users.toString().split(",");
 
                                 if(holder.users.toString().contains(currentUsername + ",")){
@@ -460,23 +476,10 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                                     holder.likesString = "Liked by " + splitUsers[0]
                                             + " and " + splitUsers[1];
                                 }
-                                else if(length == 3){
+                                else if (length > 2){
                                     holder.likesString = "Liked by " + splitUsers[0]
                                             + ", " + splitUsers[1]
-                                            + " and " + splitUsers[2];
-
-                                }
-                                else if(length == 4){
-                                    holder.likesString = "Liked by " + splitUsers[0]
-                                            + ", " + splitUsers[1]
-                                            + ", " + splitUsers[2]
-                                            + " and " + splitUsers[3];
-                                }
-                                else if(length > 4){
-                                    holder.likesString = "Liked by " + splitUsers[0]
-                                            + ", " + splitUsers[1]
-                                            + ", " + splitUsers[2]
-                                            + " and " + (splitUsers.length - 3) + " others";
+                                            + " and " + (splitUsers.length - 2) + " others";
                                 }
                                 Log.d(TAG, "onDataChange: likes string: " + holder.likesString);
                                 //setup likes string

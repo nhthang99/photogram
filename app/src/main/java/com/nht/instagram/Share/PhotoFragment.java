@@ -110,7 +110,7 @@ public class PhotoFragment extends Fragment {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    
+
                     Intent intent = new Intent(getActivity(), AccountSettingActivity.class);
                     intent.putExtra(getString(R.string.selected_bitmap), byteArray);
                     intent.putExtra(getString(R.string.return_to_fragment), getString(R.string.edit_profile_fragment));
