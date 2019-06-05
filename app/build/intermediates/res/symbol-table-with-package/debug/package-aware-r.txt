@@ -1255,7 +1255,10 @@ id image_likes
 id image_time_posted
 id info
 id input_email
+id input_new_password
+id input_new_password_verify
 id input_password
+id input_password_curr
 id input_username
 id invisible
 id italic
@@ -1324,6 +1327,7 @@ id right
 id right_icon
 id right_side
 id saveChangeUserInfo
+id saveChanges
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1417,6 +1421,7 @@ id tvNewPost
 id tvNext
 id tvPost
 id tvPostComment
+id txtChangePassword
 id unfollow
 id uniform
 id unlabeled
@@ -1504,6 +1509,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fragment_camera
+layout fragment_change_password
 layout fragment_editprofile
 layout fragment_gallery
 layout fragment_message
@@ -1611,6 +1617,7 @@ string bottom_sheet_behavior
 string bundle_photo
 string bundle_user_account_settings
 string calling_activity
+string change_password_activity
 string channel_description
 string channel_name
 string character_counter_content_description

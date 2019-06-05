@@ -13,6 +13,7 @@
     <string name="profile_fragment">Profile</string>
     <string name="view_comments_fragment">View Comments</string>
     <string name="home_fragment">Home</string>
+    <string name="change_password_activity">Change Password</string>
 
     <!-- Firebase Database Fields-->
     <string name="db_users">users</string>

@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.nht.instagram.Login.ChangePasswordFragment;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.FirebaseMethods;
 import com.nht.instagram.Utils.SectionsStatePagerAdapter;
@@ -106,6 +107,7 @@ public class AccountSettingActivity extends AppCompatActivity {
         pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
         pagerAdapter.addFragment(new EditProfileFragment(), getString(R.string.edit_profile_fragment));
         pagerAdapter.addFragment(new SignOutFragment(), getString(R.string.sign_out_fragment));
+        pagerAdapter.addFragment(new ChangePasswordFragment(), getString(R.string.change_password_activity));
     }
 
     public void setViewPager(int fragmentNumber){
@@ -122,8 +124,9 @@ public class AccountSettingActivity extends AppCompatActivity {
         ArrayList<String> options = new ArrayList<>();
         options.add(getString(R.string.edit_profile_fragment));
         options.add(getString(R.string.sign_out_fragment));
+        options.add(getString(R.string.change_password_activity));
 
-        final ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1,options);
+        final ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, options);
 
         listView.setAdapter(adapter);
 
