@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +29,6 @@ import com.nht.instagram.Models.UserSettings;
 import com.nht.instagram.R;
 import com.nht.instagram.Share.ShareActivity;
 import com.nht.instagram.Utils.FirebaseMethods;
-import com.nht.instagram.Utils.UniversalImageLoader;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -71,9 +71,8 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: navigating back to 'ProfileActivity'");
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
                 getActivity().finish();
+                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
         
@@ -162,8 +161,8 @@ public class EditProfileFragment extends Fragment {
         mUserSettings = userSettings;
         UserAccountSetting settings = userSettings.getSettings();
 
-        UniversalImageLoader.setImage(settings.getProfile_photo(), mProfilePhoto, null, "");
-
+//        UniversalImageLoader.setImage(settings.getProfile_photo(), mProfilePhoto, null, "");
+        Glide.with(getActivity()).load(settings.getProfile_photo()).into(mProfilePhoto);
         Log.d(TAG, "setProfileWidgets: "+ settings.getProfile_photo());
 
         mDisplayName.setText(settings.getDisplay_name());

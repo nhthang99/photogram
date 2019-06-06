@@ -1,4 +1,4 @@
-package com.nht.instagram.Login;
+package com.nht.instagram.Profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -22,9 +25,19 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.nht.instagram.Login.LoginActivity;
+import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.R;
 
 import java.util.Objects;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.view.View.GONE;
 
@@ -37,6 +50,9 @@ public class ChangePasswordFragment extends Fragment {
 
     private ProgressBar mProgressBar;
     private EditText mCurrentPass, mNewPass, mRetypeNewPass;
+    private TextView mUsername;
+    private CircleImageView mProfilePhoto;
+    private ImageView mBack;
     private Button saveChanges;
 
     @Nullable
@@ -51,10 +67,14 @@ public class ChangePasswordFragment extends Fragment {
         mNewPass = (EditText)view.findViewById(R.id.input_new_password);
         mRetypeNewPass =(EditText) view.findViewById(R.id.input_new_password_verify);
         saveChanges = (Button)view.findViewById(R.id.saveChanges);
-
+        mUsername = (TextView)view.findViewById(R.id.username);
+        mProfilePhoto = (CircleImageView)view.findViewById(R.id.profile_photo);
+        mBack = (ImageView)view.findViewById(R.id.backArrow);
         mProgressBar.setVisibility(GONE);
 
         setupFirebaseAuth();
+        getInfoUser();
+
         saveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,9 +83,45 @@ public class ChangePasswordFragment extends Fragment {
             }
         });
 
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            }
+        });
+
         return view;
     }
 
+    private void getInfoUser(){
+        Log.d(TAG, "getInfoUser: " + mAuth.getCurrentUser().getUid());
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Query query = reference
+                .child(getString(R.string.db_user_account_settings))
+                .orderByChild(getString(R.string.field_user_id))
+                .equalTo(userID);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds: dataSnapshot.getChildren()){
+                    try{
+                        UserAccountSetting setting = ds.getValue(UserAccountSetting.class);
+                        mUsername.setText(setting.getUsername());
+                        Glide.with(getActivity()).load(setting.getProfile_photo()).into(mProfilePhoto);
+                    }catch (NullPointerException e){
+                        Log.e(TAG, "onDataChange: NullPointerException" + e.getMessage());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     private void changePassword(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

@@ -1,5 +1,6 @@
 package com.nht.instagram.Utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -120,7 +122,8 @@ public class ViewPostFragment extends Fragment {
     private void init(){
         try{
 //            mPhoto = getPhotoFromBundle();
-            UniversalImageLoader.setImage(getPhotoFromBundle().getImage_path(), mPostImage, null, "");
+//            UniversalImageLoader.setImage(getPhotoFromBundle().getImage_path(), mPostImage, null, "");
+            Glide.with(getActivity()).load(getPhotoFromBundle().getImage_path()).into(mPostImage);
             mActivityNumber = getActivityNumFromBundle();
             String photo_id = getPhotoFromBundle().getPhoto_id();
 
@@ -407,6 +410,7 @@ public class ViewPostFragment extends Fragment {
             }
         });
     }
+    @SuppressLint("ClickableViewAccessibility")
     private void setupWidgets(){
         //set the timestamp difference
         long timestampDifference = getTimestampDifference();
@@ -435,8 +439,8 @@ public class ViewPostFragment extends Fragment {
         mLikes.setText(mLikesString);
         mCaption.setText(mPhoto.getCaption());
 
-        UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
-
+//        UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
+        Glide.with(getActivity()).load(mUserAccountSettings.getProfile_photo()).into(mProfileImage);
         mComments.setText("View all " + mPhoto.getComments().size() + " comments");
 
         mComments.setOnClickListener(new View.OnClickListener() {
@@ -475,6 +479,13 @@ public class ViewPostFragment extends Fragment {
                     return mGestureDetector.onTouchEvent(event);
                 }
             });
+            mPostImage.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    Log.d(TAG, "onTouch: red heart touch detected.");
+                    return mGestureDetector.onTouchEvent(event);
+                }
+            });
         }
         else{
             mHeartWhite.setVisibility(View.VISIBLE);
@@ -483,6 +494,13 @@ public class ViewPostFragment extends Fragment {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     Log.d(TAG, "onTouch: white heart touch detected.");
+                    return mGestureDetector.onTouchEvent(event);
+                }
+            });
+            mPostImage.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    Log.d(TAG, "onTouch: red heart touch detected.");
                     return mGestureDetector.onTouchEvent(event);
                 }
             });

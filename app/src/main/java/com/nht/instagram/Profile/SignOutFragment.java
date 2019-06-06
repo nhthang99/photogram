@@ -53,13 +53,14 @@ public class SignOutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mProgressBar.setVisibility(View.VISIBLE);
-                Intent intent = new Intent(getActivity(), AccountSettingActivity.class);
-                startActivity(intent);
                 getActivity().finish();
+                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
         return view;
     }
+
+
 
     /*
     ------------------------------------------------- Firebase Auth -----------------------------------------------------

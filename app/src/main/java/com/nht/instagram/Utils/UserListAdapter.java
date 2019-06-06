@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,7 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.nht.instagram.Models.User;
 import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.R;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
@@ -84,10 +84,10 @@ public class UserListAdapter extends ArrayAdapter<User> {
                     Log.d(TAG, "onDataChange: found user: " +
                             singleSnapshot.getValue(UserAccountSetting.class).toString());
 
-                    ImageLoader imageLoader = ImageLoader.getInstance();
-
-                    imageLoader.displayImage(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo(),
-                            holder.profileImage);
+//                    ImageLoader imageLoader = ImageLoader.getInstance();
+//                    imageLoader.displayImage(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo(),
+//                            holder.profileImage);
+                    Glide.with(getContext()).load(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo()).into(holder.profileImage);
                 }
             }
 

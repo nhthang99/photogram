@@ -37,8 +37,7 @@ public class Heart {
             ObjectAnimator scaleDownX = ObjectAnimator.ofFloat(heartRed, "scaleX", 1f, 0f);
             scaleDownX.setDuration(300);
             scaleDownX.setInterpolator(ACCELERATE_INTERPOLATOR);
-
-            heartRed.setVisibility(View.GONE);
+              heartRed.setVisibility(View.GONE);
             heartWhite.setVisibility(View.VISIBLE);
 
             animationSet.playTogether(scaleDownY, scaleDownX);

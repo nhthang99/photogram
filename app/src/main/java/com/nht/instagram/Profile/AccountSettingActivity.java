@@ -24,7 +24,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.nht.instagram.Login.ChangePasswordFragment;
 import com.nht.instagram.R;
 import com.nht.instagram.Utils.FirebaseMethods;
 import com.nht.instagram.Utils.SectionsStatePagerAdapter;
@@ -106,8 +105,8 @@ public class AccountSettingActivity extends AppCompatActivity {
     private void setupFragment(){
         pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
         pagerAdapter.addFragment(new EditProfileFragment(), getString(R.string.edit_profile_fragment));
-        pagerAdapter.addFragment(new SignOutFragment(), getString(R.string.sign_out_fragment));
         pagerAdapter.addFragment(new ChangePasswordFragment(), getString(R.string.change_password_activity));
+        pagerAdapter.addFragment(new SignOutFragment(), getString(R.string.sign_out_fragment));
     }
 
     public void setViewPager(int fragmentNumber){
@@ -123,8 +122,8 @@ public class AccountSettingActivity extends AppCompatActivity {
 
         ArrayList<String> options = new ArrayList<>();
         options.add(getString(R.string.edit_profile_fragment));
-        options.add(getString(R.string.sign_out_fragment));
         options.add(getString(R.string.change_password_activity));
+        options.add(getString(R.string.sign_out_fragment));
 
         final ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, options);
 
@@ -189,5 +188,11 @@ public class AccountSettingActivity extends AppCompatActivity {
         if (mAuthStateListener != null){
             mAuth.removeAuthStateListener(mAuthStateListener);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

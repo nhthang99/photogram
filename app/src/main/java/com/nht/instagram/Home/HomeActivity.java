@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,6 +64,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
     private MainfeedListAdapter mAdapter;
     private ArrayList<Photo> mPhotos;
     private ArrayList<Photo> mPaginatedPhotos;
+    private ProgressBar mProgressBar;
     private int mResults;
     //vars
     private ImageView mMessage;
@@ -99,8 +101,11 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relLayoutParent);
         mMessage = (ImageView)findViewById(R.id.message);
         mListView = (ListView)findViewById(R.id.listView);
+        mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
         mFollowing = new ArrayList<>();
         mPhotos = new ArrayList<>();
+
+        mProgressBar.setVisibility(View.VISIBLE);
 
         Log.d(TAG, "onCommentThreadSelected: selected a coemment thread");
 
@@ -189,7 +194,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
                         photo.setComments(comments);
                         mPhotos.add(photo);
                     }
-                    if(count >= mFollowing.size() -1){
+                    if(count >= 3){
                         //display our photos
                         displayPhotos();
                     }
@@ -227,6 +232,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
 
                 mAdapter = new MainfeedListAdapter(mContext, R.layout.layout_mainfeed_listitem, mPaginatedPhotos);
                 mListView.setAdapter(mAdapter);
+                mProgressBar.setVisibility(View.GONE);
 
             }catch (NullPointerException e){
                 Log.e(TAG, "displayPhotos: NullPointerException: " + e.getMessage() );

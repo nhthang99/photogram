@@ -29,9 +29,6 @@ public class FileSearch {
     public static ArrayList<String> getFilePaths(String directory){
         ArrayList<String> pathArray = new ArrayList<>();
         File file = new File(directory);
-        if (!file.exists()){
-            return null;
-        }
         File[] listfiles = file.listFiles();
         for(int i = 0; i < listfiles.length; i++){
             if(listfiles[i].isFile()){

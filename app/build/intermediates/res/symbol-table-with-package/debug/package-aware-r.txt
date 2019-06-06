@@ -1179,10 +1179,7 @@ id clip_horizontal
 id clip_vertical
 id collapseActionView
 id comment
-id comment_like
-id comment_likes
 id comment_profile_image
-id comment_reply
 id comment_time_posted
 id comment_username
 id container
@@ -1302,6 +1299,7 @@ id parent_matrix
 id percent
 id phone_number
 id pin
+id postMenu
 id post_image
 id posts
 id profileMenu
@@ -1421,7 +1419,6 @@ id tvNewPost
 id tvNext
 id tvPost
 id tvPostComment
-id txtChangePassword
 id unfollow
 id uniform
 id unlabeled

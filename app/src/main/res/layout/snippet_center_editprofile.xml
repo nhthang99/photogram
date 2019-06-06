@@ -21,7 +21,7 @@
                     android:layout_height="120dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
-                    app:civ_border_color="@color/grey"
+                    app:civ_border_color="@color/dark_orange"
                     app:civ_border_width="1dp" />
 
                 <TextView

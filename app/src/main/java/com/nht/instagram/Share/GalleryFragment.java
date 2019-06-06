@@ -109,14 +109,10 @@ public class GalleryFragment extends Fragment {
         directories.add(filePaths.CAMERA);
 
         //remove empty directories
-        try{
-            for (int i = 0 ; i < directories.size(); i++){
-                if (FileSearch.getFilePaths(directories.get(i)).isEmpty()){
-                    directories.remove(i);
-                }
+        for (int i = 0 ; i < directories.size(); i++){
+            if (FileSearch.getFilePaths(directories.get(i)).isEmpty()){
+                directories.remove(i);
             }
-        }catch (NullPointerException e){
-            Log.e(TAG, "init: NullPointerException" + e.getMessage());
         }
 
         ArrayList<String> directoryNames = new ArrayList<>();

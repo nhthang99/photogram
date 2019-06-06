@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -503,8 +504,8 @@ public class ViewProfileFragment extends Fragment {
         //User user = userSettings.getUser();
         UserAccountSetting settings = userSettings.getSettings();
 
-        UniversalImageLoader.setImage(settings.getProfile_photo(), mProfilePhoto, null, "");
-
+//        UniversalImageLoader.setImage(settings.getProfile_photo(), mProfilePhoto, null, "");
+        Glide.with(getActivity()).load(settings.getProfile_photo()).into(mProfilePhoto);
         mDisplayName.setText(settings.getDisplay_name());
         mUsername.setText(settings.getUsername());
         mDescription.setText(settings.getDescriptions());

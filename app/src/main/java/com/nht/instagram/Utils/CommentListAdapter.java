@@ -69,9 +69,6 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
             holder.comment = (TextView) convertView.findViewById(R.id.comment);
             holder.username = (TextView) convertView.findViewById(R.id.comment_username);
             holder.timestamp = (TextView) convertView.findViewById(R.id.comment_time_posted);
-            holder.reply = (TextView) convertView.findViewById(R.id.comment_reply);
-            holder.like = (ImageView) convertView.findViewById(R.id.comment_like);
-            holder.likes = (TextView) convertView.findViewById(R.id.comment_likes);
             holder.profileImage = (CircleImageView) convertView.findViewById(R.id.comment_profile_image);
 
             convertView.setTag(holder);
@@ -127,8 +124,6 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
                     Glide
                             .with(getContext())
                             .load(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo())
-                            .override(100, 100)
-                            .fitCenter()
                             .into(holder.profileImage);
                 }
 

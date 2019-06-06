@@ -1,5 +1,6 @@
 package com.nht.instagram.Utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.LayoutRes;
@@ -15,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,7 +32,6 @@ import com.nht.instagram.Models.User;
 import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.Profile.ProfileActivity;
 import com.nht.instagram.R;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -168,9 +169,9 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         }
 
         //set the profile image
-        final ImageLoader imageLoader = ImageLoader.getInstance();
-        imageLoader.displayImage(getItem(position).getImage_path(), holder.image);
-
+//        final ImageLoader imageLoader = ImageLoader.getInstance();
+//        imageLoader.displayImage(getItem(position).getImage_path(), holder.image);
+        Glide.with(getContext()).load(getItem(position).getImage_path()).into(holder.image);
 
         //get the profile image and username
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
@@ -218,8 +219,9 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                         }
                     });
 
-                    imageLoader.displayImage(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo(),
-                            holder.mprofileImage);
+//                    imageLoader.displayImage(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo(),
+////                            holder.mprofileImage);
+                    Glide.with(getContext()).load(singleSnapshot.getValue(UserAccountSetting.class).getProfile_photo()).into(holder.mprofileImage);
                     holder.mprofileImage.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -332,14 +334,15 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
 
                         String keyID = singleSnapshot.getKey();
 
                         //case1: Then user already liked the photo
                         if(mHolder.likeByCurrentUser
-//                                && singleSnapshot.getValue(Like.class).getUser_id()
-//                                        .equals(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                && singleSnapshot.getValue(Like.class).getUser_id()
+                                        .equals(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         ){
 
                             mReference.child(mContext.getString(R.string.db_photos))
@@ -347,9 +350,8 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                                     .child(mContext.getString(R.string.field_likes))
                                     .child(keyID)
                                     .removeValue();
-///
+
                             mReference.child(mContext.getString(R.string.db_users_photo))
-//                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .child(mHolder.photo.getUser_id())
                                     .child(mHolder.photo.getPhoto_id())
                                     .child(mContext.getString(R.string.field_likes))
@@ -514,6 +516,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setupLikesString(final ViewHolder holder, String likesString){
         Log.d(TAG, "setupLikesString: likes string:" + holder.likesString);
 
@@ -528,11 +531,23 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
                     return holder.detector.onTouchEvent(event);
                 }
             });
+            holder.image.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return holder.detector.onTouchEvent(event);
+                }
+            });
         }else{
             Log.d(TAG, "setupLikesString: photo is not liked by current user");
             holder.heartWhite.setVisibility(View.VISIBLE);
             holder.heartRed.setVisibility(View.GONE);
             holder.heartWhite.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return holder.detector.onTouchEvent(event);
+                }
+            });
+            holder.image.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     return holder.detector.onTouchEvent(event);
