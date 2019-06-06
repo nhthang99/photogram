@@ -193,11 +193,14 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
 
                         photo.setComments(comments);
                         mPhotos.add(photo);
+                        if (mPhotos.size() >= 3){
+                            displayPhotos();
+                        }
                     }
-                    if(count >= 3){
-                        //display our photos
-                        displayPhotos();
-                    }
+//                    if(count >= mFollowing.size() -1){
+//                        //display our photos
+//                        displayPhotos();
+//                    }
                 }
 
                 @Override
