@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/relLayout1"
+        android:background="@drawable/gradient_color">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/backArrow"
+            android:src="@drawable/ic_backarrow"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Account"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@id/backArrow"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:layout_marginLeft="20dp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/relLayout1">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            app:civ_border_color="@color/dark_orange"
+            app:civ_border_width="1dp"
+            android:id="@+id/profile_photo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:layout_below="@id/profile_photo"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:id="@+id/username"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_below="@+id/username"
+            android:layout_marginLeft="20sp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginRight="20sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/input_password"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Verify Password"
+            android:inputType="textPassword"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/input_password"
+            android:layout_marginTop="10dp"
+            android:id="@+id/input_password_verify"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/saveChanges"
+            android:padding="5dp"
+            android:textSize="18sp"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/orange_button_filled"
+            android:layout_below="@id/input_password_verify"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:id="@+id/progressBar"
+        />
+
+
+</RelativeLayout>

@@ -46,6 +46,7 @@ public class SignOutFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
                 getActivity().finish();
+                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -82,6 +83,7 @@ public class SignOutFragment extends Fragment {
                     Log.d(TAG, "onAuthStateChanged: navigating to back login screen");
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 }
             }
         };

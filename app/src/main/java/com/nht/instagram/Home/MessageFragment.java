@@ -134,6 +134,7 @@ public class MessageFragment extends Fragment {
                 Intent intent =  new Intent(getActivity(), MessageActivity.class);
                 intent.putExtra("user_chat", mUserList.get(position));
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
             }
         });
@@ -149,6 +150,7 @@ public class MessageFragment extends Fragment {
         if (user == null){
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivity(intent);
+            getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }
     }
 

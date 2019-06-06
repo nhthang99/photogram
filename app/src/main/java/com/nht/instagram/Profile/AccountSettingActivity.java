@@ -67,6 +67,7 @@ public class AccountSettingActivity extends AppCompatActivity {
                 Intent intent = new Intent(AccountSettingActivity.this, ProfileActivity.class);
                 startActivity(intent);
                 finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -105,8 +106,9 @@ public class AccountSettingActivity extends AppCompatActivity {
     private void setupFragment(){
         pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
         pagerAdapter.addFragment(new EditProfileFragment(), getString(R.string.edit_profile_fragment));
-        pagerAdapter.addFragment(new ChangePasswordFragment(), getString(R.string.change_password_activity));
+        pagerAdapter.addFragment(new ChangePasswordFragment(), getString(R.string.change_password_fragment));
         pagerAdapter.addFragment(new SignOutFragment(), getString(R.string.sign_out_fragment));
+        pagerAdapter.addFragment(new RemoveAccount(), getString(R.string.delete_account_fragment));
     }
 
     public void setViewPager(int fragmentNumber){
@@ -122,8 +124,9 @@ public class AccountSettingActivity extends AppCompatActivity {
 
         ArrayList<String> options = new ArrayList<>();
         options.add(getString(R.string.edit_profile_fragment));
-        options.add(getString(R.string.change_password_activity));
+        options.add(getString(R.string.change_password_fragment));
         options.add(getString(R.string.sign_out_fragment));
+        options.add(getString(R.string.delete_account_fragment));
 
         final ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, options);
 

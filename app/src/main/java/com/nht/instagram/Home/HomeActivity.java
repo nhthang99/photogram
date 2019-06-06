@@ -104,10 +104,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
         mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
         mFollowing = new ArrayList<>();
         mPhotos = new ArrayList<>();
-
         mProgressBar.setVisibility(View.VISIBLE);
-
-        Log.d(TAG, "onCommentThreadSelected: selected a coemment thread");
 
         setupFirebaseAuth();
         setupBottomNavigationView();
@@ -119,6 +116,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
                 Intent intent = new Intent(mContext, MessageActivity.class);
                 startActivity(intent);
                 finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
         getFollowing();
@@ -193,7 +191,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
 
                         photo.setComments(comments);
                         mPhotos.add(photo);
-                        if (mPhotos.size() >= 3){
+                        if (mPhotos.size() >= 3 || count >= mFollowing.size() -1){
                             displayPhotos();
                         }
                     }
@@ -208,6 +206,9 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
 
                 }
             });
+        }
+        if (mPhotos.isEmpty()){
+            mProgressBar.setVisibility(View.GONE);
         }
     }
 
@@ -326,6 +327,7 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
         if (user == null){
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }
     }
 

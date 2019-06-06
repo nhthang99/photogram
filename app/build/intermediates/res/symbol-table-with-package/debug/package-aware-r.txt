@@ -1256,6 +1256,7 @@ id input_new_password
 id input_new_password_verify
 id input_password
 id input_password_curr
+id input_password_verify
 id input_username
 id invisible
 id italic
@@ -1512,6 +1513,7 @@ layout fragment_gallery
 layout fragment_message
 layout fragment_photo
 layout fragment_profile
+layout fragment_remove_account
 layout fragment_signout
 layout fragment_view_comment
 layout fragment_view_post
@@ -1614,7 +1616,7 @@ string bottom_sheet_behavior
 string bundle_photo
 string bundle_user_account_settings
 string calling_activity
-string change_password_activity
+string change_password_fragment
 string channel_description
 string channel_name
 string character_counter_content_description
@@ -1644,6 +1646,7 @@ string db_users_photo
 string dbname_followers
 string dbname_following
 string default_web_client_id
+string delete_account_fragment
 string edit_profile_fragment
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior

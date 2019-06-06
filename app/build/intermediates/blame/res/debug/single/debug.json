@@ -1388,6 +1388,10 @@
         "source": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\src\\main\\res\\drawable-mdpi\\ic_instagram.png"
     },
     {
+        "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_remove_account.xml.flat",
+        "source": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\src\\main\\res\\layout\\fragment_remove_account.xml"
+    },
+    {
         "merged": "C:\\Users\\THANG\\AndroidStudioProjects\\InstagramClone\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_secondary_text_material_dark.xml.flat",
         "source": "C:\\Users\\THANG\\.gradle\\caches\\transforms-2\\files-2.1\\0ad1f4a6187b7e150d2b8d628cec4243\\res\\color\\abc_secondary_text_material_dark.xml"
     },

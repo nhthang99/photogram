@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
             finish();
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }
     }
 
@@ -90,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "sendUserToRegisterActivity: navigating RegisterActivity");
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     private void setupSignIn(){
@@ -119,6 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                 }else{
                                     Toast.makeText(mContext, "Please check email and verify", Toast.LENGTH_SHORT).show();
                                     mProgressBar.setVisibility(View.GONE);

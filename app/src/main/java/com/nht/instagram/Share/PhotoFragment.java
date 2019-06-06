@@ -55,6 +55,7 @@ public class PhotoFragment extends Fragment {
                         Intent intent = new Intent(getActivity(), ShareActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+                        getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
                 }
             }
@@ -88,6 +89,7 @@ public class PhotoFragment extends Fragment {
                         Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);
                         Intent intent = new Intent(getActivity(), ShareActivity.class);
                         startActivity(intent);
+                        getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }else{
                         Log.d(TAG, "onActivityResult: received new bitmap from camera: " + bitmap);
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -100,6 +102,7 @@ public class PhotoFragment extends Fragment {
                         intent.putExtra(getString(R.string.selected_bitmap), byteArray);
                         startActivity(intent);
                         getActivity().finish();
+                        getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
                 }catch (NullPointerException e){
                     Log.d(TAG, "onActivityResult: NullPointerException: " + e.getMessage());
@@ -116,6 +119,7 @@ public class PhotoFragment extends Fragment {
                     intent.putExtra(getString(R.string.return_to_fragment), getString(R.string.edit_profile_fragment));
                     startActivity(intent);
                     getActivity().finish();
+                    getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 }catch (NullPointerException e){
                     Log.d(TAG, "onActivityResult: NullPointerException: " + e.getMessage());
                 }
@@ -133,6 +137,7 @@ public class PhotoFragment extends Fragment {
                 Uri photoUri = FileProvider.getUriForFile(getActivity(), "com.nht.instagram.fileprovider", photoFile);
                 CameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(CameraIntent, CAMERA_REQUEST_CODE);
+                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         }
     }

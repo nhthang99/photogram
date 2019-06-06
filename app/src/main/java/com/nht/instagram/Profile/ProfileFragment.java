@@ -141,78 +141,82 @@ public class ProfileFragment extends Fragment{
 
         final ArrayList<Photo> photos = new ArrayList<>();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Query query = reference
-                .child(getString(R.string.db_users_photo))
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (getActivity() == null){
-                    return;
-                }
-                for ( DataSnapshot singleSnapshot :  dataSnapshot.getChildren()){
-                    Photo photo = new Photo();
-                    Map<String, Object> objectMap = (HashMap<String, Object>) singleSnapshot.getValue();
-
-                    try{
-                        photo.setCaption(objectMap.get(getString(R.string.field_caption)).toString());
-                        photo.setTags(objectMap.get(getString(R.string.field_tags)).toString());
-                        photo.setPhoto_id(objectMap.get(getString(R.string.field_photo_id)).toString());
-                        photo.setUser_id(objectMap.get(getString(R.string.field_user_id)).toString());
-                        photo.setDate_created(objectMap.get(getString(R.string.field_date_created)).toString());
-                        photo.setImage_path(objectMap.get(getString(R.string.field_image_path)).toString());
-
-                        ArrayList<Comment> comments = new ArrayList<Comment>();
-                        for (DataSnapshot dSnapshot : singleSnapshot
-                                .child(getString(R.string.field_comments)).getChildren()){
-                            Comment comment = new Comment();
-                            comment.setUser_id(dSnapshot.getValue(Comment.class).getUser_id());
-                            comment.setComment(dSnapshot.getValue(Comment.class).getComment());
-                            comment.setDate_created(dSnapshot.getValue(Comment.class).getDate_created());
-                            comments.add(comment);
-                        }
-
-                        photo.setComments(comments);
-
-                        List<Like> likesList = new ArrayList<Like>();
-                        for (DataSnapshot dSnapshot : singleSnapshot
-                                .child(getString(R.string.field_likes)).getChildren()){
-                            Like like = new Like();
-                            like.setUser_id(dSnapshot.getValue(Like.class).getUser_id());
-                            likesList.add(like);
-                        }
-                        photo.setLikes(likesList);
-                        photos.add(photo);
-                    }catch (NullPointerException e){
-                        Log.e(TAG, "onDataChange: NullPointerException" + e.getMessage());
+        try{
+            Query query = reference
+                    .child(getString(R.string.db_users_photo))
+                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (getActivity() == null){
+                        return;
                     }
-                }
-                //setup our image grid
-                int gridWidth = getResources().getDisplayMetrics().widthPixels;
-                int imageWidth = gridWidth/NUM_GRID_COLUMNS;
-                gridView.setColumnWidth(imageWidth);
+                    for ( DataSnapshot singleSnapshot :  dataSnapshot.getChildren()){
+                        Photo photo = new Photo();
+                        Map<String, Object> objectMap = (HashMap<String, Object>) singleSnapshot.getValue();
 
-                final ArrayList<String> imgUrls = new ArrayList<String>();
-                for(int i = 0; i < photos.size(); i++){
-                    imgUrls.add(0, photos.get(i).getImage_path());
-                }
-                GridImageAdapter adapter = new GridImageAdapter(getActivity(),R.layout.layout_grid_imageview,
-                        "", imgUrls);
-                gridView.setAdapter(adapter);
+                        try{
+                            photo.setCaption(objectMap.get(getString(R.string.field_caption)).toString());
+                            photo.setTags(objectMap.get(getString(R.string.field_tags)).toString());
+                            photo.setPhoto_id(objectMap.get(getString(R.string.field_photo_id)).toString());
+                            photo.setUser_id(objectMap.get(getString(R.string.field_user_id)).toString());
+                            photo.setDate_created(objectMap.get(getString(R.string.field_date_created)).toString());
+                            photo.setImage_path(objectMap.get(getString(R.string.field_image_path)).toString());
 
-                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        mOnGridImageSelectedListener.onGridImageSelected(photos.get(photos.size() - position - 1), ACTIVITY_NUM);
+                            ArrayList<Comment> comments = new ArrayList<Comment>();
+                            for (DataSnapshot dSnapshot : singleSnapshot
+                                    .child(getString(R.string.field_comments)).getChildren()){
+                                Comment comment = new Comment();
+                                comment.setUser_id(dSnapshot.getValue(Comment.class).getUser_id());
+                                comment.setComment(dSnapshot.getValue(Comment.class).getComment());
+                                comment.setDate_created(dSnapshot.getValue(Comment.class).getDate_created());
+                                comments.add(comment);
+                            }
+
+                            photo.setComments(comments);
+
+                            List<Like> likesList = new ArrayList<Like>();
+                            for (DataSnapshot dSnapshot : singleSnapshot
+                                    .child(getString(R.string.field_likes)).getChildren()){
+                                Like like = new Like();
+                                like.setUser_id(dSnapshot.getValue(Like.class).getUser_id());
+                                likesList.add(like);
+                            }
+                            photo.setLikes(likesList);
+                            photos.add(photo);
+                        }catch (NullPointerException e){
+                            Log.e(TAG, "onDataChange: NullPointerException" + e.getMessage());
+                        }
                     }
-                });
-            }
+                    //setup our image grid
+                    int gridWidth = getResources().getDisplayMetrics().widthPixels;
+                    int imageWidth = gridWidth/NUM_GRID_COLUMNS;
+                    gridView.setColumnWidth(imageWidth);
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.d(TAG, "onCancelled: query cancelled.");
-            }
-        });
+                    final ArrayList<String> imgUrls = new ArrayList<String>();
+                    for(int i = 0; i < photos.size(); i++){
+                        imgUrls.add(0, photos.get(i).getImage_path());
+                    }
+                    GridImageAdapter adapter = new GridImageAdapter(getActivity(),R.layout.layout_grid_imageview,
+                            "", imgUrls);
+                    gridView.setAdapter(adapter);
+
+                    gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            mOnGridImageSelectedListener.onGridImageSelected(photos.get(photos.size() - position - 1), ACTIVITY_NUM);
+                        }
+                    });
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Log.d(TAG, "onCancelled: query cancelled.");
+                }
+            });
+        }catch (NullPointerException e){
+            Log.e(TAG, "setupGridView: NullPointerException" + e.getMessage() );
+        }
     }
 
     private void getFollowersCount(){
