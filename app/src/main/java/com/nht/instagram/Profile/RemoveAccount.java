@@ -32,6 +32,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.nht.instagram.Models.UserAccountSetting;
 import com.nht.instagram.R;
 
+import java.util.ArrayList;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.view.View.GONE;
@@ -144,7 +146,7 @@ public class RemoveAccount extends Fragment {
                                                 if (task.isSuccessful()){
                                                     Log.d(TAG, "onComplete: account " + user.getUid() + " deleted");
                                                     mProgressBar.setVisibility(GONE);
-                                                    removeUserInfo();
+                                                    removeUserInfo(user.getUid());
                                                     mAuth.signOut();
                                                }else{
                                                     Log.d(TAG, "onComplete: Something was wrong");
@@ -163,9 +165,107 @@ public class RemoveAccount extends Fragment {
         }
     }
 
-    private void removeUserInfo(){
+    private void removeUserInfo(final String userID){
         final DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        final String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final ArrayList<String> mListFollowing = new ArrayList<>();
+        final ArrayList<String> mListFollowers = new ArrayList<>();
+
+        reference
+                .child(getString(R.string.db_users))
+                .child(userID)
+                .removeValue();
+
+        reference
+                .child(getString(R.string.db_user_account_settings))
+                .child(userID)
+                .removeValue();
+
+        Query query = reference
+                .child(getString(R.string.dbname_following))
+                .child(userID);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot singleSnapshot: dataSnapshot.getChildren()){
+                    Log.d(TAG, "onDataChange: singleSnapshotParent " + singleSnapshot.getKey());
+                    Query query1 = reference
+                            .child(getString(R.string.dbname_followers))
+                            .child(singleSnapshot.getKey());
+                    query1.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+                                if(singleSnapshot.getKey().equals(userID)){
+                                    Log.d(TAG, "onDataChange: singleSnapshot " + singleSnapshot.getKey());
+                                    singleSnapshot.getRef().removeValue();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        Query query2 = reference
+                .child(getString(R.string.dbname_followers))
+                .child(userID);
+        query2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot singleSnapshot: dataSnapshot.getChildren()){
+                    Log.d(TAG, "onDataChange: singleSnapshotParent " + singleSnapshot.getKey());
+                    Query query3 = reference
+                            .child(getString(R.string.dbname_following))
+                            .child(singleSnapshot.getKey());
+                    query3.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+                                if(singleSnapshot.getKey().equals(userID)){
+                                    Log.d(TAG, "onDataChange: singleSnapshot " + singleSnapshot.getKey());
+                                    singleSnapshot.getRef().removeValue();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        reference
+                .child(getString(R.string.dbname_followers))
+                .child(userID)
+                .removeValue();
+        reference
+                .child(getString(R.string.dbname_following))
+                .child(userID)
+                .removeValue();
+        reference
+                .child(getString(R.string.db_users_photo))
+                .child(userID)
+                .removeValue();
 
     }
 

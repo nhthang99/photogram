@@ -139,7 +139,9 @@ public class HomeActivity extends AppCompatActivity implements MainfeedListAdapt
 
                         mFollowing.add(singleSnapshot.child(getString(R.string.field_user_id)).getValue().toString());
                     }
-                    mFollowing.add(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    if (FirebaseAuth.getInstance().getCurrentUser() != null){
+                        mFollowing.add(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    }
                     //get the photos
                     getPhotos();
                 }
